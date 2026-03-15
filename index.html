@@ -897,7 +897,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   <div class="contact-layout">
     <div class="contact-info">
       <p class="contact-info-lead">Whether you're looking to cut costs, build a stronger strategy, fix your supply chain, or find the right ERP — the first conversation is always free.</p>
-      <div class="contact-item"><div class="contact-icon">✉</div><div><h4>Email</h4><p>admin@benzeneconsulting.in</p></div></div>
+      <div class="contact-item"><div class="contact-icon">✉</div><div><h4>Email</h4><p>info@benzeneconsulting.</p></div></div>
       <div class="contact-item"><div class="contact-icon">☎</div><div><h4>Phone / WhatsApp</h4><p>+91 9350789337</p></div></div>
       <div class="contact-item"><div class="contact-icon">◎</div><div><h4>Location</h4><p>Delhi NCR — serving clients pan-India</p></div></div>
       <div class="contact-item"><div class="contact-icon">◷</div><div><h4>Response Time</h4><p>Within 24 hours on business days</p></div></div>
@@ -1700,14 +1700,55 @@ function submitForm() {
   var name     = document.getElementById('f-name').value.trim();
   var email    = document.getElementById('f-email').value.trim();
   var interest = document.getElementById('f-interest').value;
+  var company  = document.getElementById('f-company').value.trim();
+  var phone    = document.getElementById('f-phone').value.trim();
+  var message  = document.getElementById('f-message').value.trim();
+
   if (!name || !email || !interest) {
     alert('Please fill in your name, email, and area of interest.');
     return;
   }
-  document.getElementById('formMsg').style.display = 'block';
+
   var btn = document.querySelector('.form-submit');
-  btn.textContent = 'Message Sent ✓';
-  btn.style.background = '#007A76';
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://formspree.io/f/xzdjaqvn', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      name:     name,
+      email:    email,
+      company:  company,
+      phone:    phone,
+      interest: interest,
+      message:  message
+    })
+  })
+  .then(function(response) {
+    if (response.ok) {
+      document.getElementById('formMsg').style.display = 'block';
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#007A76';
+      btn.disabled = false;
+      // Clear form fields
+      document.getElementById('f-name').value = '';
+      document.getElementById('f-email').value = '';
+      document.getElementById('f-company').value = '';
+      document.getElementById('f-phone').value = '';
+      document.getElementById('f-interest').value = '';
+      document.getElementById('f-message').value = '';
+    } else {
+      alert('Something went wrong. Please email us directly at aakash@benzeneconsulting.in');
+      btn.textContent = 'Send Message — Let's Talk';
+      btn.disabled = false;
+    }
+  })
+  .catch(function() {
+    alert('Connection error. Please email us directly at aakash@benzeneconsulting.in');
+    btn.textContent = 'Send Message — Let's Talk';
+    btn.disabled = false;
+  });
 }
 
 /* ─────────────────────────────────────────
