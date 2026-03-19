@@ -1,0 +1,10 @@
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
+
+[[redirects]]
+  from = "http://benzeneconsulting.in/*"
+  to = "https://benzeneconsulting.in/:splat"
+  status = 301
+  force = true
