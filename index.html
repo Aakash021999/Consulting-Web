@@ -1,90 +1,1896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulting Web</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #f8f8f8;
-            color: #333;
-        }
-        h1, h2, h3 {
-            margin: 0.5em 0;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        p {
-            margin: 0.5em 0;
-            padding: 0 10px;
-        }
-        /* Enhanced spacing */
-        .container {
-            margin: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        /* Typography improvements */
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; }
-        h3 { font-size: 1.5em; }
-        /* Micro-interactions */
-        button {
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-        /* Visual hierarchy improvements */
-        .highlight {
-            background-color: #ffeb3b;
-            font-weight: bold;
-        }
-        /* Smoother animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        /* Refined component styling */
-        .button-primary {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button-primary:hover {
-            background-color: #0056b3;
-        }
-        /* Better responsive design */
-        @media (max-width: 600px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.75em; }
-            p { font-size: 0.9em; }
-        }
-    </style>
+<meta name="google-site-verification" content="6mu38_AI0Ve4n1qke486JGefQw6pZlnoWhqwsqjVerQ" />
+<meta name="description" content="Benzene Consulting — Expert MSME consulting in India. Cost reduction, supply chain design, SOPs, ERP advisory and strategy consulting. Based in Delhi NCR, serving pan-India." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://benzeneconsulting.in/" />
+<meta property="og:title" content="Benzene Consulting | MSME Strategy, Supply Chain & Cost Consulting India" />
+<meta property="og:description" content="Expert consulting for Indian MSMEs — cost reduction, supply chain design, SOPs, and ERP advisory. Based in Delhi NCR, serving pan-India." />
+<meta property="og:url" content="https://benzeneconsulting.in" />
+<meta property="og:type" content="website" />
+<script>if(location.protocol!=="https:"){location.replace("https://"+location.host+location.pathname+location.search);}</script>
+<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAIAAKAQAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAQAAAAEAgGAAAAH/P/YQAAANFJREFUeJydU0kSgjAQ7EnxBb6j3KSKIxS8QR+kb5DSI1V4Q7/DI8KBTAyTQdS+kKV7mHTSBA11aQGgz0a/lA8p0N5JUs03Yj93eyESKdwE81w3vkDUroIFp52/BgD6885K4loRz3GaZG5pjAj2euvC+eOyLyJSXdrYRACH47MDAGqqgpqqCNckDKCfmYVyzGCN2sEvmE3MPnsg/Qg1hLq0WgF5Zs3EfEhBQHyNvKkVXnBOLzI8+EcMBC9x6+Gscd5Z4KRtZUIkMr5GR5B/W4vzBFuIXjcG6TdNAAAAAElFTkSuQmCC" />
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0UlEQVR4nJ1TSRKCMBDsSfEFvqPcpIojFLxBH6RvkNIjVXhDv8MjwoFMDJNB1L6QpXuYdNIEDXVpAaDPRr+UDynQ3klSzTdiP3d7IRIp3ATzXDe+QNSuggWnnb8GAPrzzkriWhHPcZpkbmmMCPZ668L547IvIlJd2thEAIfjswMAaqqCmqoI1yQMoJ+ZhXLMYI3awS+YTcw+eyD9CDWEurRaAXlmzcR8SEFAfI28qRVecE4vMjz4RwwEL3Hr4axx3lngpG1lQiQyvkZHkH9bi/MEW4heNwbpN00AAAAASUVORK5CYII=" />
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABRUlEQVR4nNWXMQ7CMAxFHcQVeh/GSoxU9Iyp0rESI/fhEGEJYBLbsaOKFk+V6vg/kh/XAGwczrzieoni+2k21dQnE8K30+P93N+7JpB6EvOLsTgLoQA5tIibolKDB1hDXFGLBhAWRB8g+lBsd3/vIPpghijPpyLuxoEXSTkAwOdlnvgGSOK5u6tFBVjypiCIAkDtbkWwtRDAxwMNpos+LE1kSOvYsv4l7MbhjCHcOJyttVxOBCB3uOjDwglR72rdkgRIxQrTSeJSDnt7ptnJnfAHsTqA1QdqAM3249zVAXLHS+KWXdjcAzu5hghC04rz5oMbEyde1ErtuKkTYiHrmefx8YBxmKRg1EF+jFJwg4Y4bBDBDS157GwgUUK8BKjBRQQkjpk/98p8YB5cGI/xjajRlNZacidcA6JS4w/+milAWoR3E08dTOMf6tTUXQAAAABJRU5ErkJggg==" />
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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" />
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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" />
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benzene Consulting | Strategy & Cost Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:       #005653;
+  --teal-mid:   #007A76;
+  --teal-light: #009E99;
+  --teal-pale:  #E6F3F3;
+  --teal-dim:   rgba(0,86,83,0.08);
+  --gold:       #B8963E;
+  --gold-light: #D4AE58;
+  --white:      #FFFFFF;
+  --off-white:  #F6F9F9;
+  --surface:    #EDF4F4;
+  --text:       #0A1A19;
+  --text-mid:   #2A3E3D;
+  --text-muted: #5A7370;
+  --text-dim:   #8AADAA;
+  --border:     rgba(0,86,83,0.13);
+  --border-mid: rgba(0,86,83,0.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+/* ── PAGE SYSTEM ── */
+.page{display:none;}
+.page.active{display:block;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:72px;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1.5px solid rgba(0,86,83,0.15);
+}
+.nav-brand{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;}
+.nav-logo-svg{width:50px;height:50px;flex-shrink:0;}
+.nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:0.1em;color:var(--teal);line-height:1.1;}
+.nav-brand-sub{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{font-size:12.5px;letter-spacing:0.05em;color:var(--text-muted);text-decoration:none;transition:color 0.2s;cursor:pointer;padding:4px 0;border-bottom:1.5px solid transparent;transition:all 0.2s;}
+.nav-links a:hover{color:var(--teal);border-bottom-color:var(--teal);}
+.nav-cta{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:11px 24px;border:1.5px solid var(--teal);color:var(--teal);background:transparent;cursor:pointer;transition:all 0.25s;text-decoration:none;font-weight:500;}
+.nav-cta:hover{background:var(--teal);color:#fff;}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  padding-top:72px;position:relative;overflow:hidden;
+}
+/* LEFT PANEL */
+.hero-left{
+  background:#fff;
+  padding:72px 5vw 72px 6vw;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+}
+.hero-left::after{content:'';position:absolute;top:0;bottom:0;right:0;width:1px;background:rgba(0,86,83,0.12);}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:28px;
+  display:flex;align-items:center;gap:14px;
+}
+.hero-eyebrow::before{content:'';width:36px;height:1.5px;background:var(--teal);}
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,4.8vw,74px);
+  font-weight:300;line-height:1.07;letter-spacing:-0.01em;
+  margin-bottom:26px;color:var(--text);
+}
+h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:15px;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:440px;margin-bottom:38px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-primary{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:15px 32px;background:var(--teal);color:#fff;border:none;cursor:pointer;font-weight:500;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;}
+.btn-primary:hover{background:var(--teal-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,83,0.2);}
+.btn-outline{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:15px 32px;background:transparent;color:var(--teal);border:1.5px solid var(--border-mid);cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;}
+.btn-outline:hover{border-color:var(--teal);background:var(--teal-dim);}
+.hero-trust{display:flex;flex-direction:column;gap:10px;padding-top:28px;border-top:1px solid var(--border);}
+.hero-trust-row{display:flex;align-items:center;gap:10px;}
+.hero-trust-dot{width:5px;height:5px;border-radius:50%;background:var(--teal-light);flex-shrink:0;}
+.hero-trust-text{font-size:12px;color:var(--text-dim);letter-spacing:0.04em;}
+
+/* RIGHT PANEL */
+.hero-right{
+  background:var(--teal);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+/* Animated grid overlay */
+.hero-right-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px);
+  background-size:52px 52px;
+  animation:gridShift 20s linear infinite;
+}
+@keyframes gridShift{from{background-position:0 0;}to{background-position:52px 52px;}}
+/* Glow blob */
+.hero-right-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:480px;height:480px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,0.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+/* Molecule section */
+.hero-molecule-area{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:48px 40px 24px;position:relative;z-index:1;
+}
+.hero-molecule-svg{
+  width:300px;height:300px;
+  filter:drop-shadow(0 0 30px rgba(255,255,255,0.15));
+  animation:moleculePulse 4s ease-in-out infinite;
+}
+@keyframes moleculePulse{
+  0%,100%{filter:drop-shadow(0 0 20px rgba(255,255,255,0.12));}
+  50%{filter:drop-shadow(0 0 44px rgba(255,255,255,0.28));}
+}
+.hero-brand-label{
+  text-align:center;margin-top:24px;
+}
+.hero-brand-label-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:300;color:#fff;
+  letter-spacing:0.18em;text-transform:uppercase;
+}
+.hero-brand-label-sub{
+  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);margin-top:6px;
+}
+/* Stats grid at bottom of right panel */
+.hero-stats-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid rgba(255,255,255,0.14);
+  position:relative;z-index:1;
+  flex-shrink:0;
+}
+.hero-stat-cell{
+  padding:20px 28px;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+.hero-stat-cell:nth-child(even){border-right:none;}
+.hero-stat-cell:nth-child(3),.hero-stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,0.1);}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1;}
+.hero-stat-label{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
+
+/* ── IMAGE STRIP ── */
+.img-strip{display:grid;grid-template-columns:repeat(3,1fr);height:320px;overflow:hidden;}
+.img-strip-item{position:relative;overflow:hidden;}
+.img-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;filter:brightness(0.78) saturate(0.85);}
+.img-strip-item:hover img{transform:scale(1.05);}
+.img-strip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,86,83,0.6) 0%,transparent 50%);}
+.img-strip-label{position:absolute;bottom:18px;left:18px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.9);}
+
+/* ── SECTIONS BASE ── */
+section{padding:88px 5vw;}
+.section-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:28px;height:1.5px;background:var(--teal-light);}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;line-height:1.12;margin-bottom:16px;}
+.section-title em{font-style:italic;color:var(--teal);}
+.section-sub{font-size:15px;color:var(--text-muted);line-height:1.85;max-width:540px;}
+
+/* ── WHY ── */
+#why{background:var(--white);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:54px;border:1px solid var(--border);}
+.why-card{background:var(--white);padding:40px 36px;position:relative;overflow:hidden;transition:background 0.3s;}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);}
+.why-card:hover::after{transform:scaleX(1);}
+.why-card:hover{background:var(--teal-pale);}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:rgba(0,86,83,0.09);line-height:1;margin-bottom:16px;}
+.why-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:12px;}
+.why-card p{font-size:14px;color:var(--text-muted);line-height:1.85;}
+
+/* ── SERVICES ── */
+#services{background:var(--off-white);}
+.services-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start;margin-top:52px;}
+.service-tabs{display:flex;flex-direction:column;}
+.service-tab{padding:18px 20px;cursor:pointer;border-left:3px solid transparent;transition:all 0.25s;border-bottom:1px solid var(--border);}
+.service-tab:first-child{border-top:1px solid var(--border);}
+.service-tab.active{border-left-color:var(--teal);background:var(--white);}
+.service-tab:hover:not(.active){border-left-color:rgba(0,86,83,0.3);background:var(--teal-pale);}
+.service-tab-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:3px;}
+.service-tab.active .service-tab-title{color:var(--teal);}
+.service-tab-sub{font-size:12px;color:var(--text-dim);}
+.service-detail{padding:4px 0;}
+.service-detail-tag{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;}
+.service-detail h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.2;margin-bottom:16px;}
+.service-detail p{font-size:14px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;}
+.service-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.service-bullets li{font-size:13px;color:var(--text-muted);padding-left:20px;position:relative;line-height:1.65;}
+.service-bullets li::before{content:'—';position:absolute;left:0;color:var(--teal);}
+
+/* ── ERP BAND ── */
+#erp{background:var(--teal);padding:72px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.erp-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,44px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;}
+.erp-left h2 em{font-style:italic;color:var(--gold-light);}
+.erp-left p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.85;}
+.erp-right{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.erp-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:20px;transition:background 0.25s;}
+.erp-card:hover{background:rgba(255,255,255,0.14);}
+.erp-card h4{font-size:13px;font-weight:500;color:#fff;margin-bottom:6px;}
+.erp-card p{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.erp-icon{font-size:20px;margin-bottom:10px;display:block;}
+
+/* ── INDUSTRIES ── */
+#industries{background:var(--white);}
+.ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px;}
+.ind-card{padding:28px 20px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.3s;}
+.ind-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-3px);}
+.ind-icon{font-size:26px;margin-bottom:14px;display:block;}
+.ind-card h3{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;margin-bottom:8px;}
+.ind-card p{font-size:13px;color:var(--text-muted);line-height:1.7;}
+.ind-tag{display:inline-block;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;padding:4px 10px;background:var(--teal-dim);color:var(--teal);margin-top:12px;}
+
+/* ── PROCESS ── */
+#process{background:var(--surface);}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:52px;position:relative;}
+.process-steps::before{content:'';position:absolute;top:30px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border-mid),var(--teal-light),var(--border-mid),transparent);}
+.process-step{padding:0 10px;text-align:center;}
+.process-dot{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--teal);background:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--teal);transition:all 0.3s;}
+.process-step:hover .process-dot{background:var(--teal);color:#fff;}
+.process-step h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;margin-bottom:6px;}
+.process-step p{font-size:12px;color:var(--text-dim);line-height:1.65;}
+
+/* ── FAQ ── */
+#faq{background:var(--off-white);}
+.faq-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:68px;align-items:start;margin-top:52px;}
+.faq-list{display:flex;flex-direction:column;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;gap:14px;}
+.faq-q-text{font-size:15px;font-weight:400;color:var(--text);line-height:1.5;}
+.faq-icon{width:26px;height:26px;border:1px solid var(--border-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);font-size:16px;transition:all 0.25s;}
+.faq-item.open .faq-icon{background:var(--teal);color:#fff;transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.faq-a p{font-size:14px;color:var(--text-muted);line-height:1.85;padding-bottom:16px;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-cta-box{background:var(--teal);padding:36px 28px;position:sticky;top:88px;}
+.faq-cta-box h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#fff;margin-bottom:10px;}
+.faq-cta-box p{font-size:14px;color:rgba(255,255,255,0.68);line-height:1.8;margin-bottom:22px;}
+.faq-cta-box a{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:13px 24px;background:#fff;color:var(--teal);display:inline-block;text-decoration:none;font-weight:500;transition:all 0.25s;cursor:pointer;}
+.faq-cta-box a:hover{background:var(--teal-pale);}
+
+/* ── CONTACT ── */
+#contact{background:var(--white);position:relative;overflow:hidden;}
+#contact::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,var(--teal-pale) 0%,transparent 70%);pointer-events:none;}
+.contact-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:68px;align-items:start;margin-top:52px;}
+.contact-info{display:flex;flex-direction:column;gap:24px;}
+.contact-info-lead{font-size:15px;color:var(--text-muted);line-height:1.85;margin-bottom:4px;}
+.contact-item{display:flex;gap:14px;align-items:flex-start;}
+.contact-icon{width:38px;height:38px;border:1px solid var(--border-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:var(--teal);}
+.contact-item h4{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-bottom:3px;}
+.contact-item p{font-size:14px;color:var(--text-mid);}
+.contact-form{display:flex;flex-direction:column;gap:15px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.form-group{display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);}
+.form-group input,.form-group select,.form-group textarea{background:var(--off-white);border:1px solid var(--border-mid);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:12px 13px;outline:none;transition:border-color 0.25s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--teal);background:var(--white);}
+.form-group select{appearance:none;cursor:pointer;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-submit{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:16px 40px;background:var(--teal);color:#fff;border:none;cursor:pointer;font-weight:500;font-family:'DM Sans',sans-serif;transition:all 0.25s;width:100%;}
+.form-submit:hover{background:var(--teal-mid);}
+.form-message{display:none;padding:12px 14px;font-size:13px;border:1px solid rgba(0,86,83,0.3);color:var(--teal);background:var(--teal-pale);margin-top:4px;}
+
+/* ── CAREERS ── */
+#careers-hero{background:var(--teal);padding:140px 5vw 80px;position:relative;overflow:hidden;}
+.careers-hero-grid{position:absolute;inset:0;opacity:0.05;background-image:linear-gradient(rgba(255,255,255,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.8) 1px,transparent 1px);background-size:56px 56px;}
+.careers-hero-content{position:relative;z-index:1;max-width:640px;}
+.careers-img-strip{display:grid;grid-template-columns:1fr 1fr;height:280px;overflow:hidden;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;}
+.value-card{padding:34px 26px;border:1px solid var(--border);transition:all 0.3s;}
+.value-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-3px);}
+.value-icon{font-size:26px;margin-bottom:14px;display:block;}
+.value-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:10px;}
+.value-card p{font-size:13px;color:var(--text-muted);line-height:1.75;}
+.openings-grid{display:flex;flex-direction:column;gap:0;margin-top:52px;border:1px solid var(--border);}
+.opening-item{padding:26px 30px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;align-items:center;gap:22px;transition:background 0.25s;cursor:pointer;}
+.opening-item:last-child{border-bottom:none;}
+.opening-item:hover{background:var(--teal-pale);}
+.opening-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:6px;}
+.opening-meta{display:flex;gap:12px;flex-wrap:wrap;}
+.opening-tag{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;background:var(--teal-dim);color:var(--teal);}
+.opening-tag.type{background:var(--surface);color:var(--text-muted);}
+.opening-apply{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:10px 22px;border:1.5px solid var(--teal);color:var(--teal);white-space:nowrap;transition:all 0.25s;}
+.opening-apply:hover{background:var(--teal);color:#fff;}
+.perks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px;}
+.perk-card{padding:26px 20px;background:var(--white);border:1px solid var(--border);text-align:center;}
+.perk-icon{font-size:26px;margin-bottom:12px;display:block;}
+.perk-card h4{font-size:14px;font-weight:500;margin-bottom:6px;color:var(--text);}
+.perk-card p{font-size:12px;color:var(--text-muted);line-height:1.65;}
+.apply-band{background:var(--teal);padding:72px 5vw;text-align:center;}
+.apply-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,46px);font-weight:300;color:#fff;margin-bottom:12px;}
+.apply-band h2 em{font-style:italic;color:var(--gold-light);}
+.apply-band p{font-size:15px;color:rgba(255,255,255,0.65);max-width:460px;margin:0 auto 28px;line-height:1.8;}
+
+/* ── PUBLICATIONS PAGE ── */
+#pub-hero{background:var(--teal);padding:140px 5vw 72px;position:relative;overflow:hidden;}
+#pub-hero .ph-grid{position:absolute;inset:0;opacity:0.05;background-image:linear-gradient(rgba(255,255,255,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.8) 1px,transparent 1px);background-size:56px 56px;}
+#pub-hero .ph-content{position:relative;z-index:1;max-width:700px;}
+#pub-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:1.1;color:#fff;margin-bottom:18px;}
+#pub-hero h1 em{font-style:italic;color:var(--gold-light);}
+#pub-hero p{font-size:15px;color:rgba(255,255,255,0.68);line-height:1.85;max-width:540px;}
+.pub-author-bar{background:rgba(255,255,255,0.08);border-top:1px solid rgba(255,255,255,0.12);padding:20px 5vw;display:flex;align-items:center;gap:20px;position:relative;z-index:1;}
+.pub-author-avatar{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;flex-shrink:0;}
+.pub-author-name{font-size:14px;font-weight:500;color:#fff;}
+.pub-author-title{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.08em;margin-top:2px;}
+.pub-author-stats{margin-left:auto;display:flex;gap:32px;}
+.pub-author-stat-num{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-weight:300;}
+.pub-author-stat-label{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
+
+/* Case study cards grid */
+.pub-cards-section{padding:72px 5vw;background:var(--off-white);}
+.pub-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;}
+.pub-card{background:var(--white);border:1px solid var(--border);cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;}
+.pub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);}
+.pub-card:hover::before{transform:scaleX(1);}
+.pub-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,86,83,0.1);}
+.pub-card-img{width:100%;height:160px;object-fit:cover;filter:brightness(0.85) saturate(0.8);}
+.pub-card-body{padding:28px 24px;}
+.pub-card-tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.pub-card-tag::before{content:'';width:20px;height:1.5px;background:var(--teal);}
+.pub-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:10px;line-height:1.3;}
+.pub-card p{font-size:13px;color:var(--text-muted);line-height:1.75;margin-bottom:18px;}
+.pub-card-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:16px;border-top:1px solid var(--border);}
+.pub-card-metric-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--teal);}
+.pub-card-metric-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:2px;}
+.pub-card-read{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:6px;margin-top:16px;font-weight:500;}
+.pub-card-read::after{content:'→';}
+
+/* Slide viewer */
+.pub-slide-section{padding:72px 5vw;background:var(--white);}
+.slide-viewer{margin-top:48px;border:1px solid var(--border);position:relative;}
+.slide-track{display:flex;overflow:hidden;}
+.slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;min-height:500px;}
+.slide-left{background:var(--teal);padding:56px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.slide-left::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;}
+.slide-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(255,255,255,0.08);line-height:1;position:absolute;top:24px;right:32px;}
+.slide-tag{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;position:relative;z-index:1;}
+.slide-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,38px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;position:relative;z-index:1;}
+.slide-left h2 em{font-style:italic;color:var(--gold-light);}
+.slide-left p{font-size:13.5px;color:rgba(255,255,255,0.68);line-height:1.85;position:relative;z-index:1;}
+.slide-right{background:var(--white);padding:48px 40px;display:flex;flex-direction:column;justify-content:center;gap:20px;}
+/* Chart bar */
+.chart-title{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.bar-label{font-size:12px;color:var(--text-muted);width:110px;flex-shrink:0;text-align:right;}
+.bar-track{flex:1;height:28px;background:var(--surface);border-radius:2px;overflow:hidden;position:relative;}
+.bar-fill{height:100%;background:var(--teal);border-radius:2px;display:flex;align-items:center;padding-left:10px;font-size:11px;color:#fff;font-weight:500;transition:width 1s cubic-bezier(0.4,0,0.2,1);}
+.bar-fill.gold{background:var(--gold);}
+/* KPI row */
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.kpi-box{background:var(--surface);padding:16px 14px;text-align:center;}
+.kpi-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--teal);}
+.kpi-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;line-height:1.4;}
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:16px;padding-bottom:18px;position:relative;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+.tl-line{width:1.5px;flex:1;background:var(--border);margin-top:4px;}
+.tl-item:last-child .tl-line{display:none;}
+.tl-phase{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
+.tl-desc{font-size:13px;color:var(--text-muted);line-height:1.65;}
+/* Slide nav */
+.slide-nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-top:1px solid var(--border);background:var(--off-white);}
+.slide-dots{display:flex;gap:8px;}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:var(--border-mid);cursor:pointer;transition:all 0.25s;}
+.slide-dot.active{background:var(--teal);width:24px;border-radius:4px;}
+.slide-arrows{display:flex;gap:8px;}
+.slide-arrow{width:36px;height:36px;border:1px solid var(--border-mid);background:var(--white);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--teal);transition:all 0.2s;}
+.slide-arrow:hover{background:var(--teal);color:#fff;}
+.slide-counter{font-size:12px;color:var(--text-dim);letter-spacing:0.08em;}
+
+/* Data deep-dive */
+.pub-data-section{padding:72px 5vw;background:var(--surface);}
+.data-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;}
+.data-card{background:var(--white);border:1px solid var(--border);padding:36px 32px;}
+.data-card-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:6px;}
+.data-card-sub{font-size:12px;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.donut-wrap{display:flex;align-items:center;gap:24px;margin-bottom:24px;}
+.donut-legend{display:flex;flex-direction:column;gap:10px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);}
+.legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+.stat-rows{display:flex;flex-direction:column;gap:14px;}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.stat-row:last-child{border-bottom:none;padding-bottom:0;}
+.stat-row-label{font-size:13px;color:var(--text-muted);}
+.stat-row-before{font-size:13px;color:#d44;font-weight:500;}
+.stat-row-after{font-size:13px;color:var(--teal);font-weight:500;}
+.stat-row-delta{font-size:11px;background:var(--teal-pale);color:var(--teal);padding:3px 8px;letter-spacing:0.06em;}
+
+/* Modal overlay */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:500;align-items:center;justify-content:center;padding:5vw;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--white);max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+.modal-header{background:var(--teal);padding:32px 36px;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.15);border:none;cursor:pointer;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.modal-close:hover{background:rgba(255,255,255,0.25);}
+.modal-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+.modal-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1.2;}
+.modal-body{padding:36px;}
+.modal-body h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin:24px 0 10px;color:var(--text);}
+.modal-body h4:first-child{margin-top:0;}
+.modal-body p{font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:12px;}
+.modal-body ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.modal-body ul li{font-size:13px;color:var(--text-muted);padding-left:18px;position:relative;line-height:1.65;}
+.modal-body ul li::before{content:'—';position:absolute;left:0;color:var(--teal);}
+.modal-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;}
+.modal-kpi{background:var(--surface);padding:16px;text-align:center;}
+.modal-kpi-val{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--teal);font-weight:300;}
+.modal-kpi-label{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;}
+
+@media(max-width:800px){
+  .pub-cards-grid{grid-template-columns:1fr;}
+  .slide{grid-template-columns:1fr;}
+  .slide-left{padding:36px 28px;}
+  .data-layout{grid-template-columns:1fr;}
+  .modal-kpis{grid-template-columns:1fr 1fr;}
+}
+
+/* ── FOOTER ── */
+footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;}
+.footer-logo-wrap{display:flex;align-items:center;gap:12px;}
+.footer-logo-svg{width:40px;height:40px;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;letter-spacing:0.1em;}
+.footer-tagline{font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.06em;}
+.footer-links{display:flex;gap:22px;flex-wrap:wrap;}
+.footer-links a{font-size:11.5px;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;cursor:pointer;}
+.footer-links a:hover{color:#fff;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.3);}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+.fade-in-delay-1{transition-delay:0.1s;}
+.fade-in-delay-2{transition-delay:0.2s;}
+.fade-in-delay-3{transition-delay:0.3s;}
+.fade-in-delay-4{transition-delay:0.4s;}
+
+/* ── SOP / PROCESS SECTION ── */
+#sop{background:var(--teal);padding:88px 5vw;position:relative;overflow:hidden;}
+.sop-grid-bg{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(rgba(255,255,255,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.8) 1px,transparent 1px);background-size:52px 52px;}
+.sop-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1;}
+.sop-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,50px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px;}
+.sop-left h2 em{font-style:italic;color:var(--gold-light);}
+.sop-left p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.88;margin-bottom:28px;}
+.sop-stat-row{display:flex;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,0.15);padding-top:28px;}
+.sop-stat{flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,0.12);}
+.sop-stat:last-child{border-right:none;}
+.sop-stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#fff;line-height:1;}
+.sop-stat-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
+.sop-right{display:flex;flex-direction:column;gap:14px;}
+.sop-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:24px 22px;transition:all 0.3s;position:relative;overflow:hidden;}
+.sop-card:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.25);}
+.sop-card-top{display:flex;align-items:flex-start;gap:16px;}
+.sop-card-icon{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.sop-card h4{font-size:14px;font-weight:500;color:#fff;margin-bottom:5px;}
+.sop-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
+.sop-card-tag{display:inline-block;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:3px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);margin-top:10px;}
+
+/* ── BLOG / INSIGHTS PAGE ── */
+#blog-hero{background:var(--teal);padding:140px 5vw 72px;position:relative;overflow:hidden;}
+.blog-hero-grid{position:absolute;inset:0;opacity:0.05;background-image:linear-gradient(rgba(255,255,255,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.8) 1px,transparent 1px);background-size:56px 56px;}
+.blog-hero-content{position:relative;z-index:1;max-width:680px;}
+.blog-cats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.blog-cat{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;padding:8px 18px;border:1px solid var(--border-mid);color:var(--teal);cursor:pointer;transition:all 0.2s;background:var(--white);}
+.blog-cat.active,.blog-cat:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+.blog-card{background:var(--white);border:1px solid var(--border);transition:all 0.3s;cursor:pointer;display:flex;flex-direction:column;}
+.blog-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,86,83,0.1);border-color:var(--teal);}
+.blog-card-img{width:100%;height:180px;object-fit:cover;filter:brightness(0.88) saturate(0.85);transition:filter 0.3s;}
+.blog-card:hover .blog-card-img{filter:brightness(0.95) saturate(1);}
+.blog-card-body{padding:24px 22px;display:flex;flex-direction:column;flex:1;}
+.blog-card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.blog-card-tag{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;padding:4px 10px;background:var(--teal-dim);color:var(--teal);}
+.blog-card-date{font-size:11px;color:var(--text-dim);}
+.blog-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;line-height:1.35;margin-bottom:10px;color:var(--text);}
+.blog-card p{font-size:13px;color:var(--text-muted);line-height:1.75;flex:1;}
+.blog-card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--border);}
+.blog-card-author{font-size:11px;color:var(--text-dim);}
+.blog-card-read-time{font-size:11px;color:var(--teal);}
+.blog-featured{display:grid;grid-template-columns:1.4fr 1fr;gap:0;border:1px solid var(--border);margin-bottom:48px;cursor:pointer;transition:all 0.3s;}
+.blog-featured:hover{box-shadow:0 16px 40px rgba(0,86,83,0.1);border-color:var(--teal);}
+.blog-featured-img{position:relative;overflow:hidden;}
+.blog-featured-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.82) saturate(0.85);transition:all 0.4s;}
+.blog-featured:hover .blog-featured-img img{filter:brightness(0.92) saturate(1);}
+.blog-featured-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,86,83,0.35) 0%,transparent 60%);}
+.blog-featured-body{padding:40px 36px;background:var(--white);display:flex;flex-direction:column;justify-content:center;}
+.blog-featured-tag{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;padding:5px 12px;background:var(--teal-dim);color:var(--teal);display:inline-block;margin-bottom:16px;}
+.blog-featured-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,32px);font-weight:300;line-height:1.25;margin-bottom:14px;color:var(--text);}
+.blog-featured-body h2 em{font-style:italic;color:var(--teal);}
+.blog-featured-body p{font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:20px;}
+.blog-featured-meta{font-size:11px;color:var(--text-dim);}
+.blog-newsletter{background:var(--surface);padding:64px 5vw;text-align:center;}
+.blog-newsletter h3{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,38px);font-weight:300;margin-bottom:12px;}
+.blog-newsletter h3 em{font-style:italic;color:var(--teal);}
+.blog-newsletter p{font-size:14px;color:var(--text-muted);max-width:440px;margin:0 auto 28px;line-height:1.8;}
+.blog-nl-form{display:flex;gap:0;max-width:420px;margin:0 auto;}
+.blog-nl-form input{flex:1;padding:13px 16px;border:1.5px solid var(--border-mid);background:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);outline:none;border-right:none;}
+.blog-nl-form input:focus{border-color:var(--teal);}
+.blog-nl-form button{padding:13px 22px;background:var(--teal);color:#fff;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;transition:background 0.2s;white-space:nowrap;}
+.blog-nl-form button:hover{background:var(--teal-mid);}
+.blog-nl-success{display:none;font-size:13px;color:var(--teal);margin-top:12px;}
+
+/* ── WHATSAPP BUTTON ── */
+.whatsapp-btn{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  cursor:pointer;transition:all 0.3s;text-decoration:none;
+}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.55);}
+.whatsapp-btn svg{width:30px;height:30px;fill:#fff;}
+.whatsapp-tooltip{
+  position:absolute;right:68px;top:50%;transform:translateY(-50%);
+  background:var(--text);color:#fff;
+  font-size:12px;white-space:nowrap;padding:7px 12px;
+  border-radius:4px;opacity:0;pointer-events:none;transition:opacity 0.2s;
+}
+.whatsapp-tooltip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--text);}
+.whatsapp-btn:hover .whatsapp-tooltip{opacity:1;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nav-links{display:none;}
+  #hero{grid-template-columns:1fr;}
+  .hero-right{min-height:460px;}
+  .why-grid,.contact-layout,.faq-layout,.services-layout,#erp,.sop-layout{grid-template-columns:1fr;}
+  .ind-grid{grid-template-columns:1fr 1fr;}
+  .process-steps{grid-template-columns:1fr 1fr;}
+  .process-steps::before{display:none;}
+  .form-row{grid-template-columns:1fr;}
+  .faq-cta-box{position:static;}
+  .img-strip{grid-template-columns:1fr;height:auto;}
+  .img-strip-item{height:180px;}
+  .values-grid,.perks-grid{grid-template-columns:1fr 1fr;}
+  .careers-img-strip{grid-template-columns:1fr;height:auto;}
+  .hero-left::after{display:none;}
+}
+@media(max-width:560px){
+  .ind-grid,.process-steps,.values-grid,.perks-grid{grid-template-columns:1fr;}
+  .erp-right{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+  .opening-item{grid-template-columns:1fr;}
+  .hero-molecule-svg{width:220px;height:220px;}
+}
+</style>
 </head>
 <body>
-    <div class="container fade-in">
-        <h1>Welcome to Our Consulting Services</h1>
-        <h2>We Offer The Best Solutions For Your Business</h2>
-        <p>Contact us today for a consultation!</p>
-        <button class="button-primary">Get in Touch</button>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <div class="nav-brand" onclick="gotoPage('main',null)">
+    <svg class="nav-logo-svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- outer hex -->
+      <polygon points="25,2 46,13.5 46,36.5 25,48 4,36.5 4,13.5"
+        stroke="#005653" stroke-width="2.2" fill="none"/>
+      <!-- aromatic inner dashed circle -->
+      <circle cx="25" cy="25" r="10.5" stroke="#005653" stroke-width="1.8"
+        fill="none" stroke-dasharray="5 3.5"/>
+      <!-- 6 carbon atom circles -->
+      <circle cx="25"  cy="2"    r="4" fill="#005653"/>
+      <circle cx="46"  cy="13.5" r="4" fill="#005653"/>
+      <circle cx="46"  cy="36.5" r="4" fill="#005653"/>
+      <circle cx="25"  cy="48"   r="4" fill="#005653"/>
+      <circle cx="4"   cy="36.5" r="4" fill="#005653"/>
+      <circle cx="4"   cy="13.5" r="4" fill="#005653"/>
+      <!-- spoke lines -->
+      <line x1="25"  y1="6"    x2="25"  y2="14.5" stroke="#005653" stroke-width="1.8"/>
+      <line x1="42.3" y1="15.7" x2="33.5" y2="21"   stroke="#005653" stroke-width="1.8"/>
+      <line x1="42.3" y1="34.3" x2="33.5" y2="29"   stroke="#005653" stroke-width="1.8"/>
+      <line x1="25"  y1="44"   x2="25"  y2="35.5" stroke="#005653" stroke-width="1.8"/>
+      <line x1="7.7"  y1="34.3" x2="16.5" y2="29"   stroke="#005653" stroke-width="1.8"/>
+      <line x1="7.7"  y1="15.7" x2="16.5" y2="21"   stroke="#005653" stroke-width="1.8"/>
+    </svg>
+    <div>
+      <div class="nav-brand-name">BENZENE</div>
+      <div class="nav-brand-sub">Consulting</div>
     </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a onclick="gotoPage('main','#why')">Why Consulting</a></li>
+    <li><a onclick="gotoPage('main','#services')">Services</a></li>
+    <li><a onclick="gotoPage('main','#industries')">Industries</a></li>
+    <li><a onclick="gotoPage('main','#process')">Process</a></li>
+    <li><a onclick="gotoPage('main','#faq')">FAQ</a></li>
+    <li><a onclick="gotoPage('blog',null)">Insights</a></li>
+    <li><a onclick="gotoPage('publications',null)">Publications</a></li>
+    <li><a onclick="gotoPage('careers',null)">Careers</a></li>
+  </ul>
+  <a class="nav-cta" onclick="gotoPage('main','#contact')">Get in Touch</a>
+</nav>
+
+<!-- ══════════ MAIN PAGE ══════════ -->
+<div id="page-main" class="page active">
+
+<!-- HERO -->
+<section id="hero">
+
+  <!-- LEFT: Copy -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">Strategy &amp; Cost Excellence for MSMEs</div>
+    <h1>Sharper<br>Strategy.<br><em>Leaner</em><br>Operations.</h1>
+    <p class="hero-sub">Expert consulting for India's small and mid-size businesses — cutting costs, building resilient supply chains, and creating strategies that actually get executed.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" onclick="gotoPage('main','#contact')">Book a Free Discovery Call</a>
+      <a class="btn-outline" onclick="gotoPage('main','#services')">Explore Services</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-row"><div class="hero-trust-dot"></div><span class="hero-trust-text">MSME &amp; Supply Chain Specialists</span></div>
+      <div class="hero-trust-row"><div class="hero-trust-dot"></div><span class="hero-trust-text">Vendor-Neutral ERP Advisory</span></div>
+      <div class="hero-trust-row"><div class="hero-trust-dot"></div><span class="hero-trust-text">Pan-India Engagements · Based in Delhi NCR</span></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Teal panel with molecule -->
+  <div class="hero-right">
+    <div class="hero-right-grid"></div>
+    <div class="hero-right-glow"></div>
+
+    <div class="hero-molecule-area">
+      <!-- Large, bright benzene molecule -->
+      <svg class="hero-molecule-svg" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Main hexagon -->
+        <polygon points="150,22 252,78 252,190 150,246 48,190 48,78"
+          stroke="rgba(255,255,255,0.92)" stroke-width="2.5" fill="none"/>
+        <!-- Aromatic dashed circle -->
+        <circle cx="150" cy="134" r="62"
+          stroke="rgba(255,255,255,0.55)" stroke-width="2" fill="none" stroke-dasharray="8 5"/>
+        <!-- 6 carbon atoms -->
+        <circle cx="150" cy="22"  r="9" fill="white" opacity="0.95"/>
+        <circle cx="252" cy="78"  r="9" fill="white" opacity="0.95"/>
+        <circle cx="252" cy="190" r="9" fill="white" opacity="0.95"/>
+        <circle cx="150" cy="246" r="9" fill="white" opacity="0.95"/>
+        <circle cx="48"  cy="190" r="9" fill="white" opacity="0.95"/>
+        <circle cx="48"  cy="78"  r="9" fill="white" opacity="0.95"/>
+        <!-- C labels inside atoms -->
+        <text x="150" y="22"  text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <text x="252" y="78"  text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <text x="252" y="190" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <text x="150" y="246" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <text x="48"  y="190" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <text x="48"  y="78"  text-anchor="middle" dominant-baseline="middle" font-size="10" fill="#005653" font-family="DM Sans,sans-serif" font-weight="600">C</text>
+        <!-- Bond spokes from atoms to ring -->
+        <line x1="150" y1="31"  x2="150" y2="72"  stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <line x1="243" y1="83"  x2="206" y2="105" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <line x1="243" y1="185" x2="206" y2="163" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <line x1="150" y1="237" x2="150" y2="196" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <line x1="57"  y1="185" x2="94"  y2="163" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <line x1="57"  y1="83"  x2="94"  y2="105" stroke="rgba(255,255,255,0.6)" stroke-width="1.8"/>
+        <!-- H atoms (small circles) -->
+        <circle cx="150" cy="5"   r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="268" cy="70"  r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="268" cy="198" r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="150" cy="263" r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="32"  cy="198" r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="32"  cy="70"  r="5.5" fill="rgba(255,255,255,0.3)"/>
+        <!-- H labels -->
+        <text x="150" y="5"   text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <text x="268" y="70"  text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <text x="268" y="198" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <text x="150" y="263" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <text x="32"  y="198" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <text x="32"  y="70"  text-anchor="middle" dominant-baseline="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif">H</text>
+        <!-- H bond stubs -->
+        <line x1="150" y1="10"  x2="150" y2="13"  stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="263" y1="73"  x2="259" y2="75"  stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="263" y1="195" x2="259" y2="193" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="150" y1="258" x2="150" y2="255" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="37"  y1="195" x2="41"  y2="193" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+        <line x1="37"  y1="73"  x2="41"  y2="75"  stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      </svg>
+
+      <div class="hero-brand-label">
+        <div class="hero-brand-label-name">Benzene Consulting</div>
+        <div class="hero-brand-label-sub">C₆H₆ &nbsp;·&nbsp; The structure of stability</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="hero-stats-grid">
+      <div class="hero-stat-cell"><div class="hero-stat-num">30%</div><div class="hero-stat-label">Avg. Cost Reduction</div></div>
+      <div class="hero-stat-cell"><div class="hero-stat-num">60+</div><div class="hero-stat-label">MSMEs Served</div></div>
+      <div class="hero-stat-cell"><div class="hero-stat-num">12+</div><div class="hero-stat-label">Years Experience</div></div>
+      <div class="hero-stat-cell"><div class="hero-stat-num">₹50Cr+</div><div class="hero-stat-label">Savings Delivered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE STRIP -->
+<div class="img-strip">
+  <div class="img-strip-item">
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80" alt="Strategy session">
+    <div class="img-strip-overlay"></div>
+    <div class="img-strip-label">Strategy Workshops</div>
+  </div>
+  <div class="img-strip-item">
+    <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900&q=80" alt="Supply chain">
+    <div class="img-strip-overlay"></div>
+    <div class="img-strip-label">Supply Chain Consulting</div>
+  </div>
+  <div class="img-strip-item">
+    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80" alt="Business analysis">
+    <div class="img-strip-overlay"></div>
+    <div class="img-strip-label">Cost Improvement</div>
+  </div>
+</div>
+
+<!-- WHY MSMES CANT SCALE — SOP SECTION -->
+<section id="sop">
+  <div class="sop-grid-bg"></div>
+  <div class="sop-layout">
+    <div class="sop-left">
+      <div class="section-label" style="color:rgba(255,255,255,0.5)">The Hidden Growth Blocker</div>
+      <h2>MSMEs Don't Fail to Grow.<br>They Fail to <em>Build the Systems</em> That Allow Growth.</h2>
+      <p>Most MSME founders are brilliant at their craft — but growth stalls not because of ambition or market opportunity, but because the business runs on people's memory instead of documented processes. When the key person leaves, knowledge walks out the door. When orders double, chaos doubles with them. When an investor asks how things work, there's no answer.</p>
+      <p>We fix this. We design the processes, write the SOPs, and build the structured systems that let your business scale without breaking — and without depending entirely on you.</p>
+      <a class="btn-primary" onclick="gotoPage('main','#contact')" style="background:#fff;color:var(--teal);display:inline-block">Build Your Systems →</a>
+      <div class="sop-stat-row">
+        <div class="sop-stat"><div class="sop-stat-num">73%</div><div class="sop-stat-label">MSMEs with no documented processes</div></div>
+        <div class="sop-stat"><div class="sop-stat-num">3×</div><div class="sop-stat-label">Faster scaling with structured SOPs</div></div>
+        <div class="sop-stat"><div class="sop-stat-num">40%</div><div class="sop-stat-label">Error reduction after SOP implementation</div></div>
+      </div>
+    </div>
+    <div class="sop-right">
+      <div class="sop-card fade-in">
+        <div class="sop-card-top">
+          <div class="sop-card-icon">📋</div>
+          <div>
+            <h4>Standard Operating Procedures (SOPs)</h4>
+            <p>We document every critical process — procurement, fulfilment, quality checks, HR onboarding, customer handling — so your business runs consistently whether you're present or not.</p>
+          </div>
+        </div>
+        <div class="sop-card-tag">Process Documentation</div>
+      </div>
+      <div class="sop-card fade-in fade-in-delay-1">
+        <div class="sop-card-top">
+          <div class="sop-card-icon">⚙️</div>
+          <div>
+            <h4>Systems Design & Workflow Architecture</h4>
+            <p>We map your current workflows, identify bottlenecks and redundancies, and design lean systems that can handle 10× the volume without proportionally more headcount.</p>
+          </div>
+        </div>
+        <div class="sop-card-tag">Operational Architecture</div>
+      </div>
+      <div class="sop-card fade-in fade-in-delay-2">
+        <div class="sop-card-top">
+          <div class="sop-card-icon">📊</div>
+          <div>
+            <h4>KPI Frameworks & Performance Dashboards</h4>
+            <p>You cannot manage what you cannot measure. We define the right metrics for your business, build dashboards, and install review rhythms so decisions are always data-driven.</p>
+          </div>
+        </div>
+        <div class="sop-card-tag">Performance Management</div>
+      </div>
+      <div class="sop-card fade-in fade-in-delay-3">
+        <div class="sop-card-top">
+          <div class="sop-card-icon">🎓</div>
+          <div>
+            <h4>Team Training & Capability Building</h4>
+            <p>Systems without adoption are just documents. We train your team on every process we design — ensuring knowledge is institutionalised, not dependent on any single person.</p>
+          </div>
+        </div>
+        <div class="sop-card-tag">Knowledge Transfer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CONSULTING -->
+<section id="why">
+  <div class="section-label">The Case for Consulting</div>
+  <h2 class="section-title">Why MSMEs Need <em>Expert Guidance</em></h2>
+  <p class="section-sub">Most small businesses have the ambition but lack structured thinking to scale sustainably. A seasoned consultant turns complexity into clarity — and clarity into results.</p>
+  <div class="why-grid">
+    <div class="why-card fade-in"><div class="why-num">01</div><h3>See What You're Missing</h3><p>Business owners too close to operations miss strategic blind spots. An outside perspective identifies hidden cost leakages, inefficiencies, and growth opportunities internal teams overlook.</p></div>
+    <div class="why-card fade-in fade-in-delay-1"><div class="why-num">02</div><h3>Accelerate Decision-Making</h3><p>Slow decisions are costly decisions. Consulting brings proven frameworks that compress months of deliberation into actionable roadmaps delivered within weeks.</p></div>
+    <div class="why-card fade-in fade-in-delay-2"><div class="why-num">03</div><h3>Protect &amp; Grow Your Margins</h3><p>For MSMEs, margin erosion can be existential. Targeted cost improvement programs — from procurement to process re-engineering — directly protect your bottom line.</p></div>
+    <div class="why-card fade-in fade-in-delay-3"><div class="why-num">04</div><h3>Build Supply Chain Resilience</h3><p>Disruptions are inevitable. We help you map vulnerabilities and build contingency frameworks so supply chain shocks become manageable — not catastrophic.</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Do</div>
+  <h2 class="section-title">Our <em>Consulting</em> Services</h2>
+  <div class="services-layout">
+    <div class="service-tabs" id="serviceTabs">
+      <div class="service-tab active" onclick="setService(0)"><div class="service-tab-title">Strategic Planning</div><div class="service-tab-sub">Vision → Execution Roadmap</div></div>
+      <div class="service-tab" onclick="setService(1)"><div class="service-tab-title">Cost Improvement</div><div class="service-tab-sub">Bottom-line Impact Programs</div></div>
+      <div class="service-tab" onclick="setService(2)"><div class="service-tab-title">Supply Chain Optimisation</div><div class="service-tab-sub">End-to-End Efficiency</div></div>
+      <div class="service-tab" onclick="setService(3)"><div class="service-tab-title">Operational Excellence</div><div class="service-tab-sub">Process &amp; Productivity</div></div>
+    </div>
+    <div class="service-detail" id="serviceDetail"></div>
+  </div>
+</section>
+
+<!-- ERP ADVISORY -->
+<section id="erp" style="padding:72px 5vw">
+  <div class="erp-left fade-in">
+    <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;display:flex;align-items:center;gap:10px">
+      <span style="display:inline-block;width:28px;height:1px;background:rgba(255,255,255,0.4)"></span>ERP Advisory
+    </div>
+    <h2>We Help You Find the <em>Right ERP</em> for Your Business</h2>
+    <p style="margin-top:16px">Choosing the wrong ERP is one of the costliest mistakes an MSME can make. We provide independent, vendor-neutral ERP advisory — mapping your processes, evaluating fit, and guiding you through selection and implementation to ensure your technology investment actually delivers results.</p>
+    <a class="btn-primary" onclick="gotoPage('main','#contact')" style="margin-top:28px;display:inline-block;background:#fff;color:var(--teal)">Discuss ERP Advisory →</a>
+  </div>
+  <div class="erp-right fade-in fade-in-delay-1">
+    <div class="erp-card"><span class="erp-icon">🔍</span><h4>Needs Assessment</h4><p>We map your business processes and define requirements before a single vendor is evaluated.</p></div>
+    <div class="erp-card"><span class="erp-icon">⚖️</span><h4>Vendor-Neutral Evaluation</h4><p>Unbiased comparison across SAP, Oracle, Zoho, Tally Prime, ERPNext, Microsoft Dynamics and more.</p></div>
+    <div class="erp-card"><span class="erp-icon">📋</span><h4>RFP &amp; Selection</h4><p>We draft your RFP, score vendor responses, and run structured demos to find the right fit.</p></div>
+    <div class="erp-card"><span class="erp-icon">🚀</span><h4>Implementation Support</h4><p>We stay alongside you through go-live — managing timelines, change management, and risk.</p></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="section-label">Who We Work With</div>
+  <h2 class="section-title">Industries <em>We Serve</em></h2>
+  <p class="section-sub">We specialise in sectors where operational complexity and supply chain dynamics create the biggest opportunities for cost savings and strategic improvement.</p>
+  <div class="ind-grid">
+    <div class="ind-card fade-in"><span class="ind-icon">🏭</span><h3>Manufacturing</h3><p>Cost reduction, capacity planning, quality improvement, and lean transformation for process and discrete manufacturers.</p><div class="ind-tag">Core Focus</div></div>
+    <div class="ind-card fade-in fade-in-delay-1"><span class="ind-icon">📦</span><h3>Trading &amp; Distribution</h3><p>Inventory optimisation, supplier rationalisation, margin improvement, and distribution network design.</p><div class="ind-tag">Core Focus</div></div>
+    <div class="ind-card fade-in fade-in-delay-2"><span class="ind-icon">🚚</span><h3>Logistics &amp; 3PL</h3><p>Route optimisation, warehousing cost reduction, fleet utilisation, and end-to-end supply chain re-engineering.</p><div class="ind-tag">Specialisation</div></div>
+    <div class="ind-card fade-in fade-in-delay-3"><span class="ind-icon">⚙️</span><h3>Auto Ancillaries</h3><p>Tier-2 and Tier-3 auto suppliers — JIT readiness, quality systems, cost benchmarking, and OEM compliance strategy.</p><div class="ind-tag">Specialisation</div></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-label">How We Work</div>
+  <h2 class="section-title">Our <em>Engagement</em> Process</h2>
+  <p class="section-sub">A structured yet agile approach — every engagement follows a clear arc from first conversation to measurable, sustained outcomes.</p>
+  <div class="process-steps">
+    <div class="process-step fade-in"><div class="process-dot">I</div><h4>Discovery</h4><p>Free 60-min call to understand your business, goals, and pain points</p></div>
+    <div class="process-step fade-in fade-in-delay-1"><div class="process-dot">II</div><h4>Diagnosis</h4><p>Deep-dive assessment using structured frameworks to map the real problem</p></div>
+    <div class="process-step fade-in fade-in-delay-2"><div class="process-dot">III</div><h4>Strategy</h4><p>Bespoke roadmap with prioritised actions and clear expected outcomes</p></div>
+    <div class="process-step fade-in fade-in-delay-3"><div class="process-dot">IV</div><h4>Execution</h4><p>Hands-on implementation support — tracking, adjusting, delivering results</p></div>
+    <div class="process-step fade-in fade-in-delay-4"><div class="process-dot">V</div><h4>Sustain</h4><p>Capability building within your team to hold gains independently</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-label">Common Questions</div>
+  <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+  <div class="faq-layout">
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What size of businesses do you work with?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We primarily work with MSMEs in the ₹5 crore to ₹500 crore revenue range. Large enough to have real operational complexity, yet agile enough to implement change quickly. We also work with supply chain divisions of larger corporates on project-specific engagements.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does a typical engagement last?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>A diagnostic assessment typically takes 2–4 weeks. A full strategic planning engagement runs 6–12 weeks. Cost improvement and supply chain projects are usually 3–6 months. We also offer ongoing retainer arrangements for businesses that want continuous advisory support.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do you charge — fixed fee or daily rate?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We offer both models. For well-defined projects, a fixed project fee provides budget certainty. For open-ended advisory, a monthly retainer or day-rate works better. We discuss this transparently during the discovery call — there are no surprises.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you work on-site or remotely?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Both. The diagnostic phase and key workshops are conducted on-site — direct observation is irreplaceable. Ongoing advisory, analysis, and reporting can be handled remotely. We're based in Delhi NCR but travel across India for engagements.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What results can I realistically expect?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>Cost improvement projects typically deliver 15–30% reduction in targeted cost areas. Supply chain projects routinely cut inventory carrying costs by 20–40% and improve delivery reliability significantly. Strategic engagements build a clear 3-year roadmap — ROI materialises over 12–24 months.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How does your ERP advisory work?</span><div class="faq-icon">+</div></div><div class="faq-a"><p>We start with thorough process mapping before evaluating any ERP system. We create a vendor-neutral comparison across relevant platforms, facilitate structured demos, and score each option against your specific requirements. We have no referral arrangements with any ERP vendor — our recommendation is 100% objective.</p></div></div>
+    </div>
+    <div class="faq-cta-box fade-in">
+      <h3>Still have questions?</h3>
+      <p>Every business situation is different. If your question isn't answered here, reach out directly — we're happy to have a straight conversation.</p>
+      <a onclick="gotoPage('main','#contact')">Send a Message →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Start a Conversation</div>
+  <h2 class="section-title">Ready to <em>Transform</em> Your Business?</h2>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <p class="contact-info-lead">Whether you're looking to cut costs, build a stronger strategy, fix your supply chain, or find the right ERP — the first conversation is always free.</p>
+      <div class="contact-item"><div class="contact-icon">✉</div><div><h4>Email</h4><p>admin@benzeneconsulting.in</p></div></div>
+      <div class="contact-item"><div class="contact-icon">☎</div><div><h4>Phone / WhatsApp</h4><p>+91 9350789337</p></div></div>
+      <div class="contact-item"><div class="contact-icon">◎</div><div><h4>Location</h4><p>Delhi NCR — serving clients pan-India</p></div></div>
+      <div class="contact-item"><div class="contact-icon">◷</div><div><h4>Response Time</h4><p>Within 24 hours on business days</p></div></div>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" id="f-name" placeholder="Your name"></div>
+        <div class="form-group"><label>Company Name</label><input type="text" id="f-company" placeholder="Your company"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email *</label><input type="email" id="f-email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="form-group">
+        <label>Area of Interest *</label>
+        <select id="f-interest">
+          <option value="">Select a service area</option>
+          <option>Strategic Planning</option>
+          <option>Cost Improvement</option>
+          <option>Supply Chain Optimisation</option>
+          <option>Operational Excellence</option>
+          <option>ERP Advisory &amp; Selection</option>
+          <option>Not sure — need a diagnosis</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Tell us about your challenge</label><textarea id="f-message" placeholder="Briefly describe what you're trying to solve..."></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Send Message — Let's Talk</button>
+      <div class="form-message" id="formMsg">Thank you — we'll be in touch within 24 hours.</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /page-main -->
+
+<!-- ══════════ CAREERS PAGE ══════════ -->
+<div id="page-careers" class="page">
+
+<section id="careers-hero">
+  <div class="careers-hero-grid"></div>
+  <div class="careers-hero-content">
+    <div class="section-label" style="color:rgba(255,255,255,0.55)">Join Our Team</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,70px);font-weight:300;line-height:1.1;margin-bottom:20px;color:#fff">Build a Career at the <em style="font-style:italic;color:var(--gold-light)">Intersection of Strategy &amp; Impact</em></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.85;max-width:520px;margin-bottom:36px">At Benzene Consulting, we work on real problems for real businesses. Every engagement is different — and the work you do here directly changes how Indian businesses operate and grow.</p>
+    <a class="btn-primary" onclick="document.getElementById('openings').scrollIntoView({behavior:'smooth'})" style="background:#fff;color:var(--teal)">View Open Positions</a>
+  </div>
+</section>
+
+<div class="careers-img-strip">
+  <div class="img-strip-item"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Team"><div class="img-strip-overlay"></div><div class="img-strip-label">Collaborative Culture</div></div>
+  <div class="img-strip-item"><img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=800&q=80" alt="Workshop"><div class="img-strip-overlay"></div><div class="img-strip-label">Continuous Learning</div></div>
+</div>
+
+<section style="background:var(--white)">
+  <div class="section-label">Our Culture</div>
+  <h2 class="section-title">What We <em>Stand For</em></h2>
+  <p class="section-sub">We're building a consulting firm where smart people do meaningful work — with autonomy, rigour, and genuine commitment to client outcomes.</p>
+  <div class="values-grid">
+    <div class="value-card fade-in"><span class="value-icon">🎯</span><h3>Results, Not Reports</h3><p>We measure ourselves by client outcomes — not the thickness of the deck we deliver.</p></div>
+    <div class="value-card fade-in fade-in-delay-1"><span class="value-icon">🔬</span><h3>Rigorous Thinking</h3><p>Structured analysis, honest assessment, and the intellectual courage to tell clients what they need to hear.</p></div>
+    <div class="value-card fade-in fade-in-delay-2"><span class="value-icon">🌱</span><h3>Grow with Every Engagement</h3><p>No two clients are alike. We treat every project as an opportunity to learn.</p></div>
+    <div class="value-card fade-in"><span class="value-icon">🤝</span><h3>Honest &amp; Direct</h3><p>We say what we mean. We disagree openly, decide together, and stand behind our recommendations.</p></div>
+    <div class="value-card fade-in fade-in-delay-1"><span class="value-icon">⚡</span><h3>Bias for Action</h3><p>Analysis without action is just cost. We push ourselves and our clients toward execution — always.</p></div>
+    <div class="value-card fade-in fade-in-delay-2"><span class="value-icon">🇮🇳</span><h3>India-First Mindset</h3><p>We're building for Indian businesses — understanding real constraints of operating in India at every level.</p></div>
+  </div>
+</section>
+
+<section id="openings" style="background:var(--off-white)">
+  <div class="section-label">Current Openings</div>
+  <h2 class="section-title">Open <em>Positions</em></h2>
+  <p class="section-sub">We're a lean team — every hire matters. We look for people who are curious, analytical, and genuinely excited about hard problems.</p>
+  <div class="openings-grid">
+    <div class="opening-item"><div><div class="opening-title">Senior Consultant — Supply Chain &amp; Operations</div><div class="opening-meta"><span class="opening-tag">Supply Chain</span><span class="opening-tag">Operations</span><span class="opening-tag type">Full-time</span><span class="opening-tag type">Delhi NCR</span></div></div><div class="opening-apply" onclick="openApply('Senior Consultant — Supply Chain & Operations')">Apply Now</div></div>
+    <div class="opening-item"><div><div class="opening-title">Consultant — Strategy &amp; Cost Improvement</div><div class="opening-meta"><span class="opening-tag">Strategy</span><span class="opening-tag">Cost</span><span class="opening-tag type">Full-time</span><span class="opening-tag type">Delhi NCR</span></div></div><div class="opening-apply" onclick="openApply('Consultant — Strategy & Cost Improvement')">Apply Now</div></div>
+    <div class="opening-item"><div><div class="opening-title">ERP Advisory Specialist</div><div class="opening-meta"><span class="opening-tag">ERP</span><span class="opening-tag">Technology</span><span class="opening-tag type">Full-time</span><span class="opening-tag type">Delhi NCR / Remote</span></div></div><div class="opening-apply" onclick="openApply('ERP Advisory Specialist')">Apply Now</div></div>
+    <div class="opening-item"><div><div class="opening-title">Business Analyst (Fresh Graduate)</div><div class="opening-meta"><span class="opening-tag">Analyst</span><span class="opening-tag type">Full-time</span><span class="opening-tag type">Delhi NCR</span><span class="opening-tag type">0–2 Yrs Exp</span></div></div><div class="opening-apply" onclick="openApply('Business Analyst')">Apply Now</div></div>
+    <div class="opening-item"><div><div class="opening-title">Research Associate — MSME &amp; Supply Chain</div><div class="opening-meta"><span class="opening-tag">Research</span><span class="opening-tag type">Contract / Part-time</span><span class="opening-tag type">Remote</span></div></div><div class="opening-apply" onclick="openApply('Research Associate')">Apply Now</div></div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="section-label">Why Join Us</div>
+  <h2 class="section-title">What You <em>Get</em></h2>
+  <div class="perks-grid">
+    <div class="perk-card fade-in"><span class="perk-icon">📈</span><h4>Fast Growth</h4><p>Direct exposure to senior leadership and client engagements from day one</p></div>
+    <div class="perk-card fade-in fade-in-delay-1"><span class="perk-icon">🎓</span><h4>Learning Budget</h4><p>Annual budget for courses, certifications, and industry conferences</p></div>
+    <div class="perk-card fade-in fade-in-delay-2"><span class="perk-icon">🏠</span><h4>Flexible Work</h4><p>Hybrid model — we care about output, not hours at a desk</p></div>
+    <div class="perk-card fade-in fade-in-delay-3"><span class="perk-icon">💰</span><h4>Competitive Pay</h4><p>Market-rate salaries plus performance-linked bonuses tied to client outcomes</p></div>
+  </div>
+</section>
+
+<div class="apply-band">
+  <h2>Don't See the Right Role? <em>Write to Us Anyway.</em></h2>
+  <p>We're always interested in smart people who want to do meaningful work. Send us your CV and tell us why Benzene Consulting excites you.</p>
+  <a class="btn-primary" href="/cdn-cgi/l/email-protection#87e4e6f5e2e2f5f4c7e5e2e9fde2e9e2e4e8e9f4f2ebf3eee9e0a9eee9" style="background:#fff;color:var(--teal);display:inline-block">Send Your CV →</a>
+</div>
+
+</div><!-- /page-careers -->
+
+<!-- ══════════ PUBLICATIONS PAGE ══════════ -->
+<div id="page-publications" class="page">
+
+<!-- Hero -->
+<section id="pub-hero">
+  <div class="ph-grid"></div>
+  <div class="ph-content">
+    <div class="section-label" style="color:rgba(255,255,255,0.5)">Field Work &amp; Impact</div>
+    <h1>Where Strategy Meets <em>Measurable Results</em></h1>
+    <p>A curated record of real engagements — cost transformations, supply chain builds, and operational turnarounds delivered for Indian MSMEs and mid-size firms.</p>
+  </div>
+  <div class="pub-author-bar">
+    <div class="pub-author-avatar">YN</div>
+    <div>
+      <div class="pub-author-name">[Your Name] — Principal Consultant</div>
+      <div class="pub-author-title">Strategy · Cost · Supply Chain · ERP Advisory · Delhi NCR</div>
+    </div>
+    <div class="pub-author-stats">
+      <div><div class="pub-author-stat-num">₹50Cr+</div><div class="pub-author-stat-label">Savings Delivered</div></div>
+      <div><div class="pub-author-stat-num">60+</div><div class="pub-author-stat-label">Engagements</div></div>
+      <div><div class="pub-author-stat-num">12+</div><div class="pub-author-stat-label">Years</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study Cards -->
+<div class="pub-cards-section">
+  <div class="section-label">Case Studies</div>
+  <h2 class="section-title">Click to Explore <em>Each Engagement</em></h2>
+  <p class="section-sub">Three landmark projects — each representing a different dimension of consulting impact.</p>
+  <div class="pub-cards-grid">
+
+    <!-- Card 1 -->
+    <div class="pub-card fade-in" onclick="openModal('modal-cost')">
+      <img class="pub-card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=75" alt="Cost Savings">
+      <div class="pub-card-body">
+        <div class="pub-card-tag">Cost Transformation</div>
+        <h3>₹8.4 Crore Saved for a Mid-Size Manufacturer</h3>
+        <p>A Delhi-based auto components manufacturer was bleeding margin across procurement and overheads. A 14-week intervention delivered permanent structural savings.</p>
+        <div class="pub-card-metrics">
+          <div><div class="pub-card-metric-val">₹8.4Cr</div><div class="pub-card-metric-label">Annual Savings</div></div>
+          <div><div class="pub-card-metric-val">27%</div><div class="pub-card-metric-label">Cost Reduction</div></div>
+          <div><div class="pub-card-metric-val">14 wks</div><div class="pub-card-metric-label">Engagement</div></div>
+          <div><div class="pub-card-metric-val">4.2×</div><div class="pub-card-metric-label">ROI on Fees</div></div>
+        </div>
+        <div class="pub-card-read">Read Full Case Study</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="pub-card fade-in fade-in-delay-1" onclick="openModal('modal-scm')">
+      <img class="pub-card-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=75" alt="Supply Chain">
+      <div class="pub-card-body">
+        <div class="pub-card-tag">Supply Chain Build</div>
+        <h3>Building a Supply Chain from Zero for a Trading Firm</h3>
+        <p>A fast-growing FMCG trading company had no formal supply chain. We designed and implemented end-to-end processes — sourcing to delivery — in 20 weeks.</p>
+        <div class="pub-card-metrics">
+          <div><div class="pub-card-metric-val">20 wks</div><div class="pub-card-metric-label">Build Time</div></div>
+          <div><div class="pub-card-metric-val">98.2%</div><div class="pub-card-metric-label">On-Time Delivery</div></div>
+          <div><div class="pub-card-metric-val">40%</div><div class="pub-card-metric-label">Inventory Reduction</div></div>
+          <div><div class="pub-card-metric-val">3 States</div><div class="pub-card-metric-label">Network Coverage</div></div>
+        </div>
+        <div class="pub-card-read">Read Full Case Study</div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="pub-card fade-in fade-in-delay-2" onclick="openModal('modal-ops')">
+      <img class="pub-card-img" src="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=600&q=75" alt="Operations">
+      <div class="pub-card-body">
+        <div class="pub-card-tag">Operational Turnaround</div>
+        <h3>Turning Around a Loss-Making Logistics Operation</h3>
+        <p>A regional 3PL was operating at a loss for 3 consecutive quarters. Root cause was a combination of route inefficiency, high attrition, and poor utilisation.</p>
+        <div class="pub-card-metrics">
+          <div><div class="pub-card-metric-val">+22%</div><div class="pub-card-metric-label">EBITDA Swing</div></div>
+          <div><div class="pub-card-metric-val">31%</div><div class="pub-card-metric-label">Fleet Utilisation ↑</div></div>
+          <div><div class="pub-card-metric-val">18 wks</div><div class="pub-card-metric-label">Turnaround Time</div></div>
+          <div><div class="pub-card-metric-val">₹3.1Cr</div><div class="pub-card-metric-label">Cost Removed</div></div>
+        </div>
+        <div class="pub-card-read">Read Full Case Study</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Slide Viewer -->
+<div class="pub-slide-section">
+  <div class="section-label">Presentation Slides</div>
+  <h2 class="section-title">Key <em>Insights</em> — Slide by Slide</h2>
+  <p class="section-sub">Condensed findings from three engagements — the kind of slides that go into boardroom presentations.</p>
+
+  <div class="slide-viewer">
+    <div class="slide-track" id="slideTrack">
+
+      <!-- Slide 1: Cost waterfall -->
+      <div class="slide">
+        <div class="slide-left">
+          <div class="slide-num">01</div>
+          <div class="slide-tag">Cost Transformation · Auto Components Manufacturer</div>
+          <h2>How We Found <em>₹8.4 Crore</em> in a Business That Thought It Had No Fat</h2>
+          <p>The client believed costs were already tight. A structured zero-based analysis across 6 cost heads revealed otherwise. The biggest leakage? Procurement — where vendor consolidation alone delivered ₹3.2Cr in year one.</p>
+        </div>
+        <div class="slide-right">
+          <div class="chart-title">Cost Savings by Category (₹ Lakhs)</div>
+          <div class="bar-row"><span class="bar-label">Procurement</span><div class="bar-track"><div class="bar-fill" style="width:85%">₹320L</div></div></div>
+          <div class="bar-row"><span class="bar-label">Overheads</span><div class="bar-track"><div class="bar-fill" style="width:55%">₹210L</div></div></div>
+          <div class="bar-row"><span class="bar-label">Logistics</span><div class="bar-track"><div class="bar-fill" style="width:40%">₹155L</div></div></div>
+          <div class="bar-row"><span class="bar-label">Manpower</span><div class="bar-track"><div class="bar-fill gold" style="width:30%">₹95L</div></div></div>
+          <div class="bar-row"><span class="bar-label">Energy</span><div class="bar-track"><div class="bar-fill gold" style="width:20%">₹60L</div></div></div>
+          <div class="kpi-row" style="margin-top:20px">
+            <div class="kpi-box"><div class="kpi-val">27%</div><div class="kpi-label">Total Cost Reduction</div></div>
+            <div class="kpi-box"><div class="kpi-val">14 wks</div><div class="kpi-label">Duration</div></div>
+            <div class="kpi-box"><div class="kpi-val">4.2×</div><div class="kpi-label">ROI on Fees</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Supply chain journey -->
+      <div class="slide">
+        <div class="slide-left">
+          <div class="slide-num">02</div>
+          <div class="slide-tag">Supply Chain Build · FMCG Trading Company</div>
+          <h2>Building a Supply Chain <em>from Nothing</em> to Full Operations in 20 Weeks</h2>
+          <p>The company had no procurement policy, no vendor master, no warehouse SOP, and no delivery tracking. We designed and stood up a complete supply chain — from vendor onboarding to last-mile delivery — in five phases.</p>
+        </div>
+        <div class="slide-right">
+          <div class="chart-title">5-Phase Implementation Timeline</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div><div class="tl-phase">Phase 1 · Weeks 1–3</div><div class="tl-desc">Diagnosis, process mapping, vendor landscape assessment</div></div></div>
+            <div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div><div class="tl-phase">Phase 2 · Weeks 4–7</div><div class="tl-desc">Vendor selection, contracts, procurement policy design</div></div></div>
+            <div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div><div class="tl-phase">Phase 3 · Weeks 8–12</div><div class="tl-desc">Warehouse layout, SOP development, inventory system setup</div></div></div>
+            <div class="tl-item"><div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div><div><div class="tl-phase">Phase 4 · Weeks 13–17</div><div class="tl-desc">Distribution network design, 3PL onboarding, route planning</div></div></div>
+            <div class="tl-item"><div class="tl-left"><div class="tl-dot"></div></div><div><div class="tl-phase">Phase 5 · Weeks 18–20</div><div class="tl-desc">Go-live, team training, performance dashboard, handover</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Ops turnaround -->
+      <div class="slide">
+        <div class="slide-left">
+          <div class="slide-num">03</div>
+          <div class="slide-tag">Operational Turnaround · Regional 3PL</div>
+          <h2>From 3 Loss-Making Quarters to <em>EBITDA Positive</em> in 18 Weeks</h2>
+          <p>Three interlocked problems were destroying profitability: routes were 34% longer than optimal, driver attrition was at 48% annually, and fleet utilisation sat at 61%. Fixing all three simultaneously was the only path to viability.</p>
+        </div>
+        <div class="slide-right">
+          <div class="chart-title">Before vs. After — Key Metrics</div>
+          <div class="bar-row"><span class="bar-label">Fleet Utilisation</span><div class="bar-track"><div class="bar-fill" style="width:92%">92% ↑</div></div></div>
+          <div class="bar-row"><span class="bar-label">On-time Delivery</span><div class="bar-track"><div class="bar-fill" style="width:96%">96% ↑</div></div></div>
+          <div class="bar-row"><span class="bar-label">Route Efficiency</span><div class="bar-track"><div class="bar-fill" style="width:78%">+31% ↑</div></div></div>
+          <div class="bar-row"><span class="bar-label">Driver Attrition</span><div class="bar-track"><div class="bar-fill gold" style="width:22%">22% ↓</div></div></div>
+          <div class="kpi-row" style="margin-top:20px">
+            <div class="kpi-box"><div class="kpi-val">+22%</div><div class="kpi-label">EBITDA Swing</div></div>
+            <div class="kpi-box"><div class="kpi-val">₹3.1Cr</div><div class="kpi-label">Cost Removed</div></div>
+            <div class="kpi-box"><div class="kpi-val">18 wks</div><div class="kpi-label">Duration</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slide-track -->
+
+    <div class="slide-nav">
+      <div class="slide-dots" id="slideDots">
+        <div class="slide-dot active" onclick="goSlide(0)"></div>
+        <div class="slide-dot" onclick="goSlide(1)"></div>
+        <div class="slide-dot" onclick="goSlide(2)"></div>
+      </div>
+      <div class="slide-counter" id="slideCounter">1 / 3</div>
+      <div class="slide-arrows">
+        <button class="slide-arrow" onclick="prevSlide()">&#8592;</button>
+        <button class="slide-arrow" onclick="nextSlide()">&#8594;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Data Deep-Dive -->
+<div class="pub-data-section">
+  <div class="section-label">Data Deep-Dive</div>
+  <h2 class="section-title">The Numbers Behind <em>Two Engagements</em></h2>
+  <p class="section-sub">Detailed before-and-after breakdowns — the data that justified every recommendation.</p>
+  <div class="data-layout">
+
+    <div class="data-card fade-in">
+      <div class="data-card-title">Cost Structure: Before &amp; After</div>
+      <div class="data-card-sub">Auto Components Manufacturer · 14-Week Engagement</div>
+      <div class="stat-rows">
+        <div class="stat-row"><span class="stat-row-label">Total Annual Procurement Cost</span><span class="stat-row-before">₹31.2Cr</span><span class="stat-row-after">₹23.8Cr</span><span class="stat-row-delta">−24%</span></div>
+        <div class="stat-row"><span class="stat-row-label">No. of Active Vendors</span><span class="stat-row-before">187</span><span class="stat-row-after">64</span><span class="stat-row-delta">−66%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Avg. Lead Time (Days)</span><span class="stat-row-before">18 days</span><span class="stat-row-after">9 days</span><span class="stat-row-delta">−50%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Overhead as % of Revenue</span><span class="stat-row-before">14.2%</span><span class="stat-row-after">10.1%</span><span class="stat-row-delta">−4.1pp</span></div>
+        <div class="stat-row"><span class="stat-row-label">Logistics Cost per Unit</span><span class="stat-row-before">₹42</span><span class="stat-row-after">₹29</span><span class="stat-row-delta">−31%</span></div>
+        <div class="stat-row"><span class="stat-row-label">EBITDA Margin</span><span class="stat-row-before">8.3%</span><span class="stat-row-after">14.7%</span><span class="stat-row-delta">+6.4pp</span></div>
+      </div>
+    </div>
+
+    <div class="data-card fade-in fade-in-delay-1">
+      <div class="data-card-title">Supply Chain KPIs: Build vs. Steady State</div>
+      <div class="data-card-sub">FMCG Trading Company · Post Go-Live (Month 6)</div>
+      <div class="stat-rows">
+        <div class="stat-row"><span class="stat-row-label">On-Time-In-Full Delivery</span><span class="stat-row-before">N/A</span><span class="stat-row-after">98.2%</span><span class="stat-row-delta">New KPI</span></div>
+        <div class="stat-row"><span class="stat-row-label">Inventory Days on Hand</span><span class="stat-row-before">62 days</span><span class="stat-row-after">38 days</span><span class="stat-row-delta">−40%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Supplier Payment Disputes</span><span class="stat-row-before">34/month</span><span class="stat-row-after">2/month</span><span class="stat-row-delta">−94%</span></div>
+        <div class="stat-row"><span class="stat-row-label">Working Capital Locked</span><span class="stat-row-before">₹8.4Cr</span><span class="stat-row-after">₹5.1Cr</span><span class="stat-row-delta">−39%</span></div>
+        <div class="stat-row"><span class="stat-row-label">States in Distribution Network</span><span class="stat-row-before">1</span><span class="stat-row-after">3</span><span class="stat-row-delta">+2 states</span></div>
+        <div class="stat-row"><span class="stat-row-label">Revenue Growth (Y1)</span><span class="stat-row-before">Baseline</span><span class="stat-row-after">+38%</span><span class="stat-row-delta">Enabled</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SOP PUBLICATION FEATURE -->
+<div style="background:var(--white);padding:72px 5vw;">
+  <div class="section-label">Process & Systems</div>
+  <h2 class="section-title">Why Most MSMEs <em>Cannot Scale</em> — and How We Fix It</h2>
+  <p class="section-sub">The real growth blocker isn't capital or market — it's the absence of documented processes, structured systems, and institutional knowledge.</p>
+
+  <!-- Insight strip -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:48px 0 52px;">
+    <div style="background:var(--white);padding:36px 28px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(0,86,83,0.09);line-height:1;margin-bottom:12px;">01</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:10px;">The Knowledge Trap</h3>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.85;">When critical processes live in people's heads — not in documents — every key hire departure is a crisis. Every new joiner takes months to become productive. Every scale-up replicates chaos.</p>
+    </div>
+    <div style="background:var(--teal-pale);padding:36px 28px;border-left:3px solid var(--teal);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(0,86,83,0.09);line-height:1;margin-bottom:12px;">02</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:10px;">The Scaling Paradox</h3>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.85;">Growth without systems doesn't scale the business — it scales the problems. More orders mean more errors. More staff means more coordination failures. More locations mean inconsistent customer experiences.</p>
+    </div>
+    <div style="background:var(--white);padding:36px 28px;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(0,86,83,0.09);line-height:1;margin-bottom:12px;">03</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:10px;">The Benzene Solution</h3>
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.85;">We design the processes, write the SOPs, build the dashboards, and train the teams — so growth becomes a managed, repeatable exercise rather than a high-stakes gamble.</p>
+    </div>
+  </div>
+
+  <!-- Deliverables grid -->
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:28px;">What We Deliver</h3>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+    <div style="display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--off-white);">
+      <div style="width:44px;height:44px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📋</div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;">Standard Operating Procedures</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Step-by-step documentation of every critical process — procurement, fulfilment, quality, HR — so your business runs consistently at any scale.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--off-white);">
+      <div style="width:44px;height:44px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">⚙️</div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;">Workflow Architecture & Systems Design</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Lean, scalable workflows that handle 10× volume without proportionally more headcount — designed ground-up for your specific business context.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--off-white);">
+      <div style="width:44px;height:44px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📊</div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;">KPI Frameworks & Power BI Dashboards</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">The right metrics defined, dashboards built, and review rhythms installed — so every decision in your business is grounded in real data.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;padding:24px;border:1px solid var(--border);background:var(--off-white);">
+      <div style="width:44px;height:44px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🎓</div>
+      <div>
+        <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:6px;">Team Training & Knowledge Transfer</div>
+        <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Every process we design is trained into your team — ensuring adoption, not just documentation. Knowledge becomes institutional, not personal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border:1px solid var(--border);">
+    <div style="padding:28px 20px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--teal);font-weight:300;">73%</div>
+      <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">MSMEs with no documented processes</div>
+    </div>
+    <div style="padding:28px 20px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--teal);font-weight:300;">3×</div>
+      <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Faster team onboarding with SOPs</div>
+    </div>
+    <div style="padding:28px 20px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--teal);font-weight:300;">40%</div>
+      <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Error reduction post-SOP implementation</div>
+    </div>
+    <div style="padding:28px 20px;text-align:center;">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--teal);font-weight:300;">60%</div>
+      <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:6px;">Reduction in founder dependency</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="background:var(--teal);padding:72px 5vw;text-align:center;">
+  <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px;">Work With Us</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;color:#fff;margin-bottom:14px;">Could Your Business Be the <em style="color:var(--gold-light);font-style:italic">Next Case Study?</em></h2>
+  <p style="font-size:15px;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 32px;line-height:1.8;">These results came from structured thinking, disciplined execution, and a genuine commitment to client outcomes. Let's see what's possible for your business.</p>
+  <a class="btn-primary" onclick="gotoPage('main','#contact')" style="background:#fff;color:var(--teal);display:inline-block">Start a Conversation →</a>
+</div>
+
+</div><!-- /page-publications -->
+
+<!-- MODALS -->
+
+<!-- Modal: Cost Savings -->
+<div class="modal-overlay" id="modal-cost" onclick="closeModalOutside(event,'modal-cost')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-cost')">✕</button>
+      <div class="modal-tag">Cost Transformation · Auto Components · Delhi NCR</div>
+      <h2>₹8.4 Crore Saved for a Mid-Size Manufacturer</h2>
+    </div>
+    <div class="modal-body">
+      <h4>The Situation</h4>
+      <p>A Delhi-based auto components manufacturer with ₹115Cr annual revenue had seen EBITDA margins compress from 14% to 8.3% over three years. The MD believed the issue was market pricing pressure. Our diagnosis told a different story.</p>
+      <h4>What We Found</h4>
+      <ul>
+        <li>187 active vendors — many duplicating each other, none with formal contracts or SLAs</li>
+        <li>Procurement decisions made by 6 different people with no central policy or approval matrix</li>
+        <li>Logistics costs 31% above industry benchmark due to poor load planning</li>
+        <li>₹2.1Cr in annual overhead spend with no clear business justification (identified via Zero-Based Budgeting)</li>
+        <li>Energy consumption 18% above sector norms due to aging equipment and no consumption tracking</li>
+      </ul>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">₹8.4Cr</div><div class="modal-kpi-label">Annual Savings</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">27%</div><div class="modal-kpi-label">Cost Reduction</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">4.2×</div><div class="modal-kpi-label">ROI on Fees</div></div>
+      </div>
+      <h4>What We Did</h4>
+      <ul>
+        <li>Vendor rationalisation — reduced from 187 to 64 strategic vendors with formal contracts</li>
+        <li>Designed and implemented a centralised procurement policy with a 3-tier approval matrix</li>
+        <li>Renegotiated terms with top 15 vendors — average price reduction of 8.4%</li>
+        <li>Applied Zero-Based Budgeting across all overhead categories — eliminated ₹2.1Cr of unjustified spend</li>
+        <li>Redesigned logistics flow — consolidated loads reduced freight cost per unit from ₹42 to ₹29</li>
+        <li>Installed energy monitoring — identified and addressed top 5 consumption outliers</li>
+      </ul>
+      <h4>The Outcome</h4>
+      <p>Within 14 weeks, ₹8.4Cr in annualised savings were identified and implementation was underway. EBITDA margin recovered from 8.3% to 14.7% within the following financial year. The client's CFO described it as "the highest-ROI initiative we've run in a decade."</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Supply Chain Build -->
+<div class="modal-overlay" id="modal-scm" onclick="closeModalOutside(event,'modal-scm')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-scm')">✕</button>
+      <div class="modal-tag">Supply Chain Build · FMCG Trading · Pan-India</div>
+      <h2>Building a Supply Chain from Zero in 20 Weeks</h2>
+    </div>
+    <div class="modal-body">
+      <h4>The Situation</h4>
+      <p>A fast-growing FMCG trading company had scaled revenue from ₹12Cr to ₹48Cr in 3 years purely on founder relationships. But with no formal supply chain, growth was creating chaos — stockouts, delivery failures, supplier disputes, and a working capital crisis.</p>
+      <h4>What Was Missing</h4>
+      <ul>
+        <li>No procurement policy, vendor master, or contract templates</li>
+        <li>No warehouse management system or layout optimisation</li>
+        <li>No demand forecasting — buying was entirely reactive</li>
+        <li>No distribution network — deliveries handled ad hoc via local transporters</li>
+        <li>34 supplier payment disputes per month with no resolution process</li>
+      </ul>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">20 wks</div><div class="modal-kpi-label">Build Time</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">98.2%</div><div class="modal-kpi-label">OTIF Delivery</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">+38%</div><div class="modal-kpi-label">Revenue Y1</div></div>
+      </div>
+      <h4>What We Built</h4>
+      <ul>
+        <li>Full procurement function — policy, vendor evaluation matrix, contract templates, payment terms</li>
+        <li>Warehouse redesign — ABC classification, location coding, pick-pack SOP, cycle count process</li>
+        <li>Demand planning model — rolling 8-week forecast using sales history and seasonality adjustments</li>
+        <li>Distribution network across 3 states — 2 regional 3PLs onboarded with SLA-backed contracts</li>
+        <li>ERP selection and implementation support — moved from Excel to a fit-for-purpose system</li>
+        <li>Supply chain performance dashboard — 8 KPIs tracked weekly by the MD</li>
+      </ul>
+      <h4>The Outcome</h4>
+      <p>Six months post go-live: OTIF at 98.2%, inventory days reduced from 62 to 38, working capital freed by ₹3.3Cr, and the business successfully expanded into 2 new states. Revenue grew 38% in Year 1 — for the first time, supply chain was an enabler rather than a constraint.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Ops Turnaround -->
+<div class="modal-overlay" id="modal-ops" onclick="closeModalOutside(event,'modal-ops')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal('modal-ops')">✕</button>
+      <div class="modal-tag">Operational Turnaround · Regional 3PL · North India</div>
+      <h2>From Loss-Making to EBITDA Positive in 18 Weeks</h2>
+    </div>
+    <div class="modal-body">
+      <h4>The Situation</h4>
+      <p>A regional logistics company operating 60 vehicles across North India had posted losses for 3 consecutive quarters. The promoters were considering shutting down. A structured diagnosis revealed three fixable root causes — none of which required capital investment.</p>
+      <h4>Root Causes Identified</h4>
+      <ul>
+        <li>Routes were on average 34% longer than optimal — no route optimisation had ever been done</li>
+        <li>Fleet utilisation at 61% — poor load planning meant vehicles running partially empty</li>
+        <li>Driver attrition at 48% annually — replacement and training cost was ₹80,000 per driver</li>
+        <li>No performance management system — drivers had no accountability for fuel or time</li>
+        <li>Billing disputes with 3 key clients causing ₹60L in delayed receivables</li>
+      </ul>
+      <div class="modal-kpis">
+        <div class="modal-kpi"><div class="modal-kpi-val">+22%</div><div class="modal-kpi-label">EBITDA Swing</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">₹3.1Cr</div><div class="modal-kpi-label">Cost Removed</div></div>
+        <div class="modal-kpi"><div class="modal-kpi-val">18 wks</div><div class="modal-kpi-label">Duration</div></div>
+      </div>
+      <h4>The Interventions</h4>
+      <ul>
+        <li>Route optimisation using GPS data — reduced average route length by 28%, saving ₹1.2Cr in fuel annually</li>
+        <li>Load consolidation algorithm — fleet utilisation improved from 61% to 92%</li>
+        <li>Driver incentive scheme redesigned — linked 20% of variable pay to fuel efficiency and on-time delivery</li>
+        <li>Attrition root cause analysis — addressed top 3 grievances; attrition fell from 48% to 22%</li>
+        <li>Billing dispute resolution — standardised proof-of-delivery process eliminated disputes entirely</li>
+      </ul>
+      <h4>The Outcome</h4>
+      <p>The business swung from a quarterly loss of ₹42L to EBITDA positive within 18 weeks. Full-year annualised cost savings of ₹3.1Cr were locked in. The promoters, who had been considering exit, instead chose to expand the fleet by 15 vehicles in the following year.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ BLOG / INSIGHTS PAGE ══════════ -->
+<div id="page-blog" class="page">
+
+<section id="blog-hero">
+  <div class="blog-hero-grid"></div>
+  <div class="blog-hero-content">
+    <div class="section-label" style="color:rgba(255,255,255,0.5)">Insights & Perspectives</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:1.1;color:#fff;margin-bottom:16px;">Thinking Out Loud on <em style="font-style:italic;color:var(--gold-light)">Strategy, Costs & Supply Chain</em></h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.68);line-height:1.85;max-width:540px;">Practical insights for MSME founders and operations leaders — no jargon, no fluff. Just structured thinking on the problems that actually matter to your business.</p>
+  </div>
+</section>
+
+<section style="background:var(--off-white);padding:88px 5vw;">
+
+  <!-- Category filter -->
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:48px;">
+    <div>
+      <div class="section-label">All Articles</div>
+      <h2 class="section-title">Latest <em>Insights</em></h2>
+    </div>
+    <div class="blog-cats">
+      <div class="blog-cat active" onclick="filterBlog('all',this)">All Topics</div>
+      <div class="blog-cat" onclick="filterBlog('cost',this)">Cost &amp; Margins</div>
+      <div class="blog-cat" onclick="filterBlog('supply-chain',this)">Supply Chain</div>
+      <div class="blog-cat" onclick="filterBlog('strategy',this)">Strategy</div>
+      <div class="blog-cat" onclick="filterBlog('ops',this)">Operations &amp; SOPs</div>
+      <div class="blog-cat" onclick="filterBlog('erp',this)">ERP &amp; Tech</div>
+    </div>
+  </div>
+
+  <!-- Featured Article -->
+  <div class="blog-featured fade-in" onclick="openBlogPost('featured')">
+    <div class="blog-featured-img">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80" alt="MSME Scaling">
+      <div class="blog-featured-overlay"></div>
+    </div>
+    <div class="blog-featured-body">
+      <div class="blog-featured-tag">Featured · Strategy</div>
+      <h2>Why 73% of MSMEs Stall at ₹50 Crore — and <em>How to Break Through</em></h2>
+      <p>Most Indian businesses hit an invisible ceiling somewhere between ₹20Cr and ₹50Cr revenue. It's not a market problem or a funding problem — it's a systems problem. Here's a structured framework for diagnosing and breaking through it.</p>
+      <div class="blog-featured-meta">Aakash Kumar &nbsp;·&nbsp; 8 min read &nbsp;·&nbsp; March 2025</div>
+      <a class="btn-outline" style="margin-top:20px;display:inline-block;font-size:11px;padding:11px 22px;">Read Article →</a>
+    </div>
+  </div>
+
+  <!-- Article grid -->
+  <div class="blog-grid" id="blogGrid">
+
+    <div class="blog-card fade-in" data-cat="cost" onclick="openBlogPost('cost1')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Cost">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Cost &amp; Margins</span><span class="blog-card-date">Feb 2025</span></div>
+        <h3>The 5 Places Every MSME Overpays on Procurement — and How to Fix Each One</h3>
+        <p>Most MSMEs overpay on procurement by 15–30% without realising it. Here are the five structural reasons why — and the specific interventions that address each.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">6 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-1" data-cat="supply-chain" onclick="openBlogPost('sc1')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Supply Chain">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Supply Chain</span><span class="blog-card-date">Jan 2025</span></div>
+        <h3>Building a Supply Chain from Scratch: A Practical 5-Phase Blueprint for D2C Brands</h3>
+        <p>From vendor selection to last-mile delivery — a week-by-week framework based on a real engagement where we took a D2C brand from zero to 10,000+ orders per month.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">9 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-2" data-cat="ops" onclick="openBlogPost('ops1')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&q=80" alt="SOPs">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Operations &amp; SOPs</span><span class="blog-card-date">Jan 2025</span></div>
+        <h3>Your Business Shouldn't Depend on You. Here's How to Write SOPs That Actually Get Used</h3>
+        <p>Most SOPs are written and never read. Here's a proven format for writing SOPs your team will actually follow — with real examples from MSME operations.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">7 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in" data-cat="erp" onclick="openBlogPost('erp1')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80" alt="ERP">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">ERP &amp; Tech</span><span class="blog-card-date">Dec 2024</span></div>
+        <h3>SAP vs Zoho vs ERPNext vs Tally: An Honest, Vendor-Neutral Guide for MSMEs</h3>
+        <p>A straightforward comparison of the four most common ERP options for Indian MSMEs — what each is genuinely good at, where each falls short, and how to decide.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">11 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-1" data-cat="strategy" onclick="openBlogPost('strat1')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80" alt="Strategy">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Strategy</span><span class="blog-card-date">Dec 2024</span></div>
+        <h3>Zero-Based Budgeting for MSMEs: A Step-by-Step Guide to Rebuilding Your Cost Structure</h3>
+        <p>ZBB isn't just for large corporations. Here's how to apply it to a ₹20–100Cr MSME — with a practical template and the sequence of steps we use in client engagements.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">8 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-2" data-cat="supply-chain" onclick="openBlogPost('sc2')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80" alt="Inventory">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Supply Chain</span><span class="blog-card-date">Nov 2024</span></div>
+        <h3>Inventory Carrying Costs Are Destroying Your Margins. Here's How to Calculate and Fix Them</h3>
+        <p>Most MSME owners dramatically underestimate what excess inventory actually costs them. A practical framework to calculate your true carrying cost — and the levers to reduce it by 30–40%.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">6 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in" data-cat="cost" onclick="openBlogPost('cost2')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Vendor">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Cost &amp; Margins</span><span class="blog-card-date">Nov 2024</span></div>
+        <h3>Vendor Rationalisation: How We Reduced a Client's Vendor Base from 187 to 64 — and Saved ₹3.2Cr</h3>
+        <p>Too many vendors isn't a sign of healthy procurement — it's a sign of a broken system. Here's the exact methodology we used to rationalise a vendor base and deliver massive savings.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">7 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-1" data-cat="ops" onclick="openBlogPost('ops2')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Dashboard">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Operations &amp; SOPs</span><span class="blog-card-date">Oct 2024</span></div>
+        <h3>The 8 KPIs Every MSME Operations Leader Should Track Weekly (and How to Build a Power BI Dashboard for Them)</h3>
+        <p>Most businesses track the wrong metrics — or track nothing at all. Here are the 8 KPIs that actually predict operational health, and how to visualise them in Power BI in under a day.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">10 min read</span></div>
+      </div>
+    </div>
+
+    <div class="blog-card fade-in fade-in-delay-2" data-cat="strategy" onclick="openBlogPost('strat2')">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80" alt="Strategy">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Strategy</span><span class="blog-card-date">Oct 2024</span></div>
+        <h3>Applying Lean Six Sigma to MSME Operations: A No-Jargon, Practical Starter Guide</h3>
+        <p>Lean Six Sigma is often dismissed as too complex for small businesses. It isn't — if you apply it correctly. Here's how to use VSM, 5 Whys, and Pareto without the academic overhead.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">8 min read</span></div>
+      </div>
+    </div>
+
+  </div><!-- /blog-grid -->
+</section>
+
+<!-- Newsletter signup -->
+<div class="blog-newsletter">
+  <h3>Get Insights <em>Delivered to Your Inbox</em></h3>
+  <p>One practical article every two weeks — on cost management, supply chain, strategy, and operations. No spam. Unsubscribe any time.</p>
+  <div class="blog-nl-form">
+    <input type="email" id="nlEmail" placeholder="your@email.com">
+    <button onclick="subscribeNL()">Subscribe</button>
+  </div>
+  <div class="blog-nl-success" id="nlSuccess">✓ You're subscribed! First issue lands in your inbox soon.</div>
+</div>
+
+<!-- Blog post modal -->
+<div class="modal-overlay" id="modal-blog" onclick="closeModalOutside(event,'modal-blog')" style="align-items:flex-start;padding-top:80px;">
+  <div class="modal-box" style="max-width:760px;">
+    <div class="modal-header" id="blogModalHeader">
+      <button class="modal-close" onclick="closeModal('modal-blog')">✕</button>
+      <div class="modal-tag" id="blogModalTag"></div>
+      <h2 id="blogModalTitle"></h2>
+    </div>
+    <div class="modal-body" id="blogModalBody"></div>
+  </div>
+</div>
+
+</div><!-- /page-blog -->
+
+<!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
+<a class="whatsapp-btn" href="https://wa.me/919350789337?text=Hi%20Aakash%2C%20I%20found%20Benzene%20Consulting%20and%20would%20like%20to%20discuss%20a%20potential%20engagement." target="_blank" rel="noopener">
+  <div class="whatsapp-tooltip">Chat on WhatsApp</div>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.414.637 4.678 1.749 6.643L2 30l7.578-1.726A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 01-5.838-1.6l-.418-.248-4.497 1.025 1.05-4.374-.272-.437A11.46 11.46 0 014.5 16C4.5 9.596 9.596 4.5 16 4.5S27.5 9.596 27.5 16 22.404 27.5 16 27.5zm6.29-8.618c-.345-.172-2.04-1.006-2.355-1.121-.315-.115-.545-.172-.774.172-.23.345-.888 1.121-1.088 1.35-.2.23-.4.258-.745.086-.345-.172-1.455-.537-2.77-1.71-1.024-.914-1.715-2.043-1.915-2.388-.2-.345-.021-.531.15-.703.154-.154.345-.4.517-.6.172-.2.23-.345.345-.574.115-.23.057-.43-.029-.602-.086-.172-.774-1.866-1.06-2.555-.28-.672-.563-.58-.774-.59-.2-.01-.43-.012-.66-.012s-.602.086-.917.43c-.315.345-1.203 1.177-1.203 2.87s1.232 3.33 1.404 3.56c.172.23 2.426 3.706 5.878 5.196.822.355 1.463.567 1.963.726.824.263 1.575.226 2.168.137.661-.099 2.04-.834 2.327-1.638.287-.804.287-1.493.2-1.638-.086-.143-.315-.23-.66-.402z"/>
+  </svg>
+</a>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-logo-wrap">
+    <svg class="footer-logo-svg" viewBox="0 0 50 50" fill="none">
+      <polygon points="25,2 46,13.5 46,36.5 25,48 4,36.5 4,13.5" stroke="white" stroke-width="2" fill="none"/>
+      <circle cx="25" cy="25" r="10.5" stroke="white" stroke-width="1.6" fill="none" stroke-dasharray="5 3.5"/>
+      <circle cx="25"  cy="2"    r="3.5" fill="white"/>
+      <circle cx="46"  cy="13.5" r="3.5" fill="white"/>
+      <circle cx="46"  cy="36.5" r="3.5" fill="white"/>
+      <circle cx="25"  cy="48"   r="3.5" fill="white"/>
+      <circle cx="4"   cy="36.5" r="3.5" fill="white"/>
+      <circle cx="4"   cy="13.5" r="3.5" fill="white"/>
+    </svg>
+    <div>
+      <div class="footer-brand-name">BENZENE CONSULTING</div>
+      <div class="footer-tagline">Strategy · Cost · Supply Chain · ERP Advisory</div>
+    </div>
+  </div>
+  <div class="footer-links">
+    <a onclick="gotoPage('main','#why')">Why Consulting</a>
+    <a onclick="gotoPage('main','#services')">Services</a>
+    <a onclick="gotoPage('main','#industries')">Industries</a>
+    <a onclick="gotoPage('main','#erp')">ERP Advisory</a>
+    <a onclick="gotoPage('main','#faq')">FAQ</a>
+    <a onclick="gotoPage('blog',null)">Insights</a>
+    <a onclick="gotoPage('publications',null)">Publications</a>
+    <a onclick="gotoPage('careers',null)">Careers</a>
+    <a onclick="gotoPage('main','#contact')">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Benzene Consulting. All rights reserved.</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ─────────────────────────────────────────
+   NAVIGATION — single clean function
+   No conflicts with window.scrollTo
+───────────────────────────────────────── */
+function gotoPage(page, anchor) {
+  var main    = document.getElementById('page-main');
+  var careers = document.getElementById('page-careers');
+  var pubs    = document.getElementById('page-publications');
+  var blog    = document.getElementById('page-blog');
+  main.classList.remove('active');
+  careers.classList.remove('active');
+  pubs.classList.remove('active');
+  blog.classList.remove('active');
+  if (page === 'main')             main.classList.add('active');
+  else if (page === 'careers')     careers.classList.add('active');
+  else if (page === 'publications') pubs.classList.add('active');
+  else if (page === 'blog')        blog.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (anchor) {
+    setTimeout(function() {
+      var el = document.querySelector(anchor);
+      if (el) {
+        var offset = el.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    }, 160);
+  }
+  setTimeout(observeAll, 200);
+}
+
+/* ─────────────────────────────────────────
+   SERVICES TAB
+───────────────────────────────────────── */
+var servicesData = [
+  { tag:'Strategy', title:'Strategic Planning & Business Direction',
+    desc:'We work with MSME founders and leadership teams to craft clear, executable business strategies — defining where to play, how to win, and what to stop doing.',
+    points:['Business diagnosis and competitive landscape mapping','Vision, mission and 3-year strategic roadmap','SWOT, PESTLE, and Five Forces deep-dives','OKR / KPI framework design and cascade','Strategy review and refresh cycles'] },
+  { tag:'Cost Excellence', title:'Cost Improvement & Margin Expansion',
+    desc:'For MSMEs, a 5% cost reduction can mean a 30% jump in profitability. We identify structural cost leakages across procurement, operations, overheads, and logistics.',
+    points:['Cost baseline analysis and benchmarking','Procurement optimisation and vendor rationalisation','Zero-Based Budgeting design and implementation','Overhead and SG&A reduction programs','Working capital and cash flow improvement'] },
+  { tag:'Supply Chain', title:'Supply Chain Design & Optimisation',
+    desc:'From raw material sourcing to last-mile delivery, we help you build supply chains that are lean, visible, and resilient — especially critical for manufacturing MSMEs.',
+    points:['End-to-end supply chain mapping and diagnostics','Inventory optimisation and demand forecasting','Supplier evaluation, development, and risk management','Logistics and distribution network design','Supply chain digitisation and technology roadmap'] },
+  { tag:'Operations', title:'Operational Excellence & Process Improvement',
+    desc:'Operational inefficiency is often invisible until measured. We bring Lean and Six Sigma methodologies to MSME operations — driving throughput, quality, and speed.',
+    points:['Process mapping and value stream analysis','Lean transformation and waste elimination','Quality management system design','Productivity benchmarking and improvement','Standard Operating Procedure (SOP) development'] }
+];
+
+function setService(i) {
+  document.querySelectorAll('.service-tab').forEach(function(t,idx){ t.classList.toggle('active', idx===i); });
+  var d = servicesData[i];
+  document.getElementById('serviceDetail').innerHTML =
+    '<div class="service-detail-tag">'+d.tag+'</div>' +
+    '<h3>'+d.title+'</h3>' +
+    '<p>'+d.desc+'</p>' +
+    '<ul class="service-bullets">'+d.points.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul>' +
+    '<div style="margin-top:24px"><a class="btn-outline" onclick="gotoPage(\'main\',\'#contact\')" style="font-size:11px;padding:11px 22px">Discuss This Service →</a></div>';
+}
+setService(0);
+
+/* ─────────────────────────────────────────
+   FAQ ACCORDION
+───────────────────────────────────────── */
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ─────────────────────────────────────────
+   CONTACT FORM
+───────────────────────────────────────── */
+function submitForm() {
+  var name     = document.getElementById('f-name').value.trim();
+  var email    = document.getElementById('f-email').value.trim();
+  var interest = document.getElementById('f-interest').value;
+  var company  = document.getElementById('f-company') ? document.getElementById('f-company').value.trim() : '';
+  var phone    = document.getElementById('f-phone') ? document.getElementById('f-phone').value.trim() : '';
+  var message  = document.getElementById('f-message') ? document.getElementById('f-message').value.trim() : '';
+
+  if (!name || !email || !interest) {
+    alert('Please fill in your name, email, and area of interest.');
+    return;
+  }
+
+  var btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var formData = new FormData();
+  formData.append('name', name);
+  formData.append('email', email);
+  formData.append('company', company);
+  formData.append('phone', phone);
+  formData.append('interest', interest);
+  formData.append('message', message);
+
+  fetch('https://formspree.io/f/xzdjaqvn', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(function(response) {
+    if (response.ok) {
+      document.getElementById('formMsg').style.display = 'block';
+      btn.textContent = 'Message Sent';
+      btn.style.background = '#007A76';
+      btn.disabled = false;
+      if (document.getElementById('f-name')) document.getElementById('f-name').value = '';
+      if (document.getElementById('f-email')) document.getElementById('f-email').value = '';
+      if (document.getElementById('f-company')) document.getElementById('f-company').value = '';
+      if (document.getElementById('f-phone')) document.getElementById('f-phone').value = '';
+      if (document.getElementById('f-interest')) document.getElementById('f-interest').value = '';
+      if (document.getElementById('f-message')) document.getElementById('f-message').value = '';
+    } else {
+      alert('Something went wrong. Please email admin@benzeneconsulting.in directly.');
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    }
+  })
+  .catch(function() {
+    alert('Connection error. Please email admin@benzeneconsulting.in directly.');
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  });
+}
+
+/* ─────────────────────────────────────────
+   CAREERS APPLY
+───────────────────────────────────────── */
+function openApply(role) {
+  alert('To apply for "'+role+'", please send your CV and a short cover note to:\nadmin@benzeneconsulting.in\n\nMention the role in the subject line.');
+}
+
+/* ─────────────────────────────────────────
+   SLIDE VIEWER
+───────────────────────────────────────── */
+var currentSlide = 0;
+var totalSlides  = 3;
+
+function goSlide(n) {
+  currentSlide = n;
+  var track = document.getElementById('slideTrack');
+  if (track) track.style.transform = 'translateX(-' + (n * 100) + '%)';
+  document.querySelectorAll('.slide-dot').forEach(function(d, i) {
+    d.classList.toggle('active', i === n);
+  });
+  var ctr = document.getElementById('slideCounter');
+  if (ctr) ctr.textContent = (n + 1) + ' / ' + totalSlides;
+}
+
+function nextSlide() { goSlide((currentSlide + 1) % totalSlides); }
+function prevSlide()  { goSlide((currentSlide + totalSlides - 1) % totalSlides); }
+
+/* ─────────────────────────────────────────
+   MODALS
+───────────────────────────────────────── */
+function openModal(id) {
+  var m = document.getElementById(id);
+  if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id) {
+  var m = document.getElementById(id);
+  if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+function closeModalOutside(e, id) {
+  if (e.target === document.getElementById(id)) closeModal(id);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    ['modal-cost','modal-scm','modal-ops'].forEach(function(id){ closeModal(id); });
+  }
+});
+
+/* ─────────────────────────────────────────
+   SLIDE TRACK: make it flex with no-wrap
+───────────────────────────────────────── */
+window.addEventListener('DOMContentLoaded', function() {
+  var track = document.getElementById('slideTrack');
+  if (track) {
+    track.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+  }
+});
+
+/* ─────────────────────────────────────────
+   BLOG FILTER
+───────────────────────────────────────── */
+function filterBlog(cat, el) {
+  document.querySelectorAll('.blog-cat').forEach(function(c){ c.classList.remove('active'); });
+  el.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(function(card) {
+    if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+/* ─────────────────────────────────────────
+   BLOG POST MODAL
+───────────────────────────────────────── */
+var blogPosts = {
+  'featured': {
+    tag: 'Strategy · Featured',
+    title: 'Why 73% of MSMEs Stall at ₹50 Crore — and How to Break Through',
+    body: '<p>Most Indian businesses hit an invisible ceiling somewhere between ₹20Cr and ₹50Cr revenue. Founders often attribute this to market saturation, lack of capital, or increased competition. In most cases, they are wrong.</p><h4>The Real Reason: Organisational Debt</h4><p>When a business grows from ₹5Cr to ₹50Cr, it does so largely on the strength of its founder and a handful of key people. Processes are improvised. Decisions are centralised. Systems are informal. This works — until it doesn\'t.</p><p>At some threshold, usually around ₹30–50Cr revenue, the complexity of the business exceeds the capacity of informal coordination. Orders start falling through cracks. Quality becomes inconsistent. Key hires take too long to become productive. The founder is overwhelmed and the business cannot scale without them.</p><h4>The Diagnostic Framework</h4><p>We use a simple 4-question diagnostic to identify where the ceiling is:<br>1. Can your business run for 2 weeks without you making a major decision?<br>2. Do you have documented SOPs for your top 10 business processes?<br>3. Do you have a KPI dashboard your leadership team reviews weekly?<br>4. Can a new hire become 80% productive within 30 days?</p><p>If the answer to any of these is no, you have identified your ceiling. The good news: all four are solvable — and the order in which you solve them matters enormously.</p><h4>The Breakthrough Sequence</h4><p>Based on our engagements, the right sequence is: (1) Document critical processes first. (2) Build the performance measurement system. (3) Delegate decisions with clear accountability. (4) Then and only then, scale headcount or geography.</p><p>Most founders attempt this in the wrong order — they hire first, then wonder why the problems multiply.</p>'
+  },
+  'cost1': {
+    tag: 'Cost & Margins',
+    title: 'The 5 Places Every MSME Overpays on Procurement',
+    body: '<p>In every cost audit we conduct, we find the same five structural overpayments in MSME procurement. Together, they typically represent 15–30% of total procurement spend.</p><h4>1. Too Many Vendors, No Leverage</h4><p>The average MSME we work with has 120–200 active vendors. With spend fragmented across this many suppliers, you have zero negotiating power with any of them. Rationalising to 40–60 strategic vendors and consolidating spend typically delivers 8–15% price reduction within 90 days.</p><h4>2. No Formal Contracts or SLAs</h4><p>Without contracts, every repeat purchase is a new negotiation — and vendors know it. Formalising contracts with your top 20 vendors (which represent 80% of spend) locks in pricing and creates accountability for quality and delivery.</p><h4>3. Reactive vs Planned Buying</h4><p>When procurement is driven by immediate need rather than planned demand, you pay premium prices, accept poor terms, and make poor quality decisions under time pressure. An 8-week rolling procurement plan, aligned to your demand forecast, eliminates this entirely.</p><h4>4. No Benchmark Against Market</h4><p>Most MSMEs do not know whether they are paying market rates. They know only what they paid last time. Regular benchmarking — even quarterly — creates the baseline to identify overpriced categories and renegotiate with data.</p><h4>5. Payment Term Arbitrage Left on the Table</h4><p>Extending payment terms from 30 to 60 days across your vendor base frees significant working capital. Early payment discounts offered to strategic vendors in exchange for price reductions is another lever most MSMEs never use. Both are pure margin improvement with zero capital investment.</p>'
+  },
+  'sc1': {
+    tag: 'Supply Chain',
+    title: 'Building a Supply Chain from Scratch: A 5-Phase Blueprint',
+    body: '<p>This is based on a real engagement where we built a complete supply chain for a D2C brand from zero to 10,000+ orders per month in 20 weeks.</p><h4>Phase 1 (Weeks 1–3): Diagnosis & Mapping</h4><p>Before designing anything, map current state. Identify every pain point, every manual workaround, every recurring failure. Interview the people who actually do the work — not just managers. The insights are always in the operational staff.</p><h4>Phase 2 (Weeks 4–7): Procurement Foundation</h4><p>Vendor evaluation matrix. Contract templates. Payment terms policy. Approval matrix. This is the foundation everything else depends on — skip it and every downstream problem becomes a procurement problem in disguise.</p><h4>Phase 3 (Weeks 8–12): Warehouse & Inventory</h4><p>ABC classification of SKUs. Location coding. SOP for receiving, put-away, picking, packing, dispatch. Cycle count schedule. Most businesses skip this and then wonder why inventory accuracy is poor and orders are delayed.</p><h4>Phase 4 (Weeks 13–17): Distribution Network</h4><p>3PL selection and onboarding with SLA-backed contracts. Route planning. Returns management process. The goal: 95%+ OTIF from day one of go-live.</p><h4>Phase 5 (Weeks 18–20): Go-Live & Handover</h4><p>Team training on every SOP. KPI dashboard built and live. Daily review rhythm established. 30-day hypercare period before handover to client team.</p>'
+  },
+  'ops1': {
+    tag: 'Operations & SOPs',
+    title: 'How to Write SOPs Your Team Will Actually Use',
+    body: '<p>Most SOPs fail not because they are badly written — but because they are written for the wrong audience, stored in the wrong place, and never reinforced. Here is how to fix all three.</p><h4>Write for the Person Doing the Job</h4><p>An SOP written by a manager for a manager will not be followed by the person on the floor. Every SOP should be written at the reading level of the person who will use it — with photos, screenshots, or diagrams wherever possible. If it requires more than 10 seconds to understand a step, rewrite the step.</p><h4>The Right Structure for Every SOP</h4><p>Every effective SOP has five sections: (1) Purpose — why this process matters. (2) Scope — who this applies to. (3) Steps — numbered, sequential, unambiguous. (4) Exceptions — what to do when things go wrong. (5) Owner — who is responsible for maintaining this SOP.</p><h4>Where SOPs Go to Die</h4><p>SOPs stored in a shared drive folder that nobody visits will not be followed. The best SOPs we have seen are printed and laminated at the workstation, or embedded directly into the software system used for that task. If it is not visible at the moment of use, it does not exist.</p><h4>Review Cycles</h4><p>Every SOP should have a quarterly review date. A process that is not reviewed becomes outdated within 6 months in a growing business. Assign SOP ownership to a specific role — not a person — and make review a standing agenda item in your operational review meetings.</p>'
+  },
+  'erp1': {
+    tag: 'ERP & Tech',
+    title: 'SAP vs Zoho vs ERPNext vs Tally: An Honest Guide for MSMEs',
+    body: '<p>This comparison is vendor-neutral. We have no referral arrangements with any of these providers. Our recommendation is always based solely on client fit.</p><h4>Tally Prime — Best For</h4><p>Businesses whose primary need is accounting and compliance. If your main pain is GST filing, financial reporting, and basic inventory tracking — Tally is the right answer. It is affordable, widely understood by Indian accountants, and does not require implementation consultants. Do not over-engineer a Tally problem into a SAP solution.</p><h4>Zoho One — Best For</h4><p>Growing businesses that need CRM, inventory, HR, and operations in one connected ecosystem. Zoho\'s Indian pricing is extremely competitive and implementation complexity is manageable. Best suited for businesses in the ₹5Cr–₹50Cr range with 20–200 employees.</p><h4>ERPNext — Best For</h4><p>Manufacturing or distribution businesses that need genuine ERP functionality without SAP pricing. ERPNext is open-source, highly customisable, and has a strong Indian implementation partner ecosystem. Requires a competent implementation partner — do not attempt self-implementation.</p><h4>SAP Business One / S/4HANA — Best For</h4><p>Businesses above ₹100Cr revenue with complex multi-location, multi-entity operations that need a system capable of scaling to ₹1000Cr+. The implementation cost and timeline are significant — budget ₹30L–₹1Cr+ and 6–18 months. Never implement SAP because a competitor uses it.</p><h4>Our Advice</h4><p>The most expensive ERP mistake is choosing a system based on brand recognition rather than business fit. Always start with a 2-week needs assessment before evaluating any vendor. The right system is the one that solves your specific problems — not the most sophisticated one on the market.</p>'
+  },
+  'strat1': { tag:'Strategy', title:'Zero-Based Budgeting for MSMEs', body:'<p>Zero-Based Budgeting (ZBB) is one of the most powerful cost management tools available to MSME leaders — and one of the most misunderstood. Here is how to apply it correctly.</p><h4>What ZBB Is (and Is Not)</h4><p>ZBB is not about cutting costs arbitrarily. It is about requiring every line of expenditure to justify its existence from zero — rather than simply incrementing last year\'s budget by a percentage. In practice, this means asking: "If we were building this budget from scratch today, would we spend money on this?" not "How much more than last year do we need?"</p><h4>The 4-Step Process</h4><p>Step 1: Map every cost to a business activity. Step 2: For each activity, ask: does this directly drive revenue, reduce risk, or fulfil a legal requirement? Step 3: For activities that do not pass this test, eliminate, reduce, or outsource. Step 4: For activities that pass, benchmark the cost against market alternatives and renegotiate where overpaying.</p><h4>What We Typically Find</h4><p>In every ZBB exercise we have conducted for MSME clients, we find 15–25% of overhead spend that either has no clear business justification, or is significantly above market rate. That is pure margin improvement.</p>' },
+  'sc2': { tag:'Supply Chain', title:'Inventory Carrying Costs Are Destroying Your Margins', body:'<p>Most MSME owners think excess inventory is a minor inconvenience. The numbers tell a different story.</p><h4>What Does Inventory Actually Cost?</h4><p>The true carrying cost of inventory is typically 20–35% of inventory value per year — once you account for: capital cost (opportunity cost of cash tied up), storage cost, insurance, obsolescence risk, and handling cost. For a business carrying ₹5Cr of inventory, this is ₹1–1.75Cr per year in hidden cost.</p><h4>The Three Levers</h4><p>Lever 1 — Demand forecasting: An 8-week rolling forecast aligned to sales data reduces safety stock requirements by 30–40% without increasing stockout risk. Lever 2 — ABC classification: Focus tight inventory management on A-class items (top 20% of SKUs driving 80% of revenue). Looser control on C-class items is acceptable. Lever 3 — Supplier lead time reduction: Every week of lead time reduction allows a corresponding reduction in safety stock. Reducing lead time from 18 to 9 days (as we achieved for one client) halves the safety stock requirement.</p>' },
+  'cost2': { tag:'Cost & Margins', title:'Vendor Rationalisation: From 187 to 64 Vendors', body:'<p>This is the story of a real engagement — an auto components manufacturer with ₹115Cr revenue and 187 active vendors, none with formal contracts.</p><h4>The Diagnosis</h4><p>When we mapped spend across all 187 vendors, we found: the top 20 vendors accounted for 78% of total spend. 43 vendors had received less than one order in the past 12 months but remained "active." 31 vendor pairs were essentially duplicates — supplying the same category with minor differences in spec.</p><h4>The Rationalisation Process</h4><p>Step 1: Identify the strategic vendors — those whose products are critical, unique, or where switching cost is high. These become your "strategic tier" — typically 15–25 vendors. Step 2: Consolidate transactional spend — for commodity categories, consolidate to 2–3 vendors per category and negotiate volume-based pricing. Step 3: Formalise contracts — every remaining vendor gets a contract with defined pricing, quality specs, lead times, and SLA penalties. Step 4: Create a vendor scorecard and review quarterly.</p><h4>The Result</h4><p>187 vendors became 64. Average price reduction across renegotiated categories: 8.4%. Annual saving delivered: ₹3.2Cr — from procurement alone, before touching any other cost line.</p>' },
+  'ops2': { tag:'Operations & SOPs', title:'The 8 KPIs Every MSME Operations Leader Should Track', body:'<p>Most MSMEs track revenue and maybe profit. The businesses that scale sustainably track the operational metrics that predict revenue and profit — before they show up in the P&L.</p><h4>The 8 Essential KPIs</h4><p><strong>1. On-Time-In-Full (OTIF)</strong> — % of orders delivered complete and on time. Target: 95%+. This single metric predicts customer retention better than NPS.<br><strong>2. Inventory Days on Hand</strong> — How many days of sales your current stock covers. Too high = cash trapped. Too low = stockout risk.<br><strong>3. Procurement Cost vs Budget</strong> — Are you buying at the rates you planned? Variance of more than 5% needs explanation.<br><strong>4. Throughput per Employee</strong> — Revenue or units produced per headcount. The best proxy for operational productivity.<br><strong>5. Defect / Error Rate</strong> — % of orders, products, or processes with quality failures. Should trend downward every quarter.<br><strong>6. Vendor On-Time Delivery</strong> — % of supplier deliveries arriving on time. Poor supplier OTD is the most common hidden cause of customer-facing delays.<br><strong>7. Cash Conversion Cycle</strong> — Days inventory + days receivable - days payable. The shorter this is, the less working capital you need to grow.<br><strong>8. SOP Compliance Rate</strong> — % of processes being followed as documented. Businesses with high SOP compliance have 40% fewer operational failures.</p>' }
+};
+
+function openBlogPost(postId) {
+  var post = blogPosts[postId];
+  if (!post) { return; }
+  document.getElementById('blogModalTag').textContent = post.tag;
+  document.getElementById('blogModalTitle').textContent = post.title;
+  document.getElementById('blogModalBody').innerHTML = post.body +
+    '<div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--border);">' +
+    '<p style="font-size:13px;color:var(--text-dim);margin-bottom:16px;">Enjoyed this insight? Let\'s talk about how this applies to your business.</p>' +
+    '<a class="btn-primary" onclick="closeModal(\'modal-blog\');gotoPage(\'main\',\'#contact\')" style="font-size:11px;padding:12px 24px;">Book a Free Discovery Call →</a>' +
+    '</div>';
+  openModal('modal-blog');
+}
+
+/* ─────────────────────────────────────────
+   NEWSLETTER
+───────────────────────────────────────── */
+function subscribeNL() {
+  var email = document.getElementById('nlEmail').value.trim();
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+  document.getElementById('nlSuccess').style.display = 'block';
+  document.getElementById('nlEmail').value = '';
+}
+
+/* ─────────────────────────────────────────
+   SCROLL ANIMATIONS
+───────────────────────────────────────── */
+function observeAll() {
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el){ obs.observe(el); });
+}
+observeAll();
+</script>
 </body>
 </html>
