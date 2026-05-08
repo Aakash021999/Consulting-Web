@@ -65,7 +65,15 @@ nav{
 .nav-links a:hover{color:var(--teal);border-bottom-color:var(--teal);}
 .nav-cta{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;padding:11px 24px;border:1.5px solid var(--teal);color:var(--teal);background:transparent;cursor:pointer;transition:all 0.25s;text-decoration:none;font-weight:500;}
 .nav-cta:hover{background:var(--teal);color:#fff;}
-
+.mobile-menu-btn{display:none;width:44px;height:44px;border:1.5px solid var(--border-mid);background:#fff;color:var(--teal);align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;transition:all 0.25s;}
+.mobile-menu-btn span{width:18px;height:1.5px;background:currentColor;display:block;transition:all 0.25s;}
+.mobile-menu-btn:hover{background:var(--teal-dim);border-color:var(--teal);}
+.mobile-menu-panel{position:fixed;top:74px;left:0;right:0;z-index:999;background:rgba(255,255,255,0.98);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);box-shadow:0 24px 60px rgba(0,86,83,0.12);padding:22px 5vw 26px;display:none;}
+.mobile-menu-panel.open{display:block;}
+.mobile-menu-panel a{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--border);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);text-decoration:none;cursor:pointer;}
+.mobile-menu-panel a::after{content:'→';color:var(--teal);}
+.mobile-menu-cta{margin-top:18px;width:100%;text-align:center;}
+  
 /* ── HERO ── */
 #hero{
   min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
@@ -102,6 +110,8 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-trust-row{display:flex;align-items:center;gap:10px;}
 .hero-trust-dot{width:5px;height:5px;border-radius:50%;background:var(--teal-light);flex-shrink:0;}
 .hero-trust-text{font-size:12px;color:var(--text-dim);letter-spacing:0.04em;}
+.hero-proof-strip{display:flex;flex-wrap:wrap;gap:10px;margin:-18px 0 28px;}
+.hero-proof-pill{padding:9px 12px;border:1px solid var(--border);background:var(--teal-dim);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);}
 
 /* RIGHT PANEL */
 .hero-right{
@@ -196,7 +206,18 @@ section{padding:88px 5vw;}
 .why-card p{font-size:14px;color:var(--text-muted);line-height:1.85;}
 
 
-  /* ── INTERACTIVE DIAGNOSTIC ── */
+/* ── INTERACTIVE DIAGNOSTIC ── */
+#problem-finder{background:var(--surface);}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.problem-card{border:1px solid var(--border);background:#fff;padding:24px;text-align:left;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;}
+.problem-card::before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.25s;}
+.problem-card:hover{transform:translateY(-5px);border-color:rgba(0,86,83,0.35);box-shadow:0 18px 42px rgba(0,86,83,0.09);}
+.problem-card:hover::before{transform:scaleX(1);}
+.problem-icon{width:42px;height:42px;border-radius:50%;background:var(--teal-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;}
+.problem-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--text);margin-bottom:8px;}
+.problem-card p{font-size:13px;line-height:1.75;color:var(--text-muted);margin-bottom:16px;}
+.problem-link{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);font-weight:600;}
+
 #diagnostic{background:linear-gradient(135deg,var(--white) 0%,var(--teal-pale) 100%);position:relative;overflow:hidden;}
 #diagnostic::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 18% 24%,rgba(0,86,83,0.08),transparent 28%),radial-gradient(circle at 86% 76%,rgba(201,162,74,0.14),transparent 30%);pointer-events:none;}
 .diagnostic-shell{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:34px;margin-top:52px;align-items:stretch;}
@@ -568,6 +589,11 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .blog-nl-form button:hover{background:var(--teal-mid);}
 .blog-nl-success{display:none;font-size:13px;color:var(--teal);margin-top:12px;}
 
+.contact-reassurance{font-size:13px;color:var(--text-muted);line-height:1.8;margin-bottom:22px;padding:16px 18px;background:var(--teal-dim);border-left:3px solid var(--teal);}
+.challenge-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;}
+.challenge-chip{border:1px solid var(--border-mid);background:#fff;color:var(--text-muted);padding:9px 12px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.challenge-chip:hover,.challenge-chip.active{border-color:var(--teal);background:var(--teal);color:#fff;}
+
 /* ── WHATSAPP BUTTON ── */
 .whatsapp-btn{
   position:fixed;bottom:28px;right:28px;z-index:999;
@@ -590,13 +616,14 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-  .nav-links{display:none;}
+.nav-links,.nav-cta{display:none;}
+  .mobile-menu-btn{display:flex;}
   #hero{grid-template-columns:1fr;}
   .hero-right{min-height:460px;}
-  .why-grid,.contact-layout,.faq-layout,.services-layout,#erp,.sop-layout,.diagnostic-shell,.diagnostic-result{grid-template-columns:1fr;}
+  .why-grid,.contact-layout,.faq-layout,.services-layout,#erp,.sop-layout,.diagnostic-shell,.diagnostic-result,.problem-grid{grid-template-columns:1fr;}
   .score-ring{margin:0 auto;}
   .diagnostic-mini-cards{grid-template-columns:1fr;}
-  .ind-grid{grid-template-columns:1fr 1fr;}
+  .ind-grid,.problem-grid{grid-template-columns:1fr 1fr;}
   .process-steps{grid-template-columns:1fr 1fr;}
   .process-steps::before{display:none;}
   .form-row{grid-template-columns:1fr;}
@@ -608,7 +635,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   .hero-left::after{display:none;}
 }
 @media(max-width:560px){
-  .ind-grid,.process-steps,.values-grid,.perks-grid{grid-template-columns:1fr;}
+  .ind-grid,.process-steps,.values-grid,.perks-grid,.problem-grid{grid-template-columns:1fr;}
   .erp-right{grid-template-columns:1fr;}
   footer{flex-direction:column;text-align:center;}
   .footer-links{justify-content:center;}
@@ -661,8 +688,22 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <li><a onclick="gotoPage('careers',null)">Careers</a></li>
   </ul>
   <a class="nav-cta" onclick="gotoPage('main','#contact')">Get in Touch</a>
+<button class="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
 </nav>
-
+  <div class="mobile-menu-panel" id="mobileMenu">
+  <a onclick="gotoPage('main','#why')">Why Consulting</a>
+  <a onclick="gotoPage('main','#problem-finder')">Problems We Solve</a>
+  <a onclick="gotoPage('main','#diagnostic')">Growth Check</a>
+  <a onclick="gotoPage('main','#services')">Services</a>
+  <a onclick="gotoPage('main','#industries')">Industries</a>
+  <a onclick="gotoPage('main','#process')">Process</a>
+  <a onclick="gotoPage('main','#faq')">FAQ</a>
+  <a onclick="gotoPage('blog',null)">Insights</a>
+  <a onclick="gotoPage('publications',null)">Publications</a>
+  <a onclick="gotoPage('careers',null)">Careers</a>
+  <button class="btn-primary mobile-menu-cta" type="button" onclick="gotoPage('main','#contact')">Book Discovery Call</button>
+</div>
+  
 <!-- ══════════ MAIN PAGE ══════════ -->
 <div id="page-main" class="page active">
 
@@ -675,8 +716,13 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <h1>Sharper<br>Strategy.<br><em>Leaner</em><br>Operations.</h1>
     <p class="hero-sub">Expert consulting for India's small and mid-size businesses — cutting costs, building resilient supply chains, and creating strategies that actually get executed.</p>
     <div class="hero-actions">
-      <a class="btn-primary" onclick="gotoPage('main','#contact')">Book a Free Discovery Call</a>
+      <a class="btn-primary" onclick="gotoPage('main','#contact')">Find My Growth Opportunity</a>
       <a class="btn-outline" onclick="gotoPage('main','#services')">Explore Services</a>
+    </div>
+        <div class="hero-proof-strip" aria-label="Benzene Consulting impact snapshot">
+      <div class="hero-proof-pill">₹50Cr+ savings delivered</div>
+      <div class="hero-proof-pill">60+ MSMEs served</div>
+      <div class="hero-proof-pill">12+ years experience</div>
     </div>
     <div class="hero-trust">
       <div class="hero-trust-row"><div class="hero-trust-dot"></div><span class="hero-trust-text">MSME &amp; Supply Chain Specialists</span></div>
@@ -777,7 +823,22 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <div class="img-strip-label">Cost Improvement</div>
   </div>
 </div>
-
+  
+<!-- PROBLEM FINDER -->
+<section id="problem-finder">
+  <div class="section-label">Find Your Starting Point</div>
+  <h2 class="section-title">What Are You Trying to <em>Fix?</em></h2>
+  <p class="section-sub">Choose the pressure point that feels closest to your business today. Each path guides visitors toward the right service without removing any existing content.</p>
+  <div class="problem-grid">
+    <button class="problem-card fade-in" type="button" onclick="chooseChallenge('Costs rising',1)"><div class="problem-icon">↘</div><h3>Costs are rising</h3><p>Find procurement, overhead, logistics, working-capital, and margin leakage before it compounds.</p><div class="problem-link">View margin path →</div></button>
+    <button class="problem-card fade-in fade-in-delay-1" type="button" onclick="chooseChallenge('Founder dependency',3)"><div class="problem-icon">◎</div><h3>Business depends on me</h3><p>Build SOPs, dashboards, and delegation systems so daily decisions stop bottlenecking at the founder.</p><div class="problem-link">Build systems →</div></button>
+    <button class="problem-card fade-in fade-in-delay-2" type="button" onclick="chooseChallenge('Supply chain delays',2)"><div class="problem-icon">⇄</div><h3>Supply chain is unreliable</h3><p>Map supplier risk, inventory buffers, fulfilment delays, and delivery visibility before growth breaks service levels.</p><div class="problem-link">Fix flow →</div></button>
+    <button class="problem-card fade-in" type="button" onclick="chooseChallenge('ERP confusion',null,'#erp')"><div class="problem-icon">⌘</div><h3>ERP decision is confusing</h3><p>Clarify process requirements, vendor fit, data ownership, and implementation risks before spending on software.</p><div class="problem-link">Check ERP fit →</div></button>
+    <button class="problem-card fade-in fade-in-delay-1" type="button" onclick="chooseChallenge('Need SOPs',3)"><div class="problem-icon">☷</div><h3>Team lacks SOPs</h3><p>Document critical work, train teams, and reduce recurring mistakes caused by informal processes.</p><div class="problem-link">Create operating rhythm →</div></button>
+    <button class="problem-card fade-in fade-in-delay-2" type="button" onclick="chooseChallenge('Need growth roadmap',0)"><div class="problem-icon">✦</div><h3>Need a growth roadmap</h3><p>Turn ambition into a clear 3-year plan with priorities, KPIs, ownership, and review cadence.</p><div class="problem-link">Shape strategy →</div></button>
+  </div>
+</section>
+  
 <!-- WHY MSMES CANT SCALE — SOP SECTION -->
 <section id="sop">
   <div class="sop-grid-bg"></div>
@@ -850,9 +911,9 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <div class="why-card fade-in fade-in-delay-2"><div class="why-num">03</div><h3>Protect &amp; Grow Your Margins</h3><p>For MSMEs, margin erosion can be existential. Targeted cost improvement programs — from procurement to process re-engineering — directly protect your bottom line.</p></div>
     <div class="why-card fade-in fade-in-delay-3"><div class="why-num">04</div><h3>Build Supply Chain Resilience</h3><p>Disruptions are inevitable. We help you map vulnerabilities and build contingency frameworks so supply chain shocks become manageable — not catastrophic.</p></div>
   </div>
+  
 </section>
 
-  
 <!-- INTERACTIVE DIAGNOSTIC -->
 <section id="diagnostic">
   <div class="section-label">Interactive Diagnostic</div>
@@ -925,8 +986,8 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
       </div>
     </div>
   </div>
-  </section>
-  
+</section>  
+
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">What We Do</div>
@@ -1021,6 +1082,14 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
       <div class="contact-item"><div class="contact-icon">◷</div><div><h4>Response Time</h4><p>Within 24 hours on business days</p></div></div>
     </div>
     <div class="contact-form">
+         <p class="contact-reassurance">No sales pressure — just a practical first conversation about where your business is leaking time, cash, or control.</p>
+      <div class="challenge-chips" aria-label="Common business challenges">
+        <button class="challenge-chip" type="button" onclick="prefillChallenge('Costs rising', this)">Costs rising</button>
+        <button class="challenge-chip" type="button" onclick="prefillChallenge('ERP confusion', this)">ERP confusion</button>
+        <button class="challenge-chip" type="button" onclick="prefillChallenge('Founder dependency', this)">Founder dependency</button>
+        <button class="challenge-chip" type="button" onclick="prefillChallenge('Need SOPs', this)">Need SOPs</button>
+        <button class="challenge-chip" type="button" onclick="prefillChallenge('Supply chain delays', this)">Supply chain delays</button>
+      </div>
       <div class="form-row">
         <div class="form-group"><label>Full Name *</label><input type="text" id="f-name" placeholder="Your name"></div>
         <div class="form-group"><label>Company Name</label><input type="text" id="f-company" placeholder="Your company"></div>
@@ -1741,11 +1810,27 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ─────────────────────────────────────────
+  function closeMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.querySelector('.mobile-menu-btn');
+  if (menu) menu.classList.remove('open');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+function toggleMobileMenu() {
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.querySelector('.mobile-menu-btn');
+  if (!menu || !btn) return;
+  var open = !menu.classList.contains('open');
+  menu.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+  /* ─────────────────────────────────────────
    NAVIGATION — single clean function
    No conflicts with window.scrollTo
-───────────────────────────────────────── */
+   ───────────────────────────────────────── */
 function gotoPage(page, anchor) {
+  closeMobileMenu();
   var main    = document.getElementById('page-main');
   var careers = document.getElementById('page-careers');
   var pubs    = document.getElementById('page-publications');
@@ -1800,6 +1885,24 @@ function setService(i) {
     '<div style="margin-top:24px"><a class="btn-outline" onclick="gotoPage(\'main\',\'#contact\')" style="font-size:11px;padding:11px 22px">Discuss This Service →</a></div>';
 }
 setService(0);
+
+  function prefillChallenge(challenge, chip) {
+  var message = document.getElementById('f-message');
+  if (message && !message.value) {
+    message.value = 'I would like help with: ' + challenge + '.';
+  } else if (message && message.value.indexOf(challenge) === -1) {
+    message.value += '\nChallenge selected: ' + challenge + '.';
+  }
+  document.querySelectorAll('.challenge-chip.active').forEach(function(c){ c.classList.remove('active'); });
+  if (chip) chip.classList.add('active');
+}
+
+function chooseChallenge(challenge, serviceIndex, anchor) {
+  if (typeof serviceIndex === 'number') setService(serviceIndex);
+  var target = anchor || '#services';
+  gotoPage('main', target);
+  setTimeout(function(){ prefillChallenge(challenge, null); }, 220);
+}
 
 /* ─────────────────────────────────────────
    INTERACTIVE DIAGNOSTIC
