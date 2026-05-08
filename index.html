@@ -195,6 +195,47 @@ section{padding:88px 5vw;}
 .why-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:12px;}
 .why-card p{font-size:14px;color:var(--text-muted);line-height:1.85;}
 
+
+  /* ── INTERACTIVE DIAGNOSTIC ── */
+#diagnostic{background:linear-gradient(135deg,var(--white) 0%,var(--teal-pale) 100%);position:relative;overflow:hidden;}
+#diagnostic::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 18% 24%,rgba(0,86,83,0.08),transparent 28%),radial-gradient(circle at 86% 76%,rgba(201,162,74,0.14),transparent 30%);pointer-events:none;}
+.diagnostic-shell{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:34px;margin-top:52px;align-items:stretch;}
+.diagnostic-panel,.diagnostic-result{background:rgba(255,255,255,0.86);border:1px solid var(--border);box-shadow:0 22px 70px rgba(0,86,83,0.08);backdrop-filter:blur(10px);}
+.diagnostic-panel{padding:34px;display:flex;flex-direction:column;gap:24px;}
+.diagnostic-intro{font-size:14px;color:var(--text-muted);line-height:1.85;}
+.diagnostic-controls{display:flex;flex-direction:column;gap:22px;}
+.diagnostic-control{padding:18px;border:1px solid var(--border);background:var(--off-white);transition:all 0.25s;}
+.diagnostic-control:focus-within{border-color:var(--teal);background:#fff;box-shadow:0 12px 26px rgba(0,86,83,0.08);}
+.diagnostic-control-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:14px;}
+.diagnostic-control label{font-size:13px;font-weight:500;color:var(--text);line-height:1.45;}
+.diagnostic-control small{display:block;font-size:11px;color:var(--text-dim);line-height:1.6;margin-top:4px;}
+.diagnostic-value{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--teal);font-weight:300;min-width:52px;text-align:right;}
+.diagnostic-control input[type="range"]{width:100%;accent-color:var(--teal);cursor:pointer;}
+.diagnostic-scale{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-top:8px;}
+.diagnostic-result{padding:36px;display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:center;}
+.score-ring{width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--teal) var(--score,62%),rgba(0,86,83,0.12) 0);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08);}
+.score-ring::after{content:'';position:absolute;inset:16px;border-radius:50%;background:#fff;box-shadow:0 10px 25px rgba(0,86,83,0.08);}
+.score-inner{position:relative;z-index:1;text-align:center;}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:var(--teal);line-height:1;}
+.score-label{font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--text-dim);margin-top:6px;}
+.result-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--teal-light);margin-bottom:10px;}
+.result-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.2;margin-bottom:12px;}
+.result-copy{font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:20px;}
+.priority-list{display:grid;gap:10px;margin:0 0 24px;padding:0;list-style:none;}
+.priority-list li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-muted);line-height:1.65;padding:10px 12px;background:var(--teal-pale);border-left:3px solid var(--teal);}
+.priority-list li::before{content:'↳';color:var(--teal);font-weight:700;}
+.diagnostic-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.diagnostic-actions a{font-size:11px;letter-spacing:0.13em;text-transform:uppercase;text-decoration:none;padding:12px 18px;cursor:pointer;transition:all 0.25s;}
+.diag-primary{background:var(--teal);color:#fff;}
+.diag-primary:hover{background:var(--teal-mid);}
+.diag-secondary{border:1px solid var(--border-mid);color:var(--teal);background:#fff;}
+.diag-secondary:hover{border-color:var(--teal);background:var(--teal-pale);}
+.diagnostic-mini-cards{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2px;}
+.diagnostic-mini-card{border:1px solid var(--border);background:rgba(255,255,255,0.72);padding:18px;transition:all 0.25s;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;}
+.diagnostic-mini-card:hover{transform:translateY(-3px);border-color:var(--teal);background:#fff;}
+.diagnostic-mini-card strong{display:block;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:6px;color:var(--text);}
+.diagnostic-mini-card span{font-size:12px;color:var(--text-muted);line-height:1.65;}
+
 /* ── SERVICES ── */
 #services{background:var(--off-white);}
 .services-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start;margin-top:52px;}
@@ -552,7 +593,9 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   .nav-links{display:none;}
   #hero{grid-template-columns:1fr;}
   .hero-right{min-height:460px;}
-  .why-grid,.contact-layout,.faq-layout,.services-layout,#erp,.sop-layout{grid-template-columns:1fr;}
+  .why-grid,.contact-layout,.faq-layout,.services-layout,#erp,.sop-layout,.diagnostic-shell,.diagnostic-result{grid-template-columns:1fr;}
+  .score-ring{margin:0 auto;}
+  .diagnostic-mini-cards{grid-template-columns:1fr;}
   .ind-grid{grid-template-columns:1fr 1fr;}
   .process-steps{grid-template-columns:1fr 1fr;}
   .process-steps::before{display:none;}
@@ -809,6 +852,81 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   </div>
 </section>
 
+  
+<!-- INTERACTIVE DIAGNOSTIC -->
+<section id="diagnostic">
+  <div class="section-label">Interactive Diagnostic</div>
+  <h2 class="section-title">Find Your <em>Growth Readiness</em> Score</h2>
+  <p class="section-sub">Move the sliders to model your current operating maturity. The tool translates your inputs into a focused consulting priority map — without removing or replacing any of the content below.</p>
+
+  <div class="diagnostic-shell">
+    <div class="diagnostic-panel fade-in">
+      <p class="diagnostic-intro">Rate each area from 1 to 10. A higher score means the capability is documented, measured, and consistently followed by your team.</p>
+      <div class="diagnostic-controls">
+        <div class="diagnostic-control">
+          <div class="diagnostic-control-top">
+            <label for="diag-process">Process documentation<small>SOPs, handovers, approval matrices, and standard workflows.</small></label>
+            <div class="diagnostic-value" id="diag-process-val">5</div>
+          </div>
+          <input id="diag-process" type="range" min="1" max="10" value="5" oninput="updateDiagnostic()">
+          <div class="diagnostic-scale"><span>Ad hoc</span><span>Systemised</span></div>
+        </div>
+
+        <div class="diagnostic-control">
+          <div class="diagnostic-control-top">
+            <label for="diag-cost">Cost visibility<small>Spend baselines, vendor contracts, budget ownership, and margin tracking.</small></label>
+            <div class="diagnostic-value" id="diag-cost-val">6</div>
+          </div>
+          <input id="diag-cost" type="range" min="1" max="10" value="6" oninput="updateDiagnostic()">
+          <div class="diagnostic-scale"><span>Opaque</span><span>Measured</span></div>
+        </div>
+
+        <div class="diagnostic-control">
+          <div class="diagnostic-control-top">
+            <label for="diag-supply">Supply-chain resilience<small>Supplier risk, inventory discipline, logistics planning, and delivery reliability.</small></label>
+            <div class="diagnostic-value" id="diag-supply-val">5</div>
+          </div>
+          <input id="diag-supply" type="range" min="1" max="10" value="5" oninput="updateDiagnostic()">
+          <div class="diagnostic-scale"><span>Fragile</span><span>Resilient</span></div>
+        </div>
+
+        <div class="diagnostic-control">
+          <div class="diagnostic-control-top">
+            <label for="diag-tech">Technology fit<small>ERP readiness, dashboard adoption, clean master data, and workflow automation.</small></label>
+            <div class="diagnostic-value" id="diag-tech-val">4</div>
+          </div>
+          <input id="diag-tech" type="range" min="1" max="10" value="4" oninput="updateDiagnostic()">
+          <div class="diagnostic-scale"><span>Manual</span><span>Enabled</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="diagnostic-result fade-in fade-in-delay-1">
+      <div class="score-ring" id="scoreRing" style="--score:50%">
+        <div class="score-inner">
+          <div class="score-num" id="diag-score">50</div>
+          <div class="score-label">out of 100</div>
+        </div>
+      </div>
+      <div>
+        <div class="result-tag" id="diag-stage">Build the foundation</div>
+        <h3 class="result-title" id="diag-title">Your systems need structure before scale.</h3>
+        <p class="result-copy" id="diag-copy">The business has enough traction to grow, but inconsistent processes and manual decision-making may create avoidable cost, delays, and founder dependency.</p>
+        <ul class="priority-list" id="diag-priorities"></ul>
+        <div class="diagnostic-actions">
+          <a class="diag-primary" onclick="gotoPage('main','#contact')">Discuss My Score →</a>
+          <a class="diag-secondary" onclick="gotoPage('main','#services')">Match to Services</a>
+        </div>
+      </div>
+      <div class="diagnostic-mini-cards">
+        <button class="diagnostic-mini-card" type="button" onclick="setService(3);gotoPage('main','#services')"><strong>SOP Sprint</strong><span>Document critical workflows and train teams to reduce owner dependency.</span></button>
+        <button class="diagnostic-mini-card" type="button" onclick="setService(1);gotoPage('main','#services')"><strong>Margin Scan</strong><span>Identify procurement, overhead, working-capital, and logistics leakage.</span></button>
+        <button class="diagnostic-mini-card" type="button" onclick="gotoPage('main','#erp')"><strong>ERP Fit Check</strong><span>Clarify technology requirements before vendor demos or implementation spend.</span></button>
+      </div>
+    </div>
+  </div>
+  </section>
+  
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">What We Do</div>
@@ -1683,6 +1801,61 @@ function setService(i) {
 }
 setService(0);
 
+/* ─────────────────────────────────────────
+   INTERACTIVE DIAGNOSTIC
+───────────────────────────────────────── */
+var diagnosticMap = {
+  process: { label:'Process documentation', service:3, advice:'Prioritise SOPs, approval matrices, and team training so recurring work stops depending on memory.' },
+  cost: { label:'Cost visibility', service:1, advice:'Run a cost baseline, vendor rationalisation, and budget-owner review to uncover margin leakage.' },
+  supply: { label:'Supply-chain resilience', service:2, advice:'Map supplier risk, inventory buffers, logistics bottlenecks, and delivery performance before volume scales.' },
+  tech: { label:'Technology fit', service:null, advice:'Define ERP requirements, master-data ownership, and dashboard needs before choosing software.' }
+};
+
+function updateDiagnostic() {
+  var keys = ['process','cost','supply','tech'];
+  var values = keys.map(function(key) {
+    var input = document.getElementById('diag-' + key);
+    var value = input ? parseInt(input.value, 10) : 0;
+    var valueEl = document.getElementById('diag-' + key + '-val');
+    if (valueEl) valueEl.textContent = value;
+    return { key:key, value:value };
+  });
+  var total = values.reduce(function(sum, item){ return sum + item.value; }, 0);
+  var score = Math.round((total / (keys.length * 10)) * 100);
+  var scoreEl = document.getElementById('diag-score');
+  var ring = document.getElementById('scoreRing');
+  if (scoreEl) scoreEl.textContent = score;
+  if (ring) ring.style.setProperty('--score', score + '%');
+
+  var stage = 'Build the foundation';
+  var title = 'Your systems need structure before scale.';
+  var copy = 'The business has enough traction to grow, but inconsistent processes and manual decision-making may create avoidable cost, delays, and founder dependency.';
+  if (score >= 75) {
+    stage = 'Scale with confidence';
+    title = 'You are ready for sharper optimisation.';
+    copy = 'Your operating base is strong. The next opportunity is targeted improvement: margin expansion, supply-chain resilience, and technology-enabled governance.';
+  } else if (score >= 55) {
+    stage = 'Strengthen the engine';
+    title = 'You have momentum, but a few weak links can slow growth.';
+    copy = 'The foundation exists, yet uneven maturity across teams, vendors, data, or workflows can create hidden cost as volumes increase.';
+  }
+
+  var stageEl = document.getElementById('diag-stage');
+  var titleEl = document.getElementById('diag-title');
+  var copyEl = document.getElementById('diag-copy');
+  if (stageEl) stageEl.textContent = stage;
+  if (titleEl) titleEl.textContent = title;
+  if (copyEl) copyEl.textContent = copy;
+
+  values.sort(function(a,b){ return a.value - b.value; });
+  var priorities = values.slice(0, 3).map(function(item) {
+    return '<li><span><strong>' + diagnosticMap[item.key].label + ':</strong> ' + diagnosticMap[item.key].advice + '</span></li>';
+  }).join('');
+  var list = document.getElementById('diag-priorities');
+  if (list) list.innerHTML = priorities;
+}
+updateDiagnostic();
+  
 /* ─────────────────────────────────────────
    FAQ ACCORDION
 ───────────────────────────────────────── */
