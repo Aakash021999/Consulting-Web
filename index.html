@@ -55,9 +55,12 @@ nav{
   background:rgba(255,255,255,0.97);
   backdrop-filter:blur(16px);
   border-bottom:1.5px solid rgba(0,86,83,0.15);
+  transition:height 0.28s ease,box-shadow 0.28s ease,background 0.28s ease;
 }
+nav.nav-shrunk{height:60px;background:rgba(255,255,255,0.985);box-shadow:0 12px 34px rgba(0,86,83,0.12);}
 .nav-brand{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;}
-.nav-logo-svg{width:50px;height:50px;flex-shrink:0;}
+.nav-logo-svg{width:50px;height:50px;flex-shrink:0;transition:width 0.28s ease,height 0.28s ease;}
+nav.nav-shrunk .nav-logo-svg{width:42px;height:42px;}
 .nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:0.1em;color:var(--teal);line-height:1.1;}
 .nav-brand-sub{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-dim);margin-top:2px;}
 .nav-links{display:flex;gap:30px;list-style:none;}
@@ -117,6 +120,10 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-trust-text{font-size:12px;color:var(--text-dim);letter-spacing:0.04em;}
 .hero-proof-strip{display:flex;flex-wrap:wrap;gap:10px;margin:-18px 0 28px;}
 .hero-proof-pill{padding:9px 12px;border:1px solid var(--border);background:var(--teal-dim);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);}
+.hero-left{animation:heroCopyIn 0.75s cubic-bezier(0.22,1,0.36,1) both;}
+.hero-right{animation:heroPanelIn 0.85s cubic-bezier(0.22,1,0.36,1) both 0.08s;}
+@keyframes heroCopyIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@keyframes heroPanelIn{from{opacity:0;transform:translateX(22px);}to{opacity:1;transform:translateX(0);}}
 
   /*RIGHT PANEL */
 .hero-right{
@@ -152,20 +159,15 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-molecule-svg{
   width:300px;height:300px;
   filter:drop-shadow(0 0 30px rgba(255,255,255,0.15));
-  animation:moleculePulse 4s ease-in-out infinite,moleculeFloat 7s ease-in-out infinite;
+ animation:moleculePulse 4s ease-in-out infinite,moleculeFloat 7s ease-in-out infinite;
 }
 @keyframes moleculePulse{
   0%,100%{filter:drop-shadow(0 0 20px rgba(255,255,255,0.12));}
   50%{filter:drop-shadow(0 0 44px rgba(255,255,255,0.28));}
 }
-  @keyframes moleculeFloat{
+@keyframes moleculeFloat{
   0%,100%{transform:translateY(0) rotate(0deg);}
   50%{transform:translateY(-10px) rotate(1.5deg);}
-}
-@keyframes orbitRing{to{transform:rotate(360deg);}}
-@keyframes orbitDot{
-  from{transform:rotate(0deg) translateX(180px) rotate(0deg);}
-  to{transform:rotate(360deg) translateX(180px) rotate(-360deg);}
 }
 .hero-brand-label{
   text-align:center;margin-top:24px;
@@ -194,7 +196,6 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-stat-cell:nth-child(3),.hero-stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,0.1);}
 .hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1;}
 .hero-stat-label{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-top:5px;}
-
 /* ── IMAGE STRIP ── */
 .img-strip{display:grid;grid-template-columns:repeat(3,1fr);height:320px;overflow:hidden;}
 .img-strip-item{position:relative;overflow:hidden;}
@@ -202,7 +203,14 @@ h1 em{font-style:italic;color:var(--teal);}
 .img-strip-item:hover img{transform:scale(1.05);}
 .img-strip-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,86,83,0.6) 0%,transparent 50%);}
 .img-strip-label{position:absolute;bottom:18px;left:18px;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.9);}
-
+  /* ── IMPACT TICKER ── */
+.impact-ticker{background:var(--text);color:#fff;overflow:hidden;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
+.impact-track{display:flex;width:max-content;animation:tickerMove 28s linear infinite;}
+.impact-ticker:hover .impact-track{animation-play-state:paused;}
+.impact-item{display:flex;align-items:center;gap:12px;padding:18px 34px;white-space:nowrap;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.76);}
+.impact-item strong{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;letter-spacing:0.02em;text-transform:none;}
+.impact-dot{width:6px;height:6px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 16px rgba(212,174,88,0.55);}
+@keyframes tickerMove{to{transform:translateX(-50%);}}
 /* ── SECTIONS BASE ── */
 section{padding:88px 5vw;}
 .section-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
@@ -217,7 +225,7 @@ section{padding:88px 5vw;}
 .why-card{background:var(--white);padding:40px 36px;position:relative;overflow:hidden;transition:background 0.3s;}
 .why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);}
 .why-card:hover::after{transform:scaleX(1);}
-.why-card:hover{background:var(--teal-pale);}
+.why-card:hover{background:var(--teal-pale);box-shadow:0 18px 42px rgba(0,86,83,0.1);z-index:1;}
 .why-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:rgba(0,86,83,0.09);line-height:1;margin-bottom:16px;}
 .why-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:12px;}
 .why-card p{font-size:14px;color:var(--text-muted);line-height:1.85;}
@@ -274,7 +282,7 @@ section{padding:88px 5vw;}
 .diagnostic-mini-card:hover{transform:translateY(-3px);border-color:var(--teal);background:#fff;}
 .diagnostic-mini-card strong{display:block;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin-bottom:6px;color:var(--text);}
 .diagnostic-mini-card span{font-size:12px;color:var(--text-muted);line-height:1.65;}
-
+  
 /* ── SERVICES ── */
 #services{background:var(--off-white);}
 .services-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:56px;align-items:start;margin-top:52px;}
@@ -310,7 +318,7 @@ section{padding:88px 5vw;}
 #industries{background:var(--white);}
 .ind-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:52px;}
 .ind-card{padding:28px 20px;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.3s;}
-.ind-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-3px);}
+.ind-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-5px);box-shadow:0 16px 38px rgba(0,86,83,0.1);}
 .ind-icon{font-size:26px;margin-bottom:14px;display:block;}
 .ind-card h3{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;margin-bottom:8px;}
 .ind-card p{font-size:13px;color:var(--text-muted);line-height:1.7;}
@@ -334,7 +342,7 @@ section{padding:88px 5vw;}
 .faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 0;cursor:pointer;gap:14px;}
 .faq-q-text{font-size:15px;font-weight:400;color:var(--text);line-height:1.5;}
 .faq-icon{width:26px;height:26px;border:1px solid var(--border-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);font-size:16px;transition:all 0.25s;}
-.faq-item.open .faq-icon{background:var(--teal);color:#fff;transform:rotate(45deg);}
+.faq-item.open .faq-icon{background:var(--teal);color:#fff;transform:rotate(45deg);box-shadow:0 8px 18px rgba(0,86,83,0.18);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
 .faq-a p{font-size:14px;color:var(--text-muted);line-height:1.85;padding-bottom:16px;}
 .faq-item.open .faq-a{max-height:300px;}
@@ -373,7 +381,7 @@ section{padding:88px 5vw;}
 .careers-img-strip{display:grid;grid-template-columns:1fr 1fr;height:280px;overflow:hidden;}
 .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;}
 .value-card{padding:34px 26px;border:1px solid var(--border);transition:all 0.3s;}
-.value-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-3px);}
+.value-card:hover{border-color:var(--teal);background:var(--teal-pale);transform:translateY(-5px);box-shadow:0 16px 38px rgba(0,86,83,0.1);}
 .value-icon{font-size:26px;margin-bottom:14px;display:block;}
 .value-card h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;margin-bottom:10px;}
 .value-card p{font-size:13px;color:var(--text-muted);line-height:1.75;}
@@ -497,7 +505,9 @@ section{padding:88px 5vw;}
 /* Modal overlay */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:500;align-items:center;justify-content:center;padding:5vw;}
 .modal-overlay.open{display:flex;}
-.modal-box{background:var(--white);max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+.modal-box{background:var(--white);max-width:720px;width:100%;max-height:85vh;overflow-y:auto;position:relative;transform-origin:center;box-shadow:0 28px 80px rgba(0,0,0,0.22);}
+.modal-overlay.open .modal-box{animation:modalEnter 0.34s cubic-bezier(0.22,1.18,0.36,1) both;}
+@keyframes modalEnter{0%{opacity:0;transform:translateY(18px) scale(0.96);}70%{opacity:1;transform:translateY(-2px) scale(1.01);}100%{opacity:1;transform:translateY(0) scale(1);}}
 .modal-header{background:var(--teal);padding:32px 36px;position:relative;}
 .modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.15);border:none;cursor:pointer;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
 .modal-close:hover{background:rgba(255,255,255,0.25);}
@@ -524,15 +534,20 @@ section{padding:88px 5vw;}
 }
 
 /* ── FOOTER ── */
-footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:22px;}
-.footer-logo-wrap{display:flex;align-items:center;gap:12px;}
-.footer-logo-svg{width:40px;height:40px;}
-.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;letter-spacing:0.1em;}
-.footer-tagline{font-size:10px;color:rgba(255,255,255,0.68);margin-top:3px;letter-spacing:0.06em;}
-.footer-links{display:flex;gap:22px;flex-wrap:wrap;}
-.footer-links a{font-size:11.5px;color:rgba(255,255,255,0.72);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;cursor:pointer;}
-.footer-links a:hover{color:#fff;}
-.footer-copy{font-size:11px;color:rgba(255,255,255,0.58);}
+footer{background:var(--teal);padding:58px 5vw 28px;color:#fff;}
+.footer-grid{display:grid;grid-template-columns:1.25fr repeat(3,1fr);gap:42px;align-items:start;}
+.footer-logo-wrap{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.footer-logo-svg{width:44px;height:44px;}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;letter-spacing:0.1em;}
+.footer-tagline{font-size:10px;color:rgba(255,255,255,0.72);margin-top:3px;letter-spacing:0.06em;}
+.footer-blurb{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.85;max-width:340px;}
+.footer-col h4{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.74);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s,transform 0.2s;cursor:pointer;}
+.footer-links a:hover{color:#fff;transform:translateX(3px);}
+.footer-contact-line{font-size:12px;color:rgba(255,255,255,0.74);line-height:1.8;margin-bottom:8px;}
+.footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:42px;padding-top:22px;border-top:1px solid rgba(255,255,255,0.14);}
+.footer-copy,.footer-note{font-size:11px;color:rgba(255,255,255,0.62);}
 
 /* ── ANIMATIONS ── */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.72s cubic-bezier(0.22,1,0.36,1),transform 0.72s cubic-bezier(0.22,1,0.36,1);}
@@ -612,6 +627,10 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .challenge-chip{border:1px solid var(--border-mid);background:#fff;color:var(--text-muted);padding:9px 12px;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
 .challenge-chip:hover,.challenge-chip.active{border-color:var(--teal);background:var(--teal);color:#fff;}
 
+.scroll-top{position:fixed;right:28px;bottom:100px;z-index:998;width:44px;height:44px;border:1px solid var(--border-mid);background:#fff;color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 12px 28px rgba(0,86,83,0.12);opacity:0;visibility:hidden;transform:translateY(10px);transition:all 0.25s;}
+.scroll-top.visible{opacity:1;visibility:visible;transform:translateY(0);}
+.scroll-top:hover{background:var(--teal);color:#fff;transform:translateY(-2px);}
+
 /* ── WHATSAPP BUTTON ── */
 .whatsapp-btn{
   position:fixed;bottom:28px;right:28px;z-index:999;
@@ -632,7 +651,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .whatsapp-tooltip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--text);}
 .whatsapp-btn:hover .whatsapp-tooltip{opacity:1;}
 
-  @keyframes scoreGlow{
+@keyframes scoreGlow{
   0%,100%{box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08),0 0 0 rgba(0,86,83,0);}
   50%{box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08),0 0 26px rgba(0,86,83,0.14);}
 }
@@ -640,8 +659,8 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:0.01ms!important;}
 }
-  
-/* ── RESPONSIVE ── */
+
+  /* ── RESPONSIVE ── */
 @media(max-width:960px){
   .nav-links,.nav-cta{display:none;}
   .mobile-menu-btn{display:flex;}
@@ -660,12 +679,13 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   .values-grid,.perks-grid{grid-template-columns:1fr 1fr;}
   .careers-img-strip{grid-template-columns:1fr;height:auto;}
   .hero-left::after{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
 }
 @media(max-width:560px){
   .ind-grid,.process-steps,.values-grid,.perks-grid,.problem-grid{grid-template-columns:1fr;}
   .erp-right{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;}
-  .footer-links{justify-content:center;}
+ .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;}
   .opening-item{grid-template-columns:1fr;}
   .hero-molecule-svg{width:220px;height:220px;}
 }
@@ -716,7 +736,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   </ul>
   <a class="nav-cta" onclick="gotoPage('main','#contact')">Get in Touch</a>
 <button class="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
-</nav>
+<div class="mobile-menu-panel" id="mobileMenu">
 <div class="mobile-menu-panel" id="mobileMenu">
   <a onclick="gotoPage('main','#why')">Why Consulting</a>
   <a onclick="gotoPage('main','#problem-finder')">Problems We Solve</a>
@@ -748,8 +768,8 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     </div>
     <div class="hero-proof-strip" aria-label="Benzene Consulting impact snapshot">
       <div class="hero-proof-pill">₹50Cr+ savings delivered</div>
-      <div class="hero-proof-pill">60+ MSMEs served</div>
-      <div class="hero-proof-pill">12+ years experience</div>
+      <div class="hero-proof-pill">5+ MSMEs served</div>
+      <div class="hero-proof-pill">6+ years experience</div>
     </div>
     <div class="hero-trust">
       <div class="hero-trust-row"><div class="hero-trust-dot"></div><span class="hero-trust-text">MSME &amp; Supply Chain Specialists</span></div>
@@ -831,6 +851,24 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     </div>
   </div>
 </section>
+  
+<!-- IMPACT TICKER -->
+<div class="impact-ticker" aria-label="Benzene Consulting impact highlights">
+  <div class="impact-track">
+    <div class="impact-item"><span class="impact-dot"></span><strong>₹50Cr+</strong><span>Savings Delivered</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>60+</strong><span>MSMEs Served</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>12+</strong><span>Years Experience</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>30%</strong><span>Average Cost Reduction</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>Pan-India</strong><span>Delhi NCR Base</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>ERP</strong><span>Vendor-Neutral Advisory</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>₹50Cr+</strong><span>Savings Delivered</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>60+</strong><span>MSMEs Served</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>12+</strong><span>Years Experience</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>30%</strong><span>Average Cost Reduction</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>Pan-India</strong><span>Delhi NCR Base</span></div>
+    <div class="impact-item"><span class="impact-dot"></span><strong>ERP</strong><span>Vendor-Neutral Advisory</span></div>
+  </div>
+</div>
 
 <!-- IMAGE STRIP -->
 <div class="img-strip">
@@ -939,9 +977,9 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <div class="why-card fade-in fade-in-delay-3"><div class="why-num">04</div><h3>Build Supply Chain Resilience</h3><p>Disruptions are inevitable. We help you map vulnerabilities and build contingency frameworks so supply chain shocks become manageable — not catastrophic.</p></div>
   </div>
 
-  </section>
+</section>  
 
-<!-- INTERACTIVE DIAGNOSTIC -->
+  <!-- INTERACTIVE DIAGNOSTIC -->
 <section id="diagnostic">
   <div class="section-label">Interactive Diagnostic</div>
   <h2 class="section-title">Find Your <em>Growth Readiness</em> Score</h2>
@@ -1013,8 +1051,8 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
       </div>
     </div>
   </div>
-</section>  
-
+  </section>
+  
 <!-- SERVICES -->
 <section id="services">
   <div class="section-label">What We Do</div>
@@ -1109,6 +1147,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     </div>
     <div class="contact-form">
          <p class="contact-reassurance">No sales pressure — just a practical first conversation about where your business is leaking time, cash, or control.</p>
+      <p class="contact-reassurance">No sales pressure — just a practical first conversation about where your business is leaking time, cash, or control.</p>
       <div class="challenge-chips" aria-label="Common business challenges">
         <button class="challenge-chip" type="button" onclick="prefillChallenge('Costs rising', this)">Costs rising</button>
         <button class="challenge-chip" type="button" onclick="prefillChallenge('ERP confusion', this)">ERP confusion</button>
@@ -1151,7 +1190,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 <section id="careers-hero">
   <div class="careers-hero-grid"></div>
   <div class="careers-hero-content">
-    <div class="section-label" style="color:rgba(255,255,255,0.72)">Join Our Team</div>
+     <div class="section-label" style="color:rgba(255,255,255,0.72)">Join Our Team</div>
     <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,70px);font-weight:300;line-height:1.1;margin-bottom:20px;color:#fff">Build a Career at the <em style="font-style:italic;color:var(--gold-light)">Intersection of Strategy &amp; Impact</em></h1>
     <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.85;max-width:520px;margin-bottom:36px">At Benzene Consulting, we work on real problems for real businesses. Every engagement is different — and the work you do here directly changes how Indian businesses operate and grow.</p>
     <a class="btn-primary" onclick="document.getElementById('openings').scrollIntoView({behavior:'smooth'})" style="background:#fff;color:var(--teal)">View Open Positions</a>
@@ -1795,6 +1834,9 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 
 </div><!-- /page-blog -->
 
+  <!-- ══════════ SCROLL TO TOP ══════════ -->
+<button class="scroll-top" type="button" aria-label="Scroll to top" onclick="scrollToTop()">↑</button>
+
 <!-- ══════════ WHATSAPP FLOATING BUTTON ══════════ -->
 <a class="whatsapp-btn" href="https://wa.me/919350789337?text=Hi%20Aakash%2C%20I%20found%20Benzene%20Consulting%20and%20would%20like%20to%20discuss%20a%20potential%20engagement." target="_blank" rel="noopener">
   <div class="whatsapp-tooltip">Chat on WhatsApp</div>
@@ -1805,39 +1847,64 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer>
-  <div class="footer-logo-wrap">
-    <svg class="footer-logo-svg" viewBox="0 0 50 50" fill="none">
-      <polygon points="25,2 46,13.5 46,36.5 25,48 4,36.5 4,13.5" stroke="white" stroke-width="2" fill="none"/>
-      <circle cx="25" cy="25" r="10.5" stroke="white" stroke-width="1.6" fill="none" stroke-dasharray="5 3.5"/>
-      <circle cx="25"  cy="2"    r="3.5" fill="white"/>
-      <circle cx="46"  cy="13.5" r="3.5" fill="white"/>
-      <circle cx="46"  cy="36.5" r="3.5" fill="white"/>
-      <circle cx="25"  cy="48"   r="3.5" fill="white"/>
-      <circle cx="4"   cy="36.5" r="3.5" fill="white"/>
-      <circle cx="4"   cy="13.5" r="3.5" fill="white"/>
-    </svg>
-    <div>
-      <div class="footer-brand-name">BENZENE CONSULTING</div>
-      <div class="footer-tagline">Strategy · Cost · Supply Chain · ERP Advisory</div>
+<div class="footer-grid">
+    <div class="footer-col footer-brand-col">
+      <div class="footer-logo-wrap">
+        <svg class="footer-logo-svg" viewBox="0 0 50 50" fill="none">
+          <polygon points="25,2 46,13.5 46,36.5 25,48 4,36.5 4,13.5" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="25" cy="25" r="10.5" stroke="white" stroke-width="1.6" fill="none" stroke-dasharray="5 3.5"/>
+          <circle cx="25"  cy="2"    r="3.5" fill="white"/>
+          <circle cx="46"  cy="13.5" r="3.5" fill="white"/>
+          <circle cx="46"  cy="36.5" r="3.5" fill="white"/>
+          <circle cx="25"  cy="48"   r="3.5" fill="white"/>
+          <circle cx="4"   cy="36.5" r="3.5" fill="white"/>
+          <circle cx="4"   cy="13.5" r="3.5" fill="white"/>
+        </svg>
+        <div>
+          <div class="footer-brand-name">BENZENE CONSULTING</div>
+          <div class="footer-tagline">Strategy · Cost · Supply Chain · ERP Advisory</div>
+        </div>
+      </div>
+      <p class="footer-blurb">Practical consulting for Indian MSMEs — sharper strategy, leaner operations, resilient supply chains, and vendor-neutral ERP decisions.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <div class="footer-links">
+        <a onclick="gotoPage('main','#why')">Why Consulting</a>
+        <a onclick="gotoPage('main','#industries')">Industries</a>
+        <a onclick="gotoPage('main','#process')">Process</a>
+        <a onclick="gotoPage('main','#faq')">FAQ</a>
+        <a onclick="gotoPage('blog',null)">Insights</a>
+        <a onclick="gotoPage('publications',null)">Publications</a>
+        <a onclick="gotoPage('careers',null)">Careers</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <div class="footer-links">
+        <a onclick="gotoPage('main','#services')">Strategic Planning</a>
+        <a onclick="gotoPage('main','#services')">Cost Improvement</a>
+        <a onclick="gotoPage('main','#services')">Supply Chain</a>
+        <a onclick="gotoPage('main','#services')">Operational Excellence</a>
+        <a onclick="gotoPage('main','#erp')">ERP Advisory</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-line">admin@benzeneconsulting.in</div>
+      <div class="footer-contact-line">+91 9350789337</div>
+      <div class="footer-contact-line">Delhi NCR · Serving pan-India</div>
+      <div class="footer-links"><a onclick="gotoPage('main','#contact')">Start a Conversation →</a></div>
     </div>
   </div>
-  <div class="footer-links">
-    <a onclick="gotoPage('main','#why')">Why Consulting</a>
-    <a onclick="gotoPage('main','#services')">Services</a>
-    <a onclick="gotoPage('main','#industries')">Industries</a>
-    <a onclick="gotoPage('main','#erp')">ERP Advisory</a>
-    <a onclick="gotoPage('main','#faq')">FAQ</a>
-    <a onclick="gotoPage('blog',null)">Insights</a>
-    <a onclick="gotoPage('publications',null)">Publications</a>
-    <a onclick="gotoPage('careers',null)">Careers</a>
-    <a onclick="gotoPage('main','#contact')">Contact</a>
+ <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Benzene Consulting. All rights reserved.</div>
+    <div class="footer-note">Built for MSME strategy, cost, supply chain, SOP, and ERP transformation.</div>
   </div>
-  <div class="footer-copy">© 2025 Benzene Consulting. All rights reserved.</div>
 </footer>
 
-  
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
- function closeMobileMenu() {
+function closeMobileMenu() {
   var menu = document.getElementById('mobileMenu');
   var btn = document.querySelector('.mobile-menu-btn');
   if (menu) menu.classList.remove('open');
@@ -1851,6 +1918,18 @@ function toggleMobileMenu() {
   menu.classList.toggle('open', open);
   btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 }
+function updateScrollChrome() {
+  var nav = document.querySelector('nav');
+  var topBtn = document.querySelector('.scroll-top');
+  var active = window.pageYOffset > 80;
+  if (nav) nav.classList.toggle('nav-shrunk', active);
+  if (topBtn) topBtn.classList.toggle('visible', window.pageYOffset > 520);
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', updateScrollChrome, { passive:true });
+updateScrollChrome();
 
   /* ─────────────────────────────────────────
    NAVIGATION — single clean function
