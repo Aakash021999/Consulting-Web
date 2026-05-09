@@ -35,7 +35,7 @@
   --text:       #0A1A19;
   --text-mid:   #2A3E3D;
   --text-muted: #5A7370;
-  --text-dim:   #8AADAA;
+  --text-dim:   #6D8F8C;
   --border:     rgba(0,86,83,0.13);
   --border-mid: rgba(0,86,83,0.25);
 }
@@ -68,11 +68,14 @@ nav{
 .mobile-menu-btn{display:none;width:44px;height:44px;border:1.5px solid var(--border-mid);background:#fff;color:var(--teal);align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;transition:all 0.25s;}
 .mobile-menu-btn span{width:18px;height:1.5px;background:currentColor;display:block;transition:all 0.25s;}
 .mobile-menu-btn:hover{background:var(--teal-dim);border-color:var(--teal);}
-.mobile-menu-panel{position:fixed;top:74px;left:0;right:0;z-index:999;background:rgba(255,255,255,0.98);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);box-shadow:0 24px 60px rgba(0,86,83,0.12);padding:22px 5vw 26px;display:none;}
-.mobile-menu-panel.open{display:block;}
+.mobile-menu-panel{position:fixed;top:74px;left:0;right:0;z-index:999;background:rgba(255,255,255,0.98);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);box-shadow:0 24px 60px rgba(0,86,83,0.12);padding:22px 5vw 26px;opacity:0;visibility:hidden;transform:translateY(-10px);pointer-events:none;transition:opacity 0.28s ease,transform 0.28s ease,visibility 0.28s;}
+.mobile-menu-panel.open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
 .mobile-menu-panel a{display:flex;align-items:center;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--border);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);text-decoration:none;cursor:pointer;}
 .mobile-menu-panel a::after{content:'→';color:var(--teal);}
 .mobile-menu-cta{margin-top:18px;width:100%;text-align:center;}
+.mobile-menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.mobile-menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.mobile-menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
   
 /* ── HERO ── */
 #hero{
@@ -102,7 +105,9 @@ h1{
 h1 em{font-style:italic;color:var(--teal);}
 .hero-sub{font-size:15px;font-weight:300;line-height:1.9;color:var(--text-muted);max-width:440px;margin-bottom:38px;}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
-.btn-primary{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:15px 32px;background:var(--teal);color:#fff;border:none;cursor:pointer;font-weight:500;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;}
+.btn-primary{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:15px 32px;background:var(--teal);color:#fff;border:none;cursor:pointer;font-weight:500;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;top:0;bottom:0;left:-45%;width:34%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.24),transparent);transform:skewX(-20deg);transition:left 0.55s ease;pointer-events:none;}
+.btn-primary:hover::after{left:120%;}
 .btn-primary:hover{background:var(--teal-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,86,83,0.2);}
 .btn-outline{font-size:11.5px;letter-spacing:0.15em;text-transform:uppercase;padding:15px 32px;background:transparent;color:var(--teal);border:1.5px solid var(--border-mid);cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;}
 .btn-outline:hover{border-color:var(--teal);background:var(--teal-dim);}
@@ -113,7 +118,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-proof-strip{display:flex;flex-wrap:wrap;gap:10px;margin:-18px 0 28px;}
 .hero-proof-pill{padding:9px 12px;border:1px solid var(--border);background:var(--teal-dim);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);}
 
-/* RIGHT PANEL */
+  /*RIGHT PANEL */
 .hero-right{
   background:var(--teal);
   display:flex;flex-direction:column;
@@ -141,14 +146,26 @@ h1 em{font-style:italic;color:var(--teal);}
   align-items:center;justify-content:center;
   padding:48px 40px 24px;position:relative;z-index:1;
 }
+.hero-molecule-area::before,.hero-molecule-area::after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.16);pointer-events:none;}
+.hero-molecule-area::before{top:50%;left:50%;width:360px;height:360px;margin:-180px 0 0 -180px;animation:orbitRing 18s linear infinite;}
+.hero-molecule-area::after{top:50%;left:50%;width:12px;height:12px;margin:-6px 0 0 -6px;background:var(--gold-light);box-shadow:0 0 24px rgba(212,174,88,0.6);animation:orbitDot 9s linear infinite;}
 .hero-molecule-svg{
   width:300px;height:300px;
   filter:drop-shadow(0 0 30px rgba(255,255,255,0.15));
-  animation:moleculePulse 4s ease-in-out infinite;
+  animation:moleculePulse 4s ease-in-out infinite,moleculeFloat 7s ease-in-out infinite;
 }
 @keyframes moleculePulse{
   0%,100%{filter:drop-shadow(0 0 20px rgba(255,255,255,0.12));}
   50%{filter:drop-shadow(0 0 44px rgba(255,255,255,0.28));}
+}
+  @keyframes moleculeFloat{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-10px) rotate(1.5deg);}
+}
+@keyframes orbitRing{to{transform:rotate(360deg);}}
+@keyframes orbitDot{
+  from{transform:rotate(0deg) translateX(180px) rotate(0deg);}
+  to{transform:rotate(360deg) translateX(180px) rotate(-360deg);}
 }
 .hero-brand-label{
   text-align:center;margin-top:24px;
@@ -160,7 +177,7 @@ h1 em{font-style:italic;color:var(--teal);}
 }
 .hero-brand-label-sub{
   font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
-  color:rgba(255,255,255,0.45);margin-top:6px;
+  color:rgba(255,255,255,0.68);margin-top:6px;
 }
 /* Stats grid at bottom of right panel */
 .hero-stats-grid{
@@ -176,7 +193,7 @@ h1 em{font-style:italic;color:var(--teal);}
 .hero-stat-cell:nth-child(even){border-right:none;}
 .hero-stat-cell:nth-child(3),.hero-stat-cell:nth-child(4){border-top:1px solid rgba(255,255,255,0.1);}
 .hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#fff;line-height:1;}
-.hero-stat-label{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
+.hero-stat-label{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-top:5px;}
 
 /* ── IMAGE STRIP ── */
 .img-strip{display:grid;grid-template-columns:repeat(3,1fr);height:320px;overflow:hidden;}
@@ -188,8 +205,8 @@ h1 em{font-style:italic;color:var(--teal);}
 
 /* ── SECTIONS BASE ── */
 section{padding:88px 5vw;}
-.section-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-.section-label::before{content:'';width:28px;height:1.5px;background:var(--teal-light);}
+.section-label{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:28px;height:1.5px;background:var(--teal-mid);}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;line-height:1.12;margin-bottom:16px;}
 .section-title em{font-style:italic;color:var(--teal);}
 .section-sub{font-size:15px;color:var(--text-muted);line-height:1.85;max-width:540px;}
@@ -209,11 +226,12 @@ section{padding:88px 5vw;}
 /* ── INTERACTIVE DIAGNOSTIC ── */
 #problem-finder{background:var(--surface);}
 .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
-.problem-card{border:1px solid var(--border);background:#fff;padding:24px;text-align:left;cursor:pointer;transition:all 0.25s;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;}
+.problem-card{border:1px solid var(--border);background:#fff;padding:24px;text-align:left;cursor:pointer;transition:transform 0.28s ease,border-color 0.28s ease,box-shadow 0.28s ease,background 0.28s ease;font-family:'DM Sans',sans-serif;position:relative;overflow:hidden;}
 .problem-card::before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform 0.25s;}
 .problem-card:hover{transform:translateY(-5px);border-color:rgba(0,86,83,0.35);box-shadow:0 18px 42px rgba(0,86,83,0.09);}
 .problem-card:hover::before{transform:scaleX(1);}
-.problem-icon{width:42px;height:42px;border-radius:50%;background:var(--teal-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;}
+.problem-icon{width:42px;height:42px;border-radius:50%;background:var(--teal-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px;transition:transform 0.28s ease,background 0.28s ease,color 0.28s ease;}
+.problem-card:hover .problem-icon{transform:scale(1.08) rotate(-4deg);background:var(--teal);color:#fff;}
 .problem-card h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--text);margin-bottom:8px;}
 .problem-card p{font-size:13px;line-height:1.75;color:var(--text-muted);margin-bottom:16px;}
 .problem-link{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);font-weight:600;}
@@ -234,12 +252,12 @@ section{padding:88px 5vw;}
 .diagnostic-control input[type="range"]{width:100%;accent-color:var(--teal);cursor:pointer;}
 .diagnostic-scale{display:flex;justify-content:space-between;font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);margin-top:8px;}
 .diagnostic-result{padding:36px;display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:center;}
-.score-ring{width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--teal) var(--score,62%),rgba(0,86,83,0.12) 0);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08);}
+.score-ring{width:170px;height:170px;border-radius:50%;background:conic-gradient(var(--teal) var(--score,62%),rgba(0,86,83,0.12) 0);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08);animation:scoreGlow 4.5s ease-in-out infinite;}
 .score-ring::after{content:'';position:absolute;inset:16px;border-radius:50%;background:#fff;box-shadow:0 10px 25px rgba(0,86,83,0.08);}
 .score-inner{position:relative;z-index:1;text-align:center;}
 .score-num{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:var(--teal);line-height:1;}
 .score-label{font-size:10px;text-transform:uppercase;letter-spacing:0.16em;color:var(--text-dim);margin-top:6px;}
-.result-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--teal-light);margin-bottom:10px;}
+.result-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:10px;}
 .result-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.2;margin-bottom:12px;}
 .result-copy{font-size:14px;color:var(--text-muted);line-height:1.85;margin-bottom:20px;}
 .priority-list{display:grid;gap:10px;margin:0 0 24px;padding:0;list-style:none;}
@@ -269,7 +287,7 @@ section{padding:88px 5vw;}
 .service-tab.active .service-tab-title{color:var(--teal);}
 .service-tab-sub{font-size:12px;color:var(--text-dim);}
 .service-detail{padding:4px 0;}
-.service-detail-tag{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal-light);margin-bottom:14px;}
+.service-detail-tag{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:14px;}
 .service-detail h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.2;margin-bottom:16px;}
 .service-detail p{font-size:14px;color:var(--text-muted);line-height:1.9;margin-bottom:20px;}
 .service-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;}
@@ -280,12 +298,12 @@ section{padding:88px 5vw;}
 #erp{background:var(--teal);padding:72px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
 .erp-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,44px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;}
 .erp-left h2 em{font-style:italic;color:var(--gold-light);}
-.erp-left p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.85;}
+.erp-left p{font-size:14px;color:rgba(255,255,255,0.78);line-height:1.85;}
 .erp-right{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.erp-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:20px;transition:background 0.25s;}
-.erp-card:hover{background:rgba(255,255,255,0.14);}
+.erp-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:20px;transition:background 0.25s,transform 0.25s,border-color 0.25s;}
+.erp-card:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.3);transform:translateY(-3px);}
 .erp-card h4{font-size:13px;font-weight:500;color:#fff;margin-bottom:6px;}
-.erp-card p{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.65;}
+.erp-card p{font-size:12px;color:rgba(255,255,255,0.72);line-height:1.65;}
 .erp-icon{font-size:20px;margin-bottom:10px;display:block;}
 
 /* ── INDUSTRIES ── */
@@ -306,7 +324,7 @@ section{padding:88px 5vw;}
 .process-dot{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--teal);background:var(--white);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--teal);transition:all 0.3s;}
 .process-step:hover .process-dot{background:var(--teal);color:#fff;}
 .process-step h4{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;margin-bottom:6px;}
-.process-step p{font-size:12px;color:var(--text-dim);line-height:1.65;}
+.process-step p{font-size:12px;color:var(--text-muted);line-height:1.65;}
 
 /* ── FAQ ── */
 #faq{background:var(--off-white);}
@@ -389,10 +407,10 @@ section{padding:88px 5vw;}
 .pub-author-bar{background:rgba(255,255,255,0.08);border-top:1px solid rgba(255,255,255,0.12);padding:20px 5vw;display:flex;align-items:center;gap:20px;position:relative;z-index:1;}
 .pub-author-avatar{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;flex-shrink:0;}
 .pub-author-name{font-size:14px;font-weight:500;color:#fff;}
-.pub-author-title{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.08em;margin-top:2px;}
+.pub-author-title{font-size:11px;color:rgba(255,255,255,0.68);letter-spacing:0.08em;margin-top:2px;}
 .pub-author-stats{margin-left:auto;display:flex;gap:32px;}
 .pub-author-stat-num{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-weight:300;}
-.pub-author-stat-label{font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
+.pub-author-stat-label{font-size:10px;color:rgba(255,255,255,0.68);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
 
 /* Case study cards grid */
 .pub-cards-section{padding:72px 5vw;background:var(--off-white);}
@@ -421,7 +439,7 @@ section{padding:88px 5vw;}
 .slide-left{background:var(--teal);padding:56px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
 .slide-left::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;}
 .slide-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(255,255,255,0.08);line-height:1;position:absolute;top:24px;right:32px;}
-.slide-tag{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;position:relative;z-index:1;}
+.slide-tag{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-bottom:16px;position:relative;z-index:1;}
 .slide-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,38px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:16px;position:relative;z-index:1;}
 .slide-left h2 em{font-style:italic;color:var(--gold-light);}
 .slide-left p{font-size:13.5px;color:rgba(255,255,255,0.68);line-height:1.85;position:relative;z-index:1;}
@@ -483,7 +501,7 @@ section{padding:88px 5vw;}
 .modal-header{background:var(--teal);padding:32px 36px;position:relative;}
 .modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.15);border:none;cursor:pointer;color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
 .modal-close:hover{background:rgba(255,255,255,0.25);}
-.modal-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:10px;}
+.modal-tag{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-bottom:10px;}
 .modal-header h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1.2;}
 .modal-body{padding:36px;}
 .modal-body h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;margin:24px 0 10px;color:var(--text);}
@@ -510,14 +528,14 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .footer-logo-wrap{display:flex;align-items:center;gap:12px;}
 .footer-logo-svg{width:40px;height:40px;}
 .footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;letter-spacing:0.1em;}
-.footer-tagline{font-size:10px;color:rgba(255,255,255,0.4);margin-top:3px;letter-spacing:0.06em;}
+.footer-tagline{font-size:10px;color:rgba(255,255,255,0.68);margin-top:3px;letter-spacing:0.06em;}
 .footer-links{display:flex;gap:22px;flex-wrap:wrap;}
-.footer-links a{font-size:11.5px;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;cursor:pointer;}
+.footer-links a{font-size:11.5px;color:rgba(255,255,255,0.72);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;cursor:pointer;}
 .footer-links a:hover{color:#fff;}
-.footer-copy{font-size:11px;color:rgba(255,255,255,0.3);}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.58);}
 
 /* ── ANIMATIONS ── */
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.72s cubic-bezier(0.22,1,0.36,1),transform 0.72s cubic-bezier(0.22,1,0.36,1);}
 .fade-in.visible{opacity:1;transform:translateY(0);}
 .fade-in-delay-1{transition-delay:0.1s;}
 .fade-in-delay-2{transition-delay:0.2s;}
@@ -530,20 +548,20 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .sop-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1;}
 .sop-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,50px);font-weight:300;color:#fff;line-height:1.15;margin-bottom:20px;}
 .sop-left h2 em{font-style:italic;color:var(--gold-light);}
-.sop-left p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.88;margin-bottom:28px;}
+.sop-left p{font-size:15px;color:rgba(255,255,255,0.78);line-height:1.88;margin-bottom:28px;}
 .sop-stat-row{display:flex;gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,0.15);padding-top:28px;}
 .sop-stat{flex:1;text-align:center;padding:0 16px;border-right:1px solid rgba(255,255,255,0.12);}
 .sop-stat:last-child{border-right:none;}
 .sop-stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#fff;line-height:1;}
-.sop-stat-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:5px;}
+.sop-stat-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-top:5px;}
 .sop-right{display:flex;flex-direction:column;gap:14px;}
 .sop-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:24px 22px;transition:all 0.3s;position:relative;overflow:hidden;}
-.sop-card:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.25);}
+.sop-card:hover{background:rgba(255,255,255,0.13);border-color:rgba(255,255,255,0.25);transform:translateX(4px);}
 .sop-card-top{display:flex;align-items:flex-start;gap:16px;}
 .sop-card-icon{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .sop-card h4{font-size:14px;font-weight:500;color:#fff;margin-bottom:5px;}
-.sop-card p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.7;}
-.sop-card-tag{display:inline-block;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:3px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);margin-top:10px;}
+.sop-card p{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.7;}
+.sop-card-tag{display:inline-block;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:3px 10px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);margin-top:10px;}
 
 /* ── BLOG / INSIGHTS PAGE ── */
 #blog-hero{background:var(--teal);padding:140px 5vw 72px;position:relative;overflow:hidden;}
@@ -614,9 +632,18 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 .whatsapp-tooltip::after{content:'';position:absolute;left:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-left-color:var(--text);}
 .whatsapp-btn:hover .whatsapp-tooltip{opacity:1;}
 
+  @keyframes scoreGlow{
+  0%,100%{box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08),0 0 0 rgba(0,86,83,0);}
+  50%{box-shadow:inset 0 0 0 1px rgba(0,86,83,0.08),0 0 26px rgba(0,86,83,0.14);}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:0.01ms!important;}
+}
+  
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
-.nav-links,.nav-cta{display:none;}
+  .nav-links,.nav-cta{display:none;}
   .mobile-menu-btn{display:flex;}
   #hero{grid-template-columns:1fr;}
   .hero-right{min-height:460px;}
@@ -690,7 +717,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   <a class="nav-cta" onclick="gotoPage('main','#contact')">Get in Touch</a>
 <button class="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
 </nav>
-  <div class="mobile-menu-panel" id="mobileMenu">
+<div class="mobile-menu-panel" id="mobileMenu">
   <a onclick="gotoPage('main','#why')">Why Consulting</a>
   <a onclick="gotoPage('main','#problem-finder')">Problems We Solve</a>
   <a onclick="gotoPage('main','#diagnostic')">Growth Check</a>
@@ -719,7 +746,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
       <a class="btn-primary" onclick="gotoPage('main','#contact')">Find My Growth Opportunity</a>
       <a class="btn-outline" onclick="gotoPage('main','#services')">Explore Services</a>
     </div>
-        <div class="hero-proof-strip" aria-label="Benzene Consulting impact snapshot">
+    <div class="hero-proof-strip" aria-label="Benzene Consulting impact snapshot">
       <div class="hero-proof-pill">₹50Cr+ savings delivered</div>
       <div class="hero-proof-pill">60+ MSMEs served</div>
       <div class="hero-proof-pill">12+ years experience</div>
@@ -844,7 +871,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   <div class="sop-grid-bg"></div>
   <div class="sop-layout">
     <div class="sop-left">
-      <div class="section-label" style="color:rgba(255,255,255,0.5)">The Hidden Growth Blocker</div>
+      <div class="section-label" style="color:rgba(255,255,255,0.68)">The Hidden Growth Blocker</div>
       <h2>MSMEs Don't Fail to Grow.<br>They Fail to <em>Build the Systems</em> That Allow Growth.</h2>
       <p>Most MSME founders are brilliant at their craft — but growth stalls not because of ambition or market opportunity, but because the business runs on people's memory instead of documented processes. When the key person leaves, knowledge walks out the door. When orders double, chaos doubles with them. When an investor asks how things work, there's no answer.</p>
       <p>We fix this. We design the processes, write the SOPs, and build the structured systems that let your business scale without breaking — and without depending entirely on you.</p>
@@ -911,8 +938,8 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
     <div class="why-card fade-in fade-in-delay-2"><div class="why-num">03</div><h3>Protect &amp; Grow Your Margins</h3><p>For MSMEs, margin erosion can be existential. Targeted cost improvement programs — from procurement to process re-engineering — directly protect your bottom line.</p></div>
     <div class="why-card fade-in fade-in-delay-3"><div class="why-num">04</div><h3>Build Supply Chain Resilience</h3><p>Disruptions are inevitable. We help you map vulnerabilities and build contingency frameworks so supply chain shocks become manageable — not catastrophic.</p></div>
   </div>
-  
-</section>
+
+  </section>
 
 <!-- INTERACTIVE DIAGNOSTIC -->
 <section id="diagnostic">
@@ -1006,8 +1033,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 <!-- ERP ADVISORY -->
 <section id="erp" style="padding:72px 5vw">
   <div class="erp-left fade-in">
-    <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;display:flex;align-items:center;gap:10px">
-      <span style="display:inline-block;width:28px;height:1px;background:rgba(255,255,255,0.4)"></span>ERP Advisory
+   <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-bottom:12px;display:flex;align-items:center;gap:10px">
     </div>
     <h2>We Help You Find the <em>Right ERP</em> for Your Business</h2>
     <p style="margin-top:16px">Choosing the wrong ERP is one of the costliest mistakes an MSME can make. We provide independent, vendor-neutral ERP advisory — mapping your processes, evaluating fit, and guiding you through selection and implementation to ensure your technology investment actually delivers results.</p>
@@ -1125,7 +1151,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 <section id="careers-hero">
   <div class="careers-hero-grid"></div>
   <div class="careers-hero-content">
-    <div class="section-label" style="color:rgba(255,255,255,0.55)">Join Our Team</div>
+    <div class="section-label" style="color:rgba(255,255,255,0.72)">Join Our Team</div>
     <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,70px);font-weight:300;line-height:1.1;margin-bottom:20px;color:#fff">Build a Career at the <em style="font-style:italic;color:var(--gold-light)">Intersection of Strategy &amp; Impact</em></h1>
     <p style="font-size:16px;color:rgba(255,255,255,0.7);line-height:1.85;max-width:520px;margin-bottom:36px">At Benzene Consulting, we work on real problems for real businesses. Every engagement is different — and the work you do here directly changes how Indian businesses operate and grow.</p>
     <a class="btn-primary" onclick="document.getElementById('openings').scrollIntoView({behavior:'smooth'})" style="background:#fff;color:var(--teal)">View Open Positions</a>
@@ -1190,7 +1216,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 <section id="pub-hero">
   <div class="ph-grid"></div>
   <div class="ph-content">
-    <div class="section-label" style="color:rgba(255,255,255,0.5)">Field Work &amp; Impact</div>
+   <div class="section-label" style="color:rgba(255,255,255,0.68)">Field Work &amp; Impact</div>
     <h1>Where Strategy Meets <em>Measurable Results</em></h1>
     <p>A curated record of real engagements — cost transformations, supply chain builds, and operational turnarounds delivered for Indian MSMEs and mid-size firms.</p>
   </div>
@@ -1477,7 +1503,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 
 <!-- CTA -->
 <div style="background:var(--teal);padding:72px 5vw;text-align:center;">
-  <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:14px;">Work With Us</div>
+  <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.68);margin-bottom:14px;">Work With Us</div>
   <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;color:#fff;margin-bottom:14px;">Could Your Business Be the <em style="color:var(--gold-light);font-style:italic">Next Case Study?</em></h2>
   <p style="font-size:15px;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 32px;line-height:1.8;">These results came from structured thinking, disciplined execution, and a genuine commitment to client outcomes. Let's see what's possible for your business.</p>
   <a class="btn-primary" onclick="gotoPage('main','#contact')" style="background:#fff;color:var(--teal);display:inline-block">Start a Conversation →</a>
@@ -1609,7 +1635,7 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
 <section id="blog-hero">
   <div class="blog-hero-grid"></div>
   <div class="blog-hero-content">
-    <div class="section-label" style="color:rgba(255,255,255,0.5)">Insights & Perspectives</div>
+    <div class="section-label" style="color:rgba(255,255,255,0.68)">Insights & Perspectives</div>
     <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:1.1;color:#fff;margin-bottom:16px;">Thinking Out Loud on <em style="font-style:italic;color:var(--gold-light)">Strategy, Costs & Supply Chain</em></h1>
     <p style="font-size:15px;color:rgba(255,255,255,0.68);line-height:1.85;max-width:540px;">Practical insights for MSME founders and operations leaders — no jargon, no fluff. Just structured thinking on the problems that actually matter to your business.</p>
   </div>
@@ -1809,8 +1835,9 @@ footer{background:var(--teal);padding:48px 5vw;display:flex;justify-content:spac
   <div class="footer-copy">© 2025 Benzene Consulting. All rights reserved.</div>
 </footer>
 
+  
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function closeMobileMenu() {
+ function closeMobileMenu() {
   var menu = document.getElementById('mobileMenu');
   var btn = document.querySelector('.mobile-menu-btn');
   if (menu) menu.classList.remove('open');
@@ -1886,7 +1913,7 @@ function setService(i) {
 }
 setService(0);
 
-  function prefillChallenge(challenge, chip) {
+function prefillChallenge(challenge, chip) {
   var message = document.getElementById('f-message');
   if (message && !message.value) {
     message.value = 'I would like help with: ' + challenge + '.';
@@ -1958,7 +1985,7 @@ function updateDiagnostic() {
   if (list) list.innerHTML = priorities;
 }
 updateDiagnostic();
-  
+
 /* ─────────────────────────────────────────
    FAQ ACCORDION
 ───────────────────────────────────────── */
