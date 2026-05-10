@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor-Neutral ERP Advisory for MSMEs | Benzene Consulting</title>
+    <meta name="description" content="Independent ERP selection for Indian MSMEs. No vendor bias. Process-first assessment, vendor comparison, and implementation support.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #005653;
+            --teal-mid: #007A76;
+            --teal-light: #009E99;
+            --teal-pale: #E6F3F3;
+            --teal-dim: rgba(0,86,83,0.08);
+            --gold: #B8963E;
+            --gold-light: #D4AE58;
+            --white: #FFFFFF;
+            --off-white: #F6F9F9;
+            --surface: #EDF4F4;
+            --text: #0A1A19;
+            --text-mid: #2A3E3D;
+            --text-muted: #5A7370;
+            --text-dim: #6D8F8C;
+            --border: rgba(0,86,83,0.13);
+            --border-mid: rgba(0,86,83,0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeInUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
+
+        /* Header */
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--teal); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo svg { width: 38px; height: 38px; }
+        .btn {
+            display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 26px; background: var(--teal); color: #fff; border: none; cursor: pointer; font-weight: 500; text-decoration: none; transition: all 0.25s; font-family: 'DM Sans', sans-serif;
+        }
+        .btn:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,86,83,0.2); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--border-mid); color: var(--teal); }
+        .btn-outline:hover { border-color: var(--teal); background: var(--teal-dim); transform: translateY(-2px); }
+
+        /* Hero with Contact Form */
+        .hero { padding: 60px 0 40px; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .hero-text { flex: 1; min-width: 280px; }
+        .hero-text h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 54px); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 20px; }
+        .hero-text h1 em { font-style: italic; color: var(--teal); }
+        .hero-text p { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 30px; }
+        .contact-card { flex: 1; min-width: 320px; background: var(--off-white); padding: 30px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,86,83,0.05); animation: fadeInUp 0.7s ease 0.2s both; }
+        .contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; margin-bottom: 15px; color: var(--text); }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 6px; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 12px; border: 1px solid var(--border-mid); background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text); outline: none; transition: border-color 0.2s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--teal); }
+        .form-group textarea { height: 80px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .contact-reassurance { font-size: 12px; color: var(--text-dim); margin-bottom: 20px; padding: 12px 14px; background: var(--teal-dim); border-left: 3px solid var(--teal); }
+
+        /* Stats bar */
+        .stats { display: flex; gap: 30px; flex-wrap: wrap; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 50px 0; }
+        .stat-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--teal); }
+        .stat-item p { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; }
+
+        /* Sections */
+        section { padding: 70px 0; }
+        h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3vw, 42px); font-weight: 300; margin-bottom: 20px; }
+        h2 em { font-style: italic; color: var(--teal); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .card { background: var(--off-white); border: 1px solid var(--border); padding: 28px; transition: all 0.25s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,86,83,0.08); border-color: var(--teal); }
+        .process-steps { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 40px; }
+        .step { flex: 1; min-width: 200px; background: var(--surface); padding: 28px; border-radius: 4px; transition: all 0.25s; }
+        .step:hover { transform: translateY(-4px); background: var(--teal-pale); }
+        .step-number { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--teal); margin-bottom: 12px; }
+        .case-highlight { background: var(--teal); color: #fff; padding: 36px; margin: 40px 0; }
+        .case-highlight h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; margin-bottom: 12px; }
+        .metric { font-size: 22px; font-weight: 500; margin-right: 25px; display: inline-block; }
+        .cta-bottom { background: var(--teal); color: #fff; text-align: center; padding: 60px 20px; margin-top: 60px; }
+        .cta-bottom h2 { color: #fff; }
+        .footer { text-align: center; padding: 30px 0; color: var(--text-dim); border-top: 1px solid var(--border); margin-top: 60px; }
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav fade-in">
+            <a href="/" class="logo">
+                <!-- Mini benzene SVG -->
+                <svg viewBox="0 0 50 50" fill="none"><polygon points="25,2 46,13.5 46,36.5 25,48 4,36.5 4,13.5" stroke="#005653" stroke-width="2.2" fill="none"/><circle cx="25" cy="25" r="10.5" stroke="#005653" stroke-width="1.8" fill="none" stroke-dasharray="5 3.5"/><circle cx="25" cy="2" r="4" fill="#005653"/><circle cx="46" cy="13.5" r="4" fill="#005653"/><circle cx="46" cy="36.5" r="4" fill="#005653"/><circle cx="25" cy="48" r="4" fill="#005653"/><circle cx="4" cy="36.5" r="4" fill="#005653"/><circle cx="4" cy="13.5" r="4" fill="#005653"/></svg>
+                Benzene Consulting
+            </a>
+            <a href="https://benzeneconsulting.in" class="btn-outline" style="padding:8px 16px;">← Main Website</a>
+        </nav>
+    </div>
+
+    <main class="container">
+        <!-- Hero + Contact Form -->
+        <div class="hero">
+            <div class="hero-text fade-in delay-1">
+                <h1>Find the Right ERP.<br><em>Without the Bias.</em></h1>
+                <p>Most MSMEs overspend or pick the wrong system because vendors guide the process. We provide truly vendor-neutral advisory — mapping your processes first, then finding the perfect fit. Start by telling us your needs below.</p>
+            </div>
+            <div class="contact-card fade-in delay-2">
+                <h3>Start Your ERP Assessment</h3>
+                <form action="https://formspree.io/f/xzdjaqvn" method="POST">
+                    <div class="form-row">
+                        <div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div>
+                        <div class="form-group"><label>Company Name</label><input type="text" name="company"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Work Email *</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>Phone</label><input type="tel" name="phone"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Current ERP / System</label>
+                        <select name="current_erp">
+                            <option value="">Select if applicable</option>
+                            <option>Tally Prime</option>
+                            <option>Zoho Books/One</option>
+                            <option>SAP Business One</option>
+                            <option>ERPNext</option>
+                            <option>Microsoft Dynamics</option>
+                            <option>Custom/Homegrown</option>
+                            <option>None — still on Excel / paper</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label>What's the biggest ERP challenge right now?</label><textarea name="message" placeholder="E.g., selecting new ERP, implementation stuck, data migration issues..."></textarea></div>
+                    <button type="submit" class="btn" style="width:100%;">Request Free Discovery Call →</button>
+                </form>
+                <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Or WhatsApp us at <a href="https://wa.me/919350789337">+91 9350789337</a>. No spam, no pressure.</p>
+            </div>
+        </div>
+
+        <!-- Trust Bar -->
+        <div class="stats fade-in delay-3">
+            <div class="stat-item"><h3>₹50Cr+</h3><p>Client Savings</p></div>
+            <div class="stat-item"><h3>60+</h3><p>MSMEs Served</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Vendor-Neutral</p></div>
+            <div class="stat-item"><h3>12+ Yrs</h3><p>Experience</p></div>
+        </div>
+
+        <!-- Problem Section -->
+        <section class="fade-in">
+            <h2>The <em>High Cost</em> of Choosing Wrong</h2>
+            <div class="grid-2">
+                <div>
+                    <p style="font-size:15px;color:var(--text-muted);line-height:1.8;">An ERP mismatch can set an MSME back 12-18 months. Delayed go-lives, teams refusing to use the system, and blown budgets are common. We protect you from that.</p>
+                </div>
+                <div class="card">
+                    <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;margin-bottom:1rem;">We prevent:</h3>
+                    <ul style="margin-left:20px;color:var(--text-muted);">
+                        <li>Buying a system too complex for your scale</li>
+                        <li>Missing critical Indian compliance needs (GST, e-invoicing)</li>
+                        <li>Overpaying for features you'll never use</li>
+                        <li>Ignoring change management entirely</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Process -->
+        <section class="fade-in">
+            <h2>How We <em>Guide</em> You</h2>
+            <div class="process-steps">
+                <div class="step"><div class="step-number">01</div><h3>Needs Assessment</h3><p>We map your processes end-to-end before a single demo.</p></div>
+                <div class="step"><div class="step-number">02</div><h3>Vendor-Neutral Scoring</h3><p>Unbiased comparison across SAP, Zoho, Tally, ERPNext, Dynamics, etc.</p></div>
+                <div class="step"><div class="step-number">03</div><h3>Structured Demos</h3><p>We run demos based on your processes, not vendor scripts.</p></div>
+                <div class="step"><div class="step-number">04</div><h3>Implementation Support</h3><p>We stay until your team is using the system confidently.</p></div>
+            </div>
+            <div style="margin-top:30px; font-size:14px; color:var(--text-muted);"><strong>Zero financial ties to any ERP vendor.</strong> Our recommendation is always yours alone.</div>
+        </section>
+
+        <!-- Social Proof Case Study -->
+        <div class="case-highlight fade-in">
+            <p style="text-transform:uppercase;letter-spacing:0.2em;font-size:10px;color:rgba(255,255,255,0.7);">Case Study</p>
+            <h3>₹8.4 Crore Annual Savings for a Manufacturer</h3>
+            <p>ERP requirement mapping was part of a larger cost transformation. 27% cost reduction in 14 weeks.</p>
+            <div style="margin-top:20px;"><span class="metric">₹8.4Cr</span><span class="metric">27%</span><span class="metric">4.2× ROI</span></div>
+        </div>
+
+        <!-- FAQ Snippet -->
+        <section class="fade-in">
+            <h2>Quick Answers</h2>
+            <div style="border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:20px;">
+                <h4 style="font-weight:500;">How are you different from a free vendor consultation?</h4>
+                <p style="color:var(--text-muted);">Vendors want to sell their product. We have no referral fees, no commissions. Our fee comes from you, so our loyalty is to you.</p>
+            </div>
+            <div style="border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:20px;">
+                <h4 style="font-weight:500;">What size companies do you help?</h4>
+                <p style="color:var(--text-muted);">MSMEs from ₹5Cr to ₹500Cr revenue. If you've outgrown Tally or Excel, we can help.</p>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <div class="cta-bottom fade-in">
+            <h2>Ready to find the right ERP?</h2>
+            <p style="opacity:0.85; max-width:500px; margin: 0 auto 25px;">Your first call is free. We'll listen, ask smart questions, and give you a clear, honest path forward.</p>
+            <a href="#" class="btn" style="background:#fff; color:var(--teal);" onclick="document.querySelector('.contact-card').scrollIntoView({behavior:'smooth'}); return false;">Fill the Form Above</a>
+            <a href="https://wa.me/919350789337" class="btn-outline" style="color:#fff; border-color:#fff; margin-left:10px;">Chat on WhatsApp</a>
+        </div>
+    </main>
+
+    <footer class="footer container fade-in">
+        <p>© 2026 Benzene Consulting. Delhi NCR, India. <a href="/" style="color:var(--teal);">Main Website</a></p>
+    </footer>
+</body>
+</html>

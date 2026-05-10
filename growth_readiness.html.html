@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSME Growth Readiness Score | Benzene Consulting</title>
+    <meta name="description" content="Take the 2-minute diagnostic. Assess your process maturity, cost visibility, supply chain resilience, and tech fit. Get a custom score and advice.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #005653; --teal-mid: #007A76; --teal-light: #009E99; --teal-pale: #E6F3F3; --teal-dim: rgba(0,86,83,0.08);
+            --gold: #B8963E; --gold-light: #D4AE58; --white: #FFFFFF; --off-white: #F6F9F9; --surface: #EDF4F4;
+            --text: #0A1A19; --text-muted: #5A7370; --text-dim: #6D8F8C; --border: rgba(0,86,83,0.13); --border-mid: rgba(0,86,83,0.25);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeInUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.15s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.45s; }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--teal); text-decoration: none; }
+        .btn { display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 26px; background: var(--teal); color: #fff; border: none; cursor: pointer; font-weight: 500; text-decoration: none; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
+        .btn:hover { background: var(--teal-mid); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,86,83,0.2); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--border-mid); color: var(--teal); padding: 8px 16px; }
+        .hero { padding: 40px 0 30px; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 300; line-height: 1.1; margin-bottom: 15px; }
+        .hero-text h1 em { font-style: italic; color: var(--teal); }
+        .contact-card { flex: 1; min-width: 300px; background: var(--off-white); padding: 25px; border: 1px solid var(--border); }
+        .contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin-bottom: 12px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); display: block; margin-bottom: 5px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px 11px; border: 1px solid var(--border-mid); background: var(--white); font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--teal); }
+        .form-group textarea { height: 70px; }
+        .diagnostic-shell { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; align-items: start; }
+        .diagnostic-panel { background: rgba(255,255,255,0.9); border: 1px solid var(--border); padding: 28px; }
+        .diagnostic-result { background: var(--white); border: 1px solid var(--border); padding: 28px; }
+        .diagnostic-control { margin-bottom: 24px; }
+        .diagnostic-control label { font-size: 14px; font-weight: 500; display: block; margin-bottom: 5px; }
+        .diagnostic-control small { display: block; font-size: 11px; color: var(--text-dim); margin-bottom: 8px; }
+        .diagnostic-value { font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--teal); float: right; }
+        input[type="range"] { width: 100%; accent-color: var(--teal); }
+        .scale-labels { display: flex; justify-content: space-between; font-size: 10px; text-transform: uppercase; color: var(--text-dim); margin-top: 5px; }
+        .score-ring { width: 140px; height: 140px; border-radius: 50%; background: conic-gradient(var(--teal) var(--score, 50%), var(--surface) 0); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; position: relative; }
+        .score-ring::after { content: ''; position: absolute; inset: 15px; border-radius: 50%; background: #fff; }
+        .score-inner { position: relative; z-index: 1; text-align: center; }
+        .score-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; color: var(--teal); line-height: 1; }
+        .score-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; }
+        .result-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; margin: 15px 0 10px; }
+        .priority-list { list-style: none; margin: 15px 0; }
+        .priority-list li { font-size: 13px; color: var(--text-muted); padding: 8px 10px; background: var(--teal-pale); border-left: 3px solid var(--teal); margin-bottom: 6px; }
+        .cta-bottom { background: var(--teal); color: #fff; text-align: center; padding: 50px 20px; margin-top: 50px; }
+        .footer { text-align: center; padding: 30px 0; color: var(--text-dim); border-top: 1px solid var(--border); margin-top: 40px; }
+        @media (max-width: 768px) {
+            .diagnostic-shell { grid-template-columns: 1fr; }
+            .hero { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav class="nav fade-in">
+        <a href="/" class="logo">Benzene Consulting</a>
+        <a href="https://benzeneconsulting.in" class="btn-outline">← Main Website</a>
+    </nav>
+</div>
+<main class="container">
+    <div class="hero">
+        <div class="hero-text fade-in delay-1">
+            <h1>How <em>Ready</em> Is Your Business to Scale?</h1>
+            <p style="color:var(--text-muted);">Take the 2-minute diagnostic. Rate your current maturity across 4 key areas, and we'll instantly show your growth readiness score — plus personalised advice.</p>
+        </div>
+        <div class="contact-card fade-in delay-2">
+            <h3>Discuss Your Results</h3>
+            <form action="https://formspree.io/f/xzdjaqvn" method="POST">
+                <div class="form-group"><label>Name *</label><input type="text" name="name" required></div>
+                <div class="form-group"><label>Email *</label><input type="email" name="email" required></div>
+                <div class="form-group"><label>Any specific challenge?</label><textarea name="message"></textarea></div>
+                <button type="submit" class="btn" style="width:100%;">Get Expert Guidance →</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="diagnostic-shell">
+        <div class="diagnostic-panel fade-in">
+            <h2 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;margin-bottom:20px;">Your Assessment</h2>
+            <div class="diagnostic-control">
+                <label>Process Documentation</label>
+                <small>SOPs, approval matrices, standard workflows</small>
+                <span class="diagnostic-value" id="proc-val">5</span>
+                <input type="range" id="proc" min="1" max="10" value="5" oninput="updateScore()">
+                <div class="scale-labels"><span>Ad hoc</span><span>Systemised</span></div>
+            </div>
+            <div class="diagnostic-control">
+                <label>Cost Visibility</label>
+                <small>Spend baselines, vendor contracts, budget tracking</small>
+                <span class="diagnostic-value" id="cost-val">6</span>
+                <input type="range" id="cost" min="1" max="10" value="6" oninput="updateScore()">
+                <div class="scale-labels"><span>Opaque</span><span>Measured</span></div>
+            </div>
+            <div class="diagnostic-control">
+                <label>Supply Chain Resilience</label>
+                <small>Supplier risk, inventory discipline, delivery reliability</small>
+                <span class="diagnostic-value" id="supply-val">5</span>
+                <input type="range" id="supply" min="1" max="10" value="5" oninput="updateScore()">
+                <div class="scale-labels"><span>Fragile</span><span>Resilient</span></div>
+            </div>
+            <div class="diagnostic-control">
+                <label>Technology Fit</label>
+                <small>ERP readiness, dashboard adoption, data maturity</small>
+                <span class="diagnostic-value" id="tech-val">4</span>
+                <input type="range" id="tech" min="1" max="10" value="4" oninput="updateScore()">
+                <div class="scale-labels"><span>Manual</span><span>Enabled</span></div>
+            </div>
+        </div>
+        <div class="diagnostic-result fade-in delay-1" id="resultPanel">
+            <div class="score-ring" id="scoreRing" style="--score:50%">
+                <div class="score-inner"><div class="score-num" id="scoreTotal">50</div><div class="score-label">out of 100</div></div>
+            </div>
+            <div id="resultText">
+                <p style="font-size:11px;text-transform:uppercase;letter-spacing:0.2em;color:var(--teal);" id="stage">Build the foundation</p>
+                <h3 class="result-title" id="title">Your systems need structure before scale.</h3>
+                <p style="color:var(--text-muted);font-size:14px;" id="copy">The business has traction, but manual processes and founder dependency may limit growth.</p>
+                <ul class="priority-list" id="priorities"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="cta-bottom fade-in">
+        <h2 style="font-family:'Cormorant Garamond',serif;color:#fff;">Ready to act on your score?</h2>
+        <p style="opacity:0.85;margin-bottom:20px;">Book a free call, and we'll walk you through a custom roadmap.</p>
+        <a href="#" class="btn" style="background:#fff;color:var(--teal);" onclick="document.querySelector('.contact-card').scrollIntoView({behavior:'smooth'});return false;">Book Discovery Call</a>
+    </div>
+</main>
+<footer class="footer container fade-in"><p>© 2026 Benzene Consulting. Delhi NCR, India.</p></footer>
+
+<script>
+function updateScore() {
+    let proc = parseInt(document.getElementById('proc').value);
+    let cost = parseInt(document.getElementById('cost').value);
+    let supply = parseInt(document.getElementById('supply').value);
+    let tech = parseInt(document.getElementById('tech').value);
+    document.getElementById('proc-val').textContent = proc;
+    document.getElementById('cost-val').textContent = cost;
+    document.getElementById('supply-val').textContent = supply;
+    document.getElementById('tech-val').textContent = tech;
+    let total = Math.round(((proc + cost + supply + tech) / 40) * 100);
+    document.getElementById('scoreTotal').textContent = total;
+    document.getElementById('scoreRing').style.setProperty('--score', total + '%');
+
+    let stage, title, copy, priorities = [];
+    if (total >= 75) {
+        stage = "Scale with confidence"; title = "You are ready for optimisation."; copy = "Your foundation is strong. Focus on margin expansion and tech leverage.";
+        priorities = ["Benchmark procurement costs", "Automate performance dashboards", "Advanced supply chain risk mapping"];
+    } else if (total >= 55) {
+        stage = "Strengthen the engine"; title = "Solid, but a few weak links."; copy = "Improve consistency in documentation and cost tracking.";
+        priorities = ["Document top 10 SOPs", "Run a vendor rationalisation exercise", "Implement a weekly KPI review"];
+    } else {
+        stage = "Build the foundation"; title = "Systems before scale."; copy = "Address process documentation and visibility urgently.";
+        priorities = ["Start SOP documentation for critical processes", "Create a cost baseline and approval matrix", "Assess ERP/tech readiness"];
+    }
+    document.getElementById('stage').textContent = stage;
+    document.getElementById('title').textContent = title;
+    document.getElementById('copy').textContent = copy;
+    document.getElementById('priorities').innerHTML = priorities.map(p => `<li>${p}</li>`).join('');
+}
+updateScore();
+</script>
+</body>
+</html>
