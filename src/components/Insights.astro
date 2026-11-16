@@ -1,0 +1,150 @@
+<section id="blog-hero">
+  <div class="blog-hero-grid"></div>
+  <div class="blog-hero-content">
+    <div class="section-label" style="color:rgba(255,255,255,0.68)">Insights & Perspectives</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;line-height:1.1;color:#fff;margin-bottom:16px;">Thinking Out Loud on <em style="font-style:italic;color:var(--gold-light)">Strategy, Costs & Supply Chain</em></h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.68);line-height:1.85;max-width:540px;">Practical insights for MSME founders and operations leaders — no jargon, no fluff. Just structured thinking on the problems that actually matter to your business.</p>
+  </div>
+</section>
+
+<section style="background:var(--off-white);padding:88px 5vw;">
+
+  <!-- Category filter -->
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:48px;">
+    <div>
+      <div class="section-label">All Articles</div>
+      <h2 class="section-title">Latest <em>Insights</em></h2>
+    </div>
+    <div class="blog-cats">
+      <button type="button" class="blog-cat active" aria-pressed="true" onclick="filterBlog('all',this)">All Topics</button>
+      <button type="button" class="blog-cat" aria-pressed="false" onclick="filterBlog('cost',this)">Cost &amp; Margins</button>
+      <button type="button" class="blog-cat" aria-pressed="false" onclick="filterBlog('supply-chain',this)">Supply Chain</button>
+      <button type="button" class="blog-cat" aria-pressed="false" onclick="filterBlog('strategy',this)">Strategy</button>
+      <button type="button" class="blog-cat" aria-pressed="false" onclick="filterBlog('ops',this)">Operations &amp; SOPs</button>
+      <button type="button" class="blog-cat" aria-pressed="false" onclick="filterBlog('erp',this)">ERP &amp; Tech</button>
+    </div>
+  </div>
+
+  <!-- Featured Article -->
+  <a class="blog-featured fade-in" href="/insights/msme-growth/">
+    <div class="blog-featured-img">
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80" alt="MSME Scaling">
+      <div class="blog-featured-overlay"></div>
+    </a>
+    <div class="blog-featured-body">
+      <div class="blog-featured-tag">Featured · Strategy</div>
+      <h2>Why 73% of MSMEs Stall at ₹50 Crore — and <em>How to Break Through</em></h2>
+      <p>Most Indian businesses hit an invisible ceiling somewhere between ₹20Cr and ₹50Cr revenue. It's not a market problem or a funding problem — it's a systems problem. Here's a structured framework for diagnosing and breaking through it.</p>
+      <div class="blog-featured-meta">Aakash Kumar &nbsp;·&nbsp; 8 min read &nbsp;·&nbsp; March 2025</div>
+      <a class="btn-outline" style="margin-top:20px;display:inline-block;font-size:11px;padding:11px 22px;">Read Article →</a>
+    </div>
+  </div>
+
+  <!-- Article grid -->
+  <div class="blog-grid" id="blogGrid">
+
+    <a class="blog-card fade-in" data-cat="cost" href="/insights/procurement-overpayments/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80" alt="Cost">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Cost &amp; Margins</span><span class="blog-card-date">Feb 2025</span></div>
+        <h3>The 5 Places Every MSME Overpays on Procurement — and How to Fix Each One</h3>
+        <p>Most MSMEs overpay on procurement by 15–30% without realising it. Here are the five structural reasons why — and the specific interventions that address each.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">6 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-1" data-cat="supply-chain" href="/insights/supply-chain-blueprint/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Supply Chain">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Supply Chain</span><span class="blog-card-date">Jan 2025</span></div>
+        <h3>Building a Supply Chain from Scratch: A Practical 5-Phase Blueprint for D2C Brands</h3>
+        <p>From vendor selection to last-mile delivery — a week-by-week framework based on a real engagement where we took a D2C brand from zero to 10,000+ orders per month.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">9 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-2" data-cat="ops" href="/insights/writing-sops/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&q=80" alt="SOPs">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Operations &amp; SOPs</span><span class="blog-card-date">Jan 2025</span></div>
+        <h3>Your Business Shouldn't Depend on You. Here's How to Write SOPs That Actually Get Used</h3>
+        <p>Most SOPs are written and never read. Here's a proven format for writing SOPs your team will actually follow — with real examples from MSME operations.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">7 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in" data-cat="erp" href="/insights/erp-comparison/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&q=80" alt="ERP">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">ERP &amp; Tech</span><span class="blog-card-date">Dec 2024</span></div>
+        <h3>SAP vs Zoho vs ERPNext vs Tally: An Honest, Vendor-Neutral Guide for MSMEs</h3>
+        <p>A straightforward comparison of the four most common ERP options for Indian MSMEs — what each is genuinely good at, where each falls short, and how to decide.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">11 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-1" data-cat="strategy" href="/insights/zero-based-budgeting/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=80" alt="Strategy">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Strategy</span><span class="blog-card-date">Dec 2024</span></div>
+        <h3>Zero-Based Budgeting for MSMEs: A Step-by-Step Guide to Rebuilding Your Cost Structure</h3>
+        <p>ZBB isn't just for large corporations. Here's how to apply it to a ₹20–100Cr MSME — with a practical template and the sequence of steps we use in client engagements.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">8 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-2" data-cat="supply-chain" href="/insights/inventory-carrying-costs/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80" alt="Inventory">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Supply Chain</span><span class="blog-card-date">Nov 2024</span></div>
+        <h3>Inventory Carrying Costs Are Destroying Your Margins. Here's How to Calculate and Fix Them</h3>
+        <p>Most MSME owners dramatically underestimate what excess inventory actually costs them. A practical framework to calculate your true carrying cost — and the levers to reduce it by 30–40%.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">6 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in" data-cat="cost" href="/insights/vendor-rationalisation/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Vendor">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Cost &amp; Margins</span><span class="blog-card-date">Nov 2024</span></div>
+        <h3>Vendor Rationalisation: How We Reduced a Client's Vendor Base from 187 to 64 — and Saved ₹3.2Cr</h3>
+        <p>Too many vendors isn't a sign of healthy procurement — it's a sign of a broken system. Here's the exact methodology we used to rationalise a vendor base and deliver massive savings.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">7 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-1" data-cat="ops" href="/insights/operations-kpis/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Dashboard">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Operations &amp; SOPs</span><span class="blog-card-date">Oct 2024</span></div>
+        <h3>The 8 KPIs Every MSME Operations Leader Should Track Weekly (and How to Build a Power BI Dashboard for Them)</h3>
+        <p>Most businesses track the wrong metrics — or track nothing at all. Here are the 8 KPIs that actually predict operational health, and how to visualise them in Power BI in under a day.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">10 min read</span></div>
+      </div>
+    </a>
+
+    <a class="blog-card fade-in fade-in-delay-2" data-cat="strategy" href="/insights/lean-six-sigma/">
+      <img loading="lazy" decoding="async" class="blog-card-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&q=80" alt="Strategy">
+      <div class="blog-card-body">
+        <div class="blog-card-meta"><span class="blog-card-tag">Strategy</span><span class="blog-card-date">Oct 2024</span></div>
+        <h3>Applying Lean Six Sigma to MSME Operations: A No-Jargon, Practical Starter Guide</h3>
+        <p>Lean Six Sigma is often dismissed as too complex for small businesses. It isn't — if you apply it correctly. Here's how to use VSM, 5 Whys, and Pareto without the academic overhead.</p>
+        <div class="blog-card-footer"><span class="blog-card-author">Aakash Kumar</span><span class="blog-card-read-time">8 min read</span></div>
+      </div>
+    </a>
+
+  </div><!-- /blog-grid -->
+</section>
+
+<!-- Newsletter signup -->
+<section class="blog-newsletter">
+<h3>Get Insights <em>Delivered to Your Inbox</em></h3>
+<p>Request email updates on cost management, supply chain, strategy and operations.</p>
+<form class="newsletter-request" action="https://formspree.io/f/xzdjaqvn" method="post" data-inquiry>
+<input type="hidden" name="interest" value="Newsletter opt-in request">
+<label for="newsletter-email">Email address</label>
+<input type="email" id="newsletter-email" name="email" autocomplete="email" required>
+<button class="btn-primary" type="submit">Request Email Updates</button>
+<p class="submission-status" role="status"></p>
+</form>
+</section>
