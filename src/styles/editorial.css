@@ -91,3 +91,28 @@ main > section:not(#hero) { padding-block: clamp(52px, 6vw, 104px); }
   #hero { grid-template-columns: 1fr; }
   .hero-photograph::after { background: linear-gradient(180deg, #092b25, rgba(9,43,37,.52) 55%, rgba(9,43,37,.85)); }
 }
+
+/* Keep foreground and background together at every viewport width. */
+#hero .hero-left { background: var(--editorial-ink); animation: none; }
+.hero-explore-link { color: var(--editorial-mint); flex-basis: 100%; padding-block: 8px; text-decoration: underline; text-underline-offset: 4px; }
+.explore-hub { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(24px, 6vw, 90px); padding-inline: 5vw; background: var(--off-white); }
+.explore-topics details { border-top: 1px solid var(--border); }
+.explore-topics details:last-child { border-bottom: 1px solid var(--border); }
+.explore-topics summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; padding: 18px 12px; font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; color: var(--editorial-ink); list-style: none; }
+.explore-topics summary::-webkit-details-marker { display: none; }
+.explore-topics summary span::before { content: '+'; }
+.explore-topics details[open] summary span::before { content: '−'; }
+.explore-topics ul { list-style: none; margin: 0; padding: 0 12px 12px; }
+.explore-topics a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; color: var(--teal); text-decoration: none; }
+.explore-topics a:hover, .explore-topics a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
+.data-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.data-card { min-width: 0; padding: clamp(12px, 2.5vw, 32px); }
+.engagement-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: clamp(.76rem, 1vw, .95rem); font-variant-numeric: tabular-nums; }
+.engagement-table tr > :first-child { width: 46%; text-align: left; }
+.engagement-table th, .engagement-table td { padding: 12px 4px; border-bottom: 1px solid var(--border); text-align: right; overflow-wrap: anywhere; }
+.engagement-table thead th { color: var(--editorial-ink); }
+.engagement-table tbody th { font-weight: 500; }
+.engagement-table .stat-row-before { color: #763a31; }
+.engagement-table .stat-row-delta { background: transparent; font-size: inherit; }
+@media (max-width: 1100px) { .data-layout { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .explore-hub { grid-template-columns: 1fr; } }

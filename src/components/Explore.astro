@@ -1,0 +1,21 @@
+---
+const topics = [
+  { title: 'Capabilities', links: [['Strategic planning', '/services/strategy/'], ['Cost improvement', '/services/cost-improvement/'], ['Supply chain optimisation', '/services/supply-chain/'], ['Operational excellence', '/services/operational-excellence/'], ['ERP advisory', '/erp-advisory.html']] },
+  { title: 'Research and insights', links: [['Building a supply chain from scratch', '/insights/supply-chain-blueprint/'], ['Finding procurement overpayments', '/insights/procurement-overpayments/'], ['Writing SOPs that get used', '/insights/writing-sops/'], ['Browse all insights', '/insights/']] },
+  { title: 'Client results and tools', links: [['Manufacturing cost reduction', '/publications/manufacturing-cost-reduction/'], ['Supply chain build', '/publications/supply-chain-build/'], ['Logistics turnaround', '/publications/logistics-turnaround/'], ['Check your growth readiness', '/#diagnostic']] },
+];
+---
+<section class="explore-hub" id="explore" aria-labelledby="explore-title">
+  <div class="explore-intro">
+    <h2 class="section-title" id="explore-title">Explore our work</h2>
+    <p class="section-sub">Find expertise for your next decision, see what changed for clients, or assess your own operations.</p>
+  </div>
+  <div class="explore-topics">
+    {topics.map(({ title, links }, index) => (
+      <details name="explore-topics" open={index === 0}>
+        <summary>{title}<span aria-hidden="true"></span></summary>
+        <ul>{links.map(([label, href]) => <li><a href={href}>{label}<span aria-hidden="true">↗</span></a></li>)}</ul>
+      </details>
+    ))}
+  </div>
+</section>
