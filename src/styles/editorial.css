@@ -40,3 +40,54 @@
   .case-tile.reveal-enter:nth-child(3) { animation-delay: 140ms; }
   @keyframes case-enter { from { opacity: .6; transform: translateY(15px); } }
 }
+
+/* Editorial layout shared by the home page and publication pages. */
+:root {
+  --editorial-ink: #092b25;
+  --editorial-mint: #a5e8bd;
+  --teal: #076648;
+  --teal-dark: #092b25;
+  --off-white: #f7f8f4;
+  --surface: #eef4ef;
+}
+nav { border-bottom: 1px solid var(--border); }
+.nav-links { gap: clamp(12px, 1.6vw, 28px); }
+.nav-links a { font-size: 13px; letter-spacing: 0; }
+.nav-cta, .btn-primary, .btn-outline {
+  text-transform: none;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.btn-primary::after { display: none; }
+.btn-primary:hover { transform: none; box-shadow: none; }
+#hero { grid-template-columns: 1fr 1fr; background: var(--editorial-ink); }
+.hero-left { padding-block: clamp(56px, 8vw, 128px); }
+#hero h1 { color: #fff; font-weight: 600; }
+#hero h1 em { color: var(--editorial-mint); }
+.hero-eyebrow, .hero-sub, .hero-trust-text { color: #e2eee7; }
+.hero-eyebrow::before, .hero-trust-dot { background: var(--editorial-mint); }
+.hero-trust { border-color: #45675b; }
+.hero-actions .btn-primary { background: var(--editorial-mint); color: var(--editorial-ink); }
+.hero-actions .btn-primary:hover { background: #d2f4df; }
+.hero-actions .btn-outline { color: #fff; border-color: #a4c2b3; }
+.hero-actions .btn-outline:hover { background: #24473c; }
+.hero-photograph::after {
+  background: linear-gradient(90deg, #092b25 0%, rgba(9,43,37,.32) 48%, rgba(9,43,37,.6) 100%);
+}
+main > section:not(#hero) { padding-block: clamp(52px, 6vw, 104px); }
+.section-title { font-size: clamp(2.45rem, 4.4vw, 4.25rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.02; }
+.section-title em { font-weight: inherit; }
+.problem-grid > *, .contact-form, .blog-card, .pub-card,
+.proof-grid a, .service-directory a { border-radius: 0; }
+.case-highlights { background: var(--surface); color: var(--editorial-ink); }
+.case-highlights .section-title, .case-highlights .section-label, .case-index { color: var(--editorial-ink); }
+.case-tile { background: var(--white); border-color: var(--border); }
+.case-copy strong, .case-arrow { color: var(--teal); }
+.case-copy { border-top: 3px solid var(--teal); }
+.detail-page { padding-top: clamp(52px, 8vw, 112px); }
+.detail-page h1 { font-weight: 600; letter-spacing: -.045em; }
+.detail-content.modal-body { line-height: 1.75; }
+@media (max-width: 960px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-photograph::after { background: linear-gradient(180deg, #092b25, rgba(9,43,37,.52) 55%, rgba(9,43,37,.85)); }
+}
