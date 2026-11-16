@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/site.css';
 import '../styles/redesign.css';
+import '../styles/editorial.css';
 const { title } = Astro.props;
 const canonical = new URL(Astro.url.pathname, 'https://benzeneconsulting.in');
 ---
@@ -41,6 +42,9 @@ const canonical = new URL(Astro.url.pathname, 'https://benzeneconsulting.in');
 <main id="main-content"><slot /></main>
 <Footer />
 <script is:inline src="/site-interactions.js"></script>
-<script>import '../scripts/forms';</script>
+<script>
+  import '../scripts/forms';
+  import '../scripts/motion';
+</script>
 </body>
 </html>
