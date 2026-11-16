@@ -91,11 +91,16 @@ var diagnosticMap = {
   process: { label:'Process documentation', service:3, advice:'Prioritise SOPs, approval matrices, and team training so recurring work stops depending on memory.' },
   cost: { label:'Cost visibility', service:1, advice:'Run a cost baseline, vendor rationalisation, and budget-owner review to uncover margin leakage.' },
   supply: { label:'Supply-chain resilience', service:2, advice:'Map supplier risk, inventory buffers, logistics bottlenecks, and delivery performance before volume scales.' },
-  tech: { label:'Technology fit', service:null, advice:'Define ERP requirements, master-data ownership, and dashboard needs before choosing software.' }
+  tech: { label:'Technology fit', service:null, advice:'Define ERP requirements, master-data ownership, and dashboard needs before choosing software.' },
+  cash: { label:'Cash and working capital', advice:'Build a rolling cash forecast and review receivables, payables and slow-moving inventory weekly.' },
+  customers: { label:'Customer retention', advice:'Track repeat purchases and review recurring service issues with a named owner.' },
+  people: { label:'Team and delegation', advice:'Assign decision rights and train a backup owner for each critical workflow.' },
+  strategy: { label:'Growth planning', advice:'Set three measurable priorities, name owners and review progress monthly.' }
 };
 
 function updateDiagnostic() {
-  var keys = ['process','cost','supply','tech'];
+  if (!document.getElementById('diag-score')) return;
+  var keys = Object.keys(diagnosticMap);
   var values = keys.map(function(key) {
     var input = document.getElementById('diag-' + key);
     var value = input ? parseInt(input.value, 10) : 0;
