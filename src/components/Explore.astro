@@ -45,22 +45,22 @@ const stories = [
   </fieldset>
 </section>
 <style>
-  .story-explorer { padding-inline: 5vw; background: #eef4ef; }
+  .story-explorer { padding-inline: 5vw; background: #EDF4F4; }
   .story-selector { min-inline-size: 0; padding: 0; border: 0; }
-  .story-selector legend { margin-bottom: 10px; color: #31574a; }
+  .story-selector legend { margin-bottom: 10px; color: #007A76; }
   .story-options { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-  .story-options label { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 14px; border: 1px solid #8ca69a; background: #fff; color: #092b25; }
-  .story-options input { accent-color: #076648; }
-  .story-options label:has(:checked) { background: #092b25; color: #fff; }
-  .story-panel { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); background: #092b25; color: #fff; }
+  .story-options label { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 10px 14px; border: 1px solid #8AADAA; background: #fff; color: #005653; }
+  .story-options input { accent-color: #005653; }
+  .story-options label:has(:checked) { background: #005653; color: #fff; }
+  .story-panel { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); background: #005653; color: #fff; }
   .story-panel img { width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
   .story-copy { display: grid; align-content: center; gap: 16px; padding: clamp(22px, 5vw, 64px); }
   .story-copy h3 { font: 600 clamp(2rem, 4vw, 4rem)/1.02 'Cormorant Garamond', serif; }
   .story-copy p { max-width: 48ch; }
-  .story-primary { color: #a5e8bd; text-underline-offset: 5px; }
+  .story-primary { color: #E6F3F3; text-underline-offset: 5px; }
   .story-links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,220px),1fr)); list-style: none; margin: 0; padding: 0; background: #fff; }
-  .story-links a { height: 100%; display: flex; justify-content: space-between; gap: 10px; padding: 17px; border: 1px solid #d4dfd8; color: #092b25; text-decoration: none; }
-  .story-links a:hover, .story-links a:focus-visible { background: #ddf0e4; text-decoration: underline; }
+  .story-links a { height: 100%; display: flex; justify-content: space-between; gap: 10px; padding: 17px; border: 1px solid rgba(0,86,83,0.13); color: #005653; text-decoration: none; }
+  .story-links a:hover, .story-links a:focus-visible { background: #E6F3F3; text-decoration: underline; }
   @supports selector(:has(*)) {
     .story-panel { display: none; }
     .story-selector:has([value="capabilities"]:checked) [data-story="capabilities"],

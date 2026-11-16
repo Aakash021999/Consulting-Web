@@ -1,10 +1,10 @@
 :root {
-  --teal: #07574f;
-  --teal-dark: #09342f;
-  --off-white: #f5f5eb;
-  --surface: #eaf1e9;
-  --white: #fffefa;
-  --border: #ccd9cd;
+  --teal: #005653;
+  --teal-dark: #005653;
+  --off-white: #F6F9F9;
+  --surface: #EDF4F4;
+  --white: #FFFFFF;
+  --border: rgba(0,86,83,0.13);
 }
 
 body { background: var(--white); }
@@ -16,7 +16,7 @@ section[id] { scroll-margin-top: 90px; }
 .skip-link:focus { transform: none; }
 #hero { min-height: auto; grid-template-columns: 1.1fr .9fr; background: var(--off-white); }
 .hero-left { padding: clamp(36px, 7vw, 110px) 5vw; }
-.hero-right { background: #103b34; min-height: 420px; }
+.hero-right { background: #005653; min-height: 420px; }
 .hero-trust { max-width: 485px; }
 .hero-sub { max-width: 510px; }
 .hero-molecule-svg { max-width: 44vw; }
