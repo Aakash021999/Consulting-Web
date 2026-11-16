@@ -1,0 +1,31 @@
+---
+const cases = [
+  { slug: 'manufacturing-cost-reduction', label: 'Manufacturing', result: '₹8.4 crore', summary: 'Manufacturing cost reduction', image: '1565043589221-1a6fd9ae45c7' },
+  { slug: 'supply-chain-build', label: 'Supply Chain', result: '20 weeks', summary: 'Supply chain built from scratch', image: '1586528116311-ad8dd3c8310d' },
+  { slug: 'logistics-turnaround', label: 'Logistics', result: '18 weeks', summary: 'Logistics turnaround to positive EBITDA', image: '1494412574643-ff11b0a5c1c3' },
+];
+---
+<section class="case-highlights" aria-labelledby="case-highlights-title">
+  <header class="case-heading">
+    <div>
+      <div class="section-label">Selected engagements</div>
+      <h2 class="section-title" id="case-highlights-title">Results from the field</h2>
+    </div>
+    <a class="case-index" href="/publications/#results-explorer">Compare engagement results →</a>
+  </header>
+  <div class="case-grid">
+    {cases.map(({ slug, label, result, summary, image }) => (
+      <a class="case-tile" href={`/publications/${slug}/`}>
+        <div class="case-image">
+          <img src={`https://images.unsplash.com/photo-${image}?w=760&q=80&fit=crop`} alt="" loading="lazy" decoding="async" width="760" height="480" />
+          <span>{label}</span>
+        </div>
+        <div class="case-copy">
+          <strong>{result}</strong>
+          <span>{summary}</span>
+          <span class="case-arrow" aria-hidden="true">↗</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

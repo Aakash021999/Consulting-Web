@@ -1,0 +1,46 @@
+<section id="contact">
+  <div class="section-label">Start a Conversation</div>
+  <h2 class="section-title">Ready to <em>Transform</em> Your Business?</h2>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <p class="contact-info-lead">Whether you're looking to cut costs, build a stronger strategy, fix your supply chain, or find the right ERP — the first conversation is always free.</p>
+      <div class="contact-item"><div class="contact-icon">✉</div><div><h4>Email</h4><p><a href="mailto:admin@benzeneconsulting.in">admin@benzeneconsulting.in</a></p></div></div>
+      <div class="contact-item"><div class="contact-icon">☎</div><div><h4>Phone / WhatsApp</h4><p><a href="tel:+919350789337">+91 9350789337</a></p></div></div>
+      <div class="contact-item"><div class="contact-icon">◎</div><div><h4>Location</h4><p>Delhi NCR — serving clients pan-India</p></div></div>
+      <div class="contact-item"><div class="contact-icon">◷</div><div><h4>Response Time</h4><p>Within 24 hours on business days</p></div></div>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/xzdjaqvn" method="post" data-inquiry>
+         <p class="contact-reassurance">No sales pressure — just a practical first conversation about where your business is leaking time, cash, or control.</p>
+      <div class="challenge-chips" aria-label="Common business challenges">
+        <button class="challenge-chip" aria-pressed="false" type="button" onclick="prefillChallenge('Costs rising', this)">Costs rising</button>
+        <button class="challenge-chip" aria-pressed="false" type="button" onclick="prefillChallenge('ERP confusion', this)">ERP confusion</button>
+        <button class="challenge-chip" aria-pressed="false" type="button" onclick="prefillChallenge('Founder dependency', this)">Founder dependency</button>
+        <button class="challenge-chip" aria-pressed="false" type="button" onclick="prefillChallenge('Need SOPs', this)">Need SOPs</button>
+        <button class="challenge-chip" aria-pressed="false" type="button" onclick="prefillChallenge('Supply chain delays', this)">Supply chain delays</button>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="f-name">Full Name *</label><input type="text" id="f-name" name="name" required placeholder="Your name"></div>
+        <div class="form-group"><label for="f-company">Company Name</label><input type="text" id="f-company" name="company" placeholder="Your company"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label for="f-email">Email *</label><input type="email" id="f-email" name="email" required placeholder="your@email.com"></div>
+        <div class="form-group"><label for="f-phone">Phone</label><input type="tel" id="f-phone" name="phone" placeholder="+91 XXXXX XXXXX"></div>
+      </div>
+      <div class="form-group">
+        <label for="f-interest">Area of Interest *</label>
+        <select id="f-interest" name="interest" required>
+          <option value="">Select a service area</option>
+          <option>Strategic Planning</option>
+          <option>Cost Improvement</option>
+          <option>Supply Chain Optimisation</option>
+          <option>Operational Excellence</option>
+          <option>ERP Advisory &amp; Selection</option>
+          <option>Not sure — need a diagnosis</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="f-message">Tell us about your challenge</label><textarea id="f-message" name="message" placeholder="Briefly describe what you're trying to solve..."></textarea></div>
+      <button class="form-submit" type="submit">Send Message — Let's Talk</button>
+      <p class="submission-status" role="status"></p>
+    </form>
+  </div>
+</section>
