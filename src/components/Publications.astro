@@ -173,10 +173,21 @@
 </div>
 
 <!-- Data Deep-Dive -->
-<div class="pub-data-section">
+<div class="pub-data-section" id="results-explorer">
   <div class="section-label">Data Deep-Dive</div>
   <h2 class="section-title">The Numbers Behind <em>Two Engagements</em></h2>
   <p class="section-sub">Detailed before-and-after breakdowns — the data that justified every recommendation.</p>
+  <div class="results-explorer" data-results-explorer hidden>
+    <div class="results-controls">
+      <label>Engagement<select data-engagement></select></label>
+      <label>Metric<select data-metric></select></label>
+    </div>
+    <figure class="results-figure">
+      <figcaption data-chart-title></figcaption>
+      <div class="results-bars" data-bars role="img"></div>
+      <p class="results-change" data-change role="status"></p>
+    </figure>
+  </div>
   <div class="data-layout">
 
     <div class="data-card fade-in">
@@ -300,3 +311,7 @@
   <p style="font-size:15px;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 32px;line-height:1.8;">These results came from structured thinking, disciplined execution, and a genuine commitment to client outcomes. Let's see what's possible for your business.</p>
   <a class="btn-primary" href="/#contact" style="background:#fff;color:var(--teal);display:inline-block">Start a Conversation →</a>
 </div>
+
+<script>
+  import '../scripts/results-explorer';
+</script>
